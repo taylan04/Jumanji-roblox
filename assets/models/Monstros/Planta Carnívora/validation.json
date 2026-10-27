@@ -1,0 +1,18 @@
+{
+  "reopened_in_blender": "5.2.3 LTS",
+  "nonempty_finite_meshes": 2349,
+  "invalid_meshes": [],
+  "individual_teeth": 92,
+  "reference_packed": true,
+  "camera_animation": true,
+  "renders": [
+    "01_front.png",
+    "02_front_left.png",
+    "03_left.png",
+    "04_rear_left.png",
+    "05_back.png",
+    "06_rear_right.png",
+    "07_right.png",
+    "08_front_right.png"
+  ]
+}

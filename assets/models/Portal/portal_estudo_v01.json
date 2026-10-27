@@ -1,0 +1,39 @@
+{
+  "portal_objects": 608,
+  "evaluated_triangles": 37884,
+  "open_passage_rays": [
+    {
+      "z": 1,
+      "clear": true
+    },
+    {
+      "z": 4,
+      "clear": true
+    },
+    {
+      "z": 7,
+      "clear": true
+    },
+    {
+      "z": 8.5,
+      "clear": true
+    }
+  ],
+  "closed_leaf_hits": 2,
+  "hinge_roundtrip": true,
+  "swing_angles_checked": [
+    0,
+    14.96,
+    29.92,
+    59.84,
+    88
+  ],
+  "missing_uv": [],
+  "roblox_tested": false,
+  "materials": "Procedural Blender preview; bake/atlas still required",
+  "blender": "5.2.3 LTS",
+  "source_sha256": "76fa6a88071b6acf675fb34ade6d202c1e3a39921518ae9777b8e42156813dea",
+  "approved_objects": 183,
+  "pillar_instances": 4,
+  "scope": "Um portal e uma cena de referência dos pilares; torre completa não gerada."
+}

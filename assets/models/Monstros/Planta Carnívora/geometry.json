@@ -1,0 +1,9 @@
+{
+  "blender": "5.2.3 LTS",
+  "mesh_objects": 2350,
+  "vertices_base": 337935,
+  "polygons_base": 317340,
+  "materials": 12,
+  "turntable_frames": 240,
+  "fps": 24
+}

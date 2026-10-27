@@ -1,0 +1,40 @@
+{
+  "pillars": 4,
+  "pillar_height": 20.546,
+  "door_leaves": 8,
+  "door_tests": [
+    {
+      "door": "North",
+      "closed_hits_leaf": true,
+      "open_passage_clear": true
+    },
+    {
+      "door": "East",
+      "closed_hits_leaf": true,
+      "open_passage_clear": true
+    },
+    {
+      "door": "South",
+      "closed_hits_leaf": true,
+      "open_passage_clear": true
+    },
+    {
+      "door": "West",
+      "closed_hits_leaf": true,
+      "open_passage_clear": true
+    }
+  ],
+  "roof_rays": 8,
+  "mesh_objects": 52,
+  "evaluated_triangles": 527456,
+  "roblox_tested": false,
+  "blender": "5.2.3 LTS",
+  "source_sha256": {
+    "C:\\Users\\tayla\\Documents\\Codex\\2026-10-25\\files-pasted-by-the-user-contexto\\outputs\\torre02\\assets\\models\\portal_estudo_v01.blend": "08a7cbb33cf176928e1570026087db03791b72969f771df2f1818eecef1103e5",
+    "C:\\Users\\tayla\\Documents\\Codex\\2026-10-25\\files-pasted-by-the-user-contexto\\outputs\\torre02\\assets\\models\\pilar_gotico.blend": "76fa6a88071b6acf675fb34ade6d202c1e3a39921518ae9777b8e42156813dea"
+  },
+  "height": 34.5,
+  "width_inside": 28.971,
+  "materials": "Procedurais de estudo; ainda sem baking PBR/atlas.",
+  "status": "Cena Blender; importação e desempenho Roblox pendentes."
+}
