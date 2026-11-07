@@ -1,0 +1,9 @@
+{
+  "blender": "5.2.3 LTS",
+  "reopened": true,
+  "valid_meshes": 410,
+  "eight_renders": true,
+  "reference_packed": true,
+  "camera_animation": true,
+  "teeth": 70
+}

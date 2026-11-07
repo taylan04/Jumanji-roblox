@@ -1,0 +1,10 @@
+{
+  "blender": "5.2.3 LTS",
+  "mesh_objects": 410,
+  "vertices_base": 132291,
+  "faces_base": 125998,
+  "triangles_base": 218932,
+  "teeth": 70,
+  "turntable_frames": 240,
+  "triangles_with_modifiers": 261438
+}
