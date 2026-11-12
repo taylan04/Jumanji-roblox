@@ -1,0 +1,1511 @@
+INVOKYR SALA COMPLETA UV 06 — inicio
+Blender: 5.2.3 LTS
+Arquivo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\torre_tabuleiro_v03.blend
+Metodo: novo UV para baking/export; preserva original; exclui volume atmosferico.
+Objetos visiveis de malha encontrados: 479
+Preparando (1/479): PortalNorth_Stone
+Dividido: PortalNorth_Stone -> 2 partes | 26500 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\PortalNorth_Stone_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\PortalNorth_Stone_002_Color.png
+OK (1/479): PortalNorth_Stone
+Preparando (2/479): DoorNorth_Left
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\DoorNorth_Left_001_Color.png
+OK (2/479): DoorNorth_Left
+Preparando (3/479): DoorNorth_Right
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\DoorNorth_Right_001_Color.png
+OK (3/479): DoorNorth_Right
+Preparando (4/479): PortalEast_Stone
+Dividido: PortalEast_Stone -> 2 partes | 26500 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\PortalEast_Stone_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\PortalEast_Stone_002_Color.png
+OK (4/479): PortalEast_Stone
+Preparando (5/479): DoorEast_Left
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\DoorEast_Left_001_Color.png
+OK (5/479): DoorEast_Left
+Preparando (6/479): DoorEast_Right
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\DoorEast_Right_001_Color.png
+OK (6/479): DoorEast_Right
+Preparando (7/479): PortalSouth_Stone
+Dividido: PortalSouth_Stone -> 2 partes | 26500 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\PortalSouth_Stone_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\PortalSouth_Stone_002_Color.png
+OK (7/479): PortalSouth_Stone
+Preparando (8/479): DoorSouth_Left
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\DoorSouth_Left_001_Color.png
+OK (8/479): DoorSouth_Left
+Preparando (9/479): DoorSouth_Right
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\DoorSouth_Right_001_Color.png
+OK (9/479): DoorSouth_Right
+Preparando (10/479): PortalWest_Stone
+Dividido: PortalWest_Stone -> 2 partes | 26500 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\PortalWest_Stone_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\PortalWest_Stone_002_Color.png
+OK (10/479): PortalWest_Stone
+Preparando (11/479): DoorWest_Left
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\DoorWest_Left_001_Color.png
+OK (11/479): DoorWest_Left
+Preparando (12/479): DoorWest_Right
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\DoorWest_Right_001_Color.png
+OK (12/479): DoorWest_Right
+Preparando (13/479): Pillar_01
+Dividido: Pillar_01 -> 2 partes | 22028 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pillar_01_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pillar_01_002_Color.png
+OK (13/479): Pillar_01
+Preparando (14/479): Pillar_02
+Dividido: Pillar_02 -> 2 partes | 22028 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pillar_02_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pillar_02_002_Color.png
+OK (14/479): Pillar_02
+Preparando (15/479): Pillar_03
+Dividido: Pillar_03 -> 2 partes | 22028 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pillar_03_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pillar_03_002_Color.png
+OK (15/479): Pillar_03
+Preparando (16/479): Pillar_04
+Dividido: Pillar_04 -> 2 partes | 22028 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pillar_04_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pillar_04_002_Color.png
+OK (16/479): Pillar_04
+Preparando (17/479): WallBay_00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallBay_00_001_Color.png
+OK (17/479): WallBay_00
+Preparando (18/479): WallBay_01
+Dividido: WallBay_01 -> 2 partes | 20720 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallBay_01_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallBay_01_002_Color.png
+OK (18/479): WallBay_01
+Preparando (19/479): WallBay_02
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallBay_02_001_Color.png
+OK (19/479): WallBay_02
+Preparando (20/479): WallBay_03
+Dividido: WallBay_03 -> 2 partes | 20720 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallBay_03_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallBay_03_002_Color.png
+OK (20/479): WallBay_03
+Preparando (21/479): WallBay_04
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallBay_04_001_Color.png
+OK (21/479): WallBay_04
+Preparando (22/479): WallBay_05
+Dividido: WallBay_05 -> 2 partes | 20720 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallBay_05_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallBay_05_002_Color.png
+OK (22/479): WallBay_05
+Preparando (23/479): WallBay_06
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallBay_06_001_Color.png
+OK (23/479): WallBay_06
+Preparando (24/479): WallBay_07
+Dividido: WallBay_07 -> 2 partes | 20720 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallBay_07_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallBay_07_002_Color.png
+OK (24/479): WallBay_07
+Preparando (25/479): WallCorners
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\WallCorners_001_Color.png
+OK (25/479): WallCorners
+Preparando (26/479): FloorFlagstones
+Dividido: FloorFlagstones -> 2 partes | 31576 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\FloorFlagstones_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\FloorFlagstones_002_Color.png
+OK (26/479): FloorFlagstones
+Preparando (27/479): Círculo do tabuleiro
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Círculo_do_tabuleiro_001_Color.png
+OK (27/479): Círculo do tabuleiro
+Preparando (28/479): Círculo do tabuleiro.001
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Círculo_do_tabuleiro_001_001_Color.png
+OK (28/479): Círculo do tabuleiro.001
+Preparando (29/479): Círculo do tabuleiro.002
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Círculo_do_tabuleiro_002_001_Color.png
+OK (29/479): Círculo do tabuleiro.002
+Preparando (30/479): RoofPanels
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\RoofPanels_001_Color.png
+OK (30/479): RoofPanels
+Preparando (31/479): RoofRibsAndArches
+Dividido: RoofRibsAndArches -> 2 partes | 20768 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\RoofRibsAndArches_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\RoofRibsAndArches_002_Color.png
+OK (31/479): RoofRibsAndArches
+Preparando (32/479): Bookshelf_1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Bookshelf_1_001_Color.png
+OK (32/479): Bookshelf_1
+Preparando (33/479): Bookshelf_3
+Dividido: Bookshelf_3 -> 2 partes | 18440 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Bookshelf_3_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Bookshelf_3_002_Color.png
+OK (33/479): Bookshelf_3
+Preparando (34/479): Bookshelf_5
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Bookshelf_5_001_Color.png
+OK (34/479): Bookshelf_5
+Preparando (35/479): Bookshelf_7
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Bookshelf_7_001_Color.png
+OK (35/479): Bookshelf_7
+Preparando (36/479): LanternsAndChandelier
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\LanternsAndChandelier_001_Color.png
+OK (36/479): LanternsAndChandelier
+Preparando (37/479): Volume atmosférico
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Volume_atmosférico_001_Color.png
+OK (37/479): Volume atmosférico
+Preparando (38/479): Veg_N3 | Caule
+Dividido: Veg_N3 | Caule -> 4 partes | 48348 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Caule_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Caule_002_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Caule_003_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Caule_004_Color.png
+OK (38/479): Veg_N3 | Caule
+Preparando (39/479): Veg_N3 | Hera
+Dividido: Veg_N3 | Hera -> 16 partes | 189904 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_002_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_003_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_004_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_005_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_006_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_007_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_008_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_009_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_010_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_011_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_012_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_013_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_014_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_015_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Hera_016_Color.png
+OK (39/479): Veg_N3 | Hera
+Preparando (40/479): Veg_N3 | Grama
+Dividido: Veg_N3 | Grama -> 4 partes | 42015 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Grama_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Grama_002_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Grama_003_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Grama_004_Color.png
+OK (40/479): Veg_N3 | Grama
+Preparando (41/479): Veg_N3 | Musgo
+Dividido: Veg_N3 | Musgo -> 8 partes | 85680 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Musgo_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Musgo_002_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Musgo_003_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Musgo_004_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Musgo_005_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Musgo_006_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Musgo_007_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Musgo_008_Color.png
+OK (41/479): Veg_N3 | Musgo
+Preparando (42/479): Veg_N3 | Folha seca
+Dividido: Veg_N3 | Folha seca -> 2 partes | 31200 tris
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Folha_seca_001_Color.png
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Folha_seca_002_Color.png
+OK (42/479): Veg_N3 | Folha seca
+Preparando (43/479): Veg_N3 | Raiz
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Raiz_001_Color.png
+OK (43/479): Veg_N3 | Raiz
+Preparando (44/479): Veg_N3 | Terra
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Veg_N3___Terra_001_Color.png
+OK (44/479): Veg_N3 | Terra
+Preparando (45/479): Mesa#1_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_1_T02___Carvalho_00_001_Color.png
+OK (45/479): Mesa#1_T02 | Carvalho 00
+Preparando (46/479): Mesa#2_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_2_T02___Carvalho_01_001_Color.png
+OK (46/479): Mesa#2_T02 | Carvalho 01
+Preparando (47/479): Mesa#3_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_3_T02___Carvalho_00_001_Color.png
+OK (47/479): Mesa#3_T02 | Carvalho 00
+Preparando (48/479): Mesa#4_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_4_T02___Carvalho_00_001_Color.png
+OK (48/479): Mesa#4_T02 | Carvalho 00
+Preparando (49/479): Mesa#5_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_5_T02___Carvalho_00_001_Color.png
+OK (49/479): Mesa#5_T02 | Carvalho 00
+Preparando (50/479): Mesa#6_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_6_T02___Carvalho_01_001_Color.png
+OK (50/479): Mesa#6_T02 | Carvalho 01
+Preparando (51/479): Mesa#7_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_7_T02___Carvalho_01_001_Color.png
+OK (51/479): Mesa#7_T02 | Carvalho 01
+Preparando (52/479): Mesa#8_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_8_T02___Carvalho_01_001_Color.png
+OK (52/479): Mesa#8_T02 | Carvalho 01
+Preparando (53/479): Mesa#9_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_9_T02___Carvalho_00_001_Color.png
+OK (53/479): Mesa#9_T02 | Carvalho 00
+Preparando (54/479): Mesa#10_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_10_T02___Carvalho_00_001_Color.png
+OK (54/479): Mesa#10_T02 | Carvalho 00
+Preparando (55/479): Mesa#11_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_11_T02___Carvalho_01_001_Color.png
+OK (55/479): Mesa#11_T02 | Carvalho 01
+Preparando (56/479): Mesa#12_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_12_T02___Carvalho_01_001_Color.png
+OK (56/479): Mesa#12_T02 | Carvalho 01
+Preparando (57/479): Mesa#13_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_13_T02___Carvalho_01_001_Color.png
+OK (57/479): Mesa#13_T02 | Carvalho 01
+Preparando (58/479): Mesa#14_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_14_T02___Carvalho_00_001_Color.png
+OK (58/479): Mesa#14_T02 | Carvalho 00
+Preparando (59/479): Mesa#15_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_15_T02___Carvalho_00_001_Color.png
+OK (59/479): Mesa#15_T02 | Carvalho 00
+Preparando (60/479): Mesa#16_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_16_T02___Carvalho_01_001_Color.png
+OK (60/479): Mesa#16_T02 | Carvalho 01
+Preparando (61/479): Mesa#17_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_17_T02___Carvalho_01_001_Color.png
+OK (61/479): Mesa#17_T02 | Carvalho 01
+Preparando (62/479): Mesa#18_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_18_T02___Carvalho_01_001_Color.png
+OK (62/479): Mesa#18_T02 | Carvalho 01
+Preparando (63/479): Mesa#19_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_19_T02___Carvalho_00_001_Color.png
+OK (63/479): Mesa#19_T02 | Carvalho 00
+Preparando (64/479): Mesa#20_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_20_T02___Carvalho_00_001_Color.png
+OK (64/479): Mesa#20_T02 | Carvalho 00
+Preparando (65/479): Mesa#21_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_21_T02___Carvalho_01_001_Color.png
+OK (65/479): Mesa#21_T02 | Carvalho 01
+Preparando (66/479): Mesa#22_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_22_T02___Carvalho_01_001_Color.png
+OK (66/479): Mesa#22_T02 | Carvalho 01
+Preparando (67/479): Mesa#23_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_23_T02___Carvalho_01_001_Color.png
+OK (67/479): Mesa#23_T02 | Carvalho 01
+Preparando (68/479): Mesa#24_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_24_T02___Bronze_envelhecido_001_Color.png
+OK (68/479): Mesa#24_T02 | Bronze envelhecido
+Preparando (69/479): Mesa#25_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_25_T02___Bronze_envelhecido_001_Color.png
+OK (69/479): Mesa#25_T02 | Bronze envelhecido
+Preparando (70/479): Mesa#26_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_26_T02___Bronze_envelhecido_001_Color.png
+OK (70/479): Mesa#26_T02 | Bronze envelhecido
+Preparando (71/479): Mesa#27_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_27_T02___Bronze_envelhecido_001_Color.png
+OK (71/479): Mesa#27_T02 | Bronze envelhecido
+Preparando (72/479): Mesa#28_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_28_T02___Bronze_envelhecido_001_Color.png
+OK (72/479): Mesa#28_T02 | Bronze envelhecido
+Preparando (73/479): Mesa#29_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_29_T02___Bronze_envelhecido_001_Color.png
+OK (73/479): Mesa#29_T02 | Bronze envelhecido
+Preparando (74/479): Mesa#30_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_30_T02___Bronze_envelhecido_001_Color.png
+OK (74/479): Mesa#30_T02 | Bronze envelhecido
+Preparando (75/479): Mesa#31_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_31_T02___Bronze_envelhecido_001_Color.png
+OK (75/479): Mesa#31_T02 | Bronze envelhecido
+Preparando (76/479): Mesa#32_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_32_T02___Bronze_envelhecido_001_Color.png
+OK (76/479): Mesa#32_T02 | Bronze envelhecido
+Preparando (77/479): Mesa#33_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_33_T02___Bronze_envelhecido_001_Color.png
+OK (77/479): Mesa#33_T02 | Bronze envelhecido
+Preparando (78/479): Mesa#34_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_34_T02___Bronze_envelhecido_001_Color.png
+OK (78/479): Mesa#34_T02 | Bronze envelhecido
+Preparando (79/479): Mesa#35_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_35_T02___Bronze_envelhecido_001_Color.png
+OK (79/479): Mesa#35_T02 | Bronze envelhecido
+Preparando (80/479): Mesa#36_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_36_T02___Bronze_envelhecido_001_Color.png
+OK (80/479): Mesa#36_T02 | Bronze envelhecido
+Preparando (81/479): Mesa#37_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_37_T02___Bronze_envelhecido_001_Color.png
+OK (81/479): Mesa#37_T02 | Bronze envelhecido
+Preparando (82/479): Mesa#38_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_38_T02___Bronze_envelhecido_001_Color.png
+OK (82/479): Mesa#38_T02 | Bronze envelhecido
+Preparando (83/479): Mesa#39_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_39_T02___Bronze_envelhecido_001_Color.png
+OK (83/479): Mesa#39_T02 | Bronze envelhecido
+Preparando (84/479): Mesa#40_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_40_T02___Bronze_envelhecido_001_Color.png
+OK (84/479): Mesa#40_T02 | Bronze envelhecido
+Preparando (85/479): Mesa#41_T02 | Tabuleiro verde escuro
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_41_T02___Tabuleiro_verde_escuro_001_Color.png
+OK (85/479): Mesa#41_T02 | Tabuleiro verde escuro
+Preparando (86/479): Mesa#42_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_42_T02___Carvalho_01_001_Color.png
+OK (86/479): Mesa#42_T02 | Carvalho 01
+Preparando (87/479): Mesa#43_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_43_T02___Bronze_envelhecido_001_Color.png
+OK (87/479): Mesa#43_T02 | Bronze envelhecido
+Preparando (88/479): Mesa#44_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_44_T02___Bronze_envelhecido_001_Color.png
+OK (88/479): Mesa#44_T02 | Bronze envelhecido
+Preparando (89/479): Mesa#45_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_45_T02___Bronze_envelhecido_001_Color.png
+OK (89/479): Mesa#45_T02 | Bronze envelhecido
+Preparando (90/479): Mesa#47_T02 | Ferro forjado
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_47_T02___Ferro_forjado_001_Color.png
+OK (90/479): Mesa#47_T02 | Ferro forjado
+Preparando (91/479): Mesa#46_T02 | Cantaria 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_46_T02___Cantaria_00_001_Color.png
+OK (91/479): Mesa#46_T02 | Cantaria 00
+Preparando (92/479): Mesa#48_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_48_T02___Bronze_envelhecido_001_Color.png
+OK (92/479): Mesa#48_T02 | Bronze envelhecido
+Preparando (93/479): Mesa#49_N3 | Gema vermelha
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_49_N3___Gema_vermelha_001_Color.png
+OK (93/479): Mesa#49_N3 | Gema vermelha
+Preparando (94/479): Mesa#50_N3 | Peça vermelha
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_50_N3___Peça_vermelha_001_Color.png
+OK (94/479): Mesa#50_N3 | Peça vermelha
+Preparando (95/479): Mesa#51_N3 | Peça vermelha
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_51_N3___Peça_vermelha_001_Color.png
+OK (95/479): Mesa#51_N3 | Peça vermelha
+Preparando (96/479): Mesa#52_N3 | Peça vermelha
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_52_N3___Peça_vermelha_001_Color.png
+OK (96/479): Mesa#52_N3 | Peça vermelha
+Preparando (97/479): Mesa#53_N3 | Peça vermelha
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_53_N3___Peça_vermelha_001_Color.png
+OK (97/479): Mesa#53_N3 | Peça vermelha
+Preparando (98/479): Mesa#54_N3 | Peça vermelha
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_54_N3___Peça_vermelha_001_Color.png
+OK (98/479): Mesa#54_N3 | Peça vermelha
+Preparando (99/479): Mesa#55_N3 | Peça vermelha
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_55_N3___Peça_vermelha_001_Color.png
+OK (99/479): Mesa#55_N3 | Peça vermelha
+Preparando (100/479): Mesa#56_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_56_T02___Bronze_envelhecido_001_Color.png
+OK (100/479): Mesa#56_T02 | Bronze envelhecido
+Preparando (101/479): Mesa#57_N3 | Gema azul
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_57_N3___Gema_azul_001_Color.png
+OK (101/479): Mesa#57_N3 | Gema azul
+Preparando (102/479): Mesa#58_N3 | Peça azul
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_58_N3___Peça_azul_001_Color.png
+OK (102/479): Mesa#58_N3 | Peça azul
+Preparando (103/479): Mesa#59_N3 | Peça azul
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_59_N3___Peça_azul_001_Color.png
+OK (103/479): Mesa#59_N3 | Peça azul
+Preparando (104/479): Mesa#60_N3 | Peça azul
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_60_N3___Peça_azul_001_Color.png
+OK (104/479): Mesa#60_N3 | Peça azul
+Preparando (105/479): Mesa#61_N3 | Peça azul
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_61_N3___Peça_azul_001_Color.png
+OK (105/479): Mesa#61_N3 | Peça azul
+Preparando (106/479): Mesa#62_N3 | Peça azul
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_62_N3___Peça_azul_001_Color.png
+OK (106/479): Mesa#62_N3 | Peça azul
+Preparando (107/479): Mesa#63_N3 | Peça azul
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_63_N3___Peça_azul_001_Color.png
+OK (107/479): Mesa#63_N3 | Peça azul
+Preparando (108/479): Mesa#64_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_64_T02___Bronze_envelhecido_001_Color.png
+OK (108/479): Mesa#64_T02 | Bronze envelhecido
+Preparando (109/479): Mesa#65_N3 | Gema verde
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_65_N3___Gema_verde_001_Color.png
+OK (109/479): Mesa#65_N3 | Gema verde
+Preparando (110/479): Mesa#66_N3 | Peça verde
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_66_N3___Peça_verde_001_Color.png
+OK (110/479): Mesa#66_N3 | Peça verde
+Preparando (111/479): Mesa#67_N3 | Peça verde
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_67_N3___Peça_verde_001_Color.png
+OK (111/479): Mesa#67_N3 | Peça verde
+Preparando (112/479): Mesa#68_N3 | Peça verde
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_68_N3___Peça_verde_001_Color.png
+OK (112/479): Mesa#68_N3 | Peça verde
+Preparando (113/479): Mesa#69_N3 | Peça verde
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_69_N3___Peça_verde_001_Color.png
+OK (113/479): Mesa#69_N3 | Peça verde
+Preparando (114/479): Mesa#70_N3 | Peça verde
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_70_N3___Peça_verde_001_Color.png
+OK (114/479): Mesa#70_N3 | Peça verde
+Preparando (115/479): Mesa#71_N3 | Peça verde
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_71_N3___Peça_verde_001_Color.png
+OK (115/479): Mesa#71_N3 | Peça verde
+Preparando (116/479): Mesa#72_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_72_T02___Bronze_envelhecido_001_Color.png
+OK (116/479): Mesa#72_T02 | Bronze envelhecido
+Preparando (117/479): Mesa#73_N3 | Gema dourada
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_73_N3___Gema_dourada_001_Color.png
+OK (117/479): Mesa#73_N3 | Gema dourada
+Preparando (118/479): Mesa#74_N3 | Peça dourada
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_74_N3___Peça_dourada_001_Color.png
+OK (118/479): Mesa#74_N3 | Peça dourada
+Preparando (119/479): Mesa#75_N3 | Peça dourada
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_75_N3___Peça_dourada_001_Color.png
+OK (119/479): Mesa#75_N3 | Peça dourada
+Preparando (120/479): Mesa#76_N3 | Peça dourada
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_76_N3___Peça_dourada_001_Color.png
+OK (120/479): Mesa#76_N3 | Peça dourada
+Preparando (121/479): Mesa#77_N3 | Peça dourada
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_77_N3___Peça_dourada_001_Color.png
+OK (121/479): Mesa#77_N3 | Peça dourada
+Preparando (122/479): Mesa#78_N3 | Peça dourada
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_78_N3___Peça_dourada_001_Color.png
+OK (122/479): Mesa#78_N3 | Peça dourada
+Preparando (123/479): Mesa#79_N3 | Peça dourada
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_79_N3___Peça_dourada_001_Color.png
+OK (123/479): Mesa#79_N3 | Peça dourada
+Preparando (124/479): Mesa#80_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_80_T02___Bronze_envelhecido_001_Color.png
+OK (124/479): Mesa#80_T02 | Bronze envelhecido
+Preparando (125/479): Mesa#81_N3 | Cristal
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_81_N3___Cristal_001_Color.png
+OK (125/479): Mesa#81_N3 | Cristal
+Preparando (126/479): Mesa#82_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_82_T02___Bronze_envelhecido_001_Color.png
+OK (126/479): Mesa#82_T02 | Bronze envelhecido
+Preparando (127/479): Mesa#83_T02 | Cera
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_83_T02___Cera_001_Color.png
+OK (127/479): Mesa#83_T02 | Cera
+Preparando (128/479): Mesa#84_T02 | Chama âmbar
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_84_T02___Chama_âmbar_001_Color.png
+OK (128/479): Mesa#84_T02 | Chama âmbar
+Preparando (129/479): Mesa#85_T02 | Cera
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_85_T02___Cera_001_Color.png
+OK (129/479): Mesa#85_T02 | Cera
+Preparando (130/479): Mesa#86_T02 | Cera
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_86_T02___Cera_001_Color.png
+OK (130/479): Mesa#86_T02 | Cera
+Preparando (131/479): Mesa#87_T02 | Cera
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_87_T02___Cera_001_Color.png
+OK (131/479): Mesa#87_T02 | Cera
+Preparando (132/479): Mesa#88_T02 | Cera
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_88_T02___Cera_001_Color.png
+OK (132/479): Mesa#88_T02 | Cera
+Preparando (133/479): Mesa#89_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Mesa_89_T02___Bronze_envelhecido_001_Color.png
+OK (133/479): Mesa#89_T02 | Bronze envelhecido
+Preparando (134/479): Props#101_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Props_101_T02___Carvalho_00_001_Color.png
+OK (134/479): Props#101_T02 | Carvalho 00
+Preparando (135/479): Props#101_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Props_101_T02___Carvalho_01_001_Color.png
+OK (135/479): Props#101_T02 | Carvalho 01
+Preparando (136/479): Props#102_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Props_102_T02___Carvalho_00_001_Color.png
+OK (136/479): Props#102_T02 | Carvalho 00
+Preparando (137/479): Props#102_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Props_102_T02___Carvalho_01_001_Color.png
+OK (137/479): Props#102_T02 | Carvalho 01
+Preparando (138/479): Props#103_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Props_103_T02___Carvalho_00_001_Color.png
+OK (138/479): Props#103_T02 | Carvalho 00
+Preparando (139/479): Props#103_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Props_103_T02___Carvalho_01_001_Color.png
+OK (139/479): Props#103_T02 | Carvalho 01
+Preparando (140/479): Props#104_T02 | Carvalho 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Props_104_T02___Carvalho_00_001_Color.png
+OK (140/479): Props#104_T02 | Carvalho 00
+Preparando (141/479): Props#104_T02 | Carvalho 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Props_104_T02___Carvalho_01_001_Color.png
+OK (141/479): Props#104_T02 | Carvalho 01
+Preparando (142/479): Props#105_N3 | Barro
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Props_105_N3___Barro_001_Color.png
+OK (142/479): Props#105_N3 | Barro
+Preparando (143/479): Props#106_N3 | Barro
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Props_106_N3___Barro_001_Color.png
+OK (143/479): Props#106_N3 | Barro
+Preparando (144/479): Props#107_N3 | Barro
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Props_107_N3___Barro_001_Color.png
+OK (144/479): Props#107_N3 | Barro
+Preparando (145/479): Livros#91_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_91_T02___Couro_0_001_Color.png
+OK (145/479): Livros#91_T02 | Couro 0
+Preparando (146/479): Livros#91_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_91_T02___Páginas_antigas_001_Color.png
+OK (146/479): Livros#91_T02 | Páginas antigas
+Preparando (147/479): Livros#92_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_92_T02___Couro_2_001_Color.png
+OK (147/479): Livros#92_T02 | Couro 2
+Preparando (148/479): Livros#92_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_92_T02___Páginas_antigas_001_Color.png
+OK (148/479): Livros#92_T02 | Páginas antigas
+Preparando (149/479): Livros#93_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_93_T02___Couro_4_001_Color.png
+OK (149/479): Livros#93_T02 | Couro 4
+Preparando (150/479): Livros#93_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_93_T02___Páginas_antigas_001_Color.png
+OK (150/479): Livros#93_T02 | Páginas antigas
+Preparando (151/479): Livros#94_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_94_T02___Páginas_antigas_001_Color.png
+OK (151/479): Livros#94_T02 | Páginas antigas
+Preparando (152/479): Livros#95_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_95_T02___Páginas_antigas_001_Color.png
+OK (152/479): Livros#95_T02 | Páginas antigas
+Preparando (153/479): Livros#96_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_96_T02___Páginas_antigas_001_Color.png
+OK (153/479): Livros#96_T02 | Páginas antigas
+Preparando (154/479): Livros#97_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_97_T02___Páginas_antigas_001_Color.png
+OK (154/479): Livros#97_T02 | Páginas antigas
+Preparando (155/479): Livros#98_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_98_T02___Páginas_antigas_001_Color.png
+OK (155/479): Livros#98_T02 | Páginas antigas
+Preparando (156/479): Livros#99_N3 | Marfim
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_99_N3___Marfim_001_Color.png
+OK (156/479): Livros#99_N3 | Marfim
+Preparando (157/479): Livros#100_N3 | Marfim
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_100_N3___Marfim_001_Color.png
+OK (157/479): Livros#100_N3 | Marfim
+Preparando (158/479): Livros#108_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_108_T02___Couro_2_001_Color.png
+OK (158/479): Livros#108_T02 | Couro 2
+Preparando (159/479): Livros#108_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_108_T02___Páginas_antigas_001_Color.png
+OK (159/479): Livros#108_T02 | Páginas antigas
+Preparando (160/479): Livros#109_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_109_T02___Couro_1_001_Color.png
+OK (160/479): Livros#109_T02 | Couro 1
+Preparando (161/479): Livros#109_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_109_T02___Páginas_antigas_001_Color.png
+OK (161/479): Livros#109_T02 | Páginas antigas
+Preparando (162/479): Livros#110_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_110_T02___Couro_4_001_Color.png
+OK (162/479): Livros#110_T02 | Couro 4
+Preparando (163/479): Livros#110_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_110_T02___Páginas_antigas_001_Color.png
+OK (163/479): Livros#110_T02 | Páginas antigas
+Preparando (164/479): Livros#111_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_111_T02___Couro_4_001_Color.png
+OK (164/479): Livros#111_T02 | Couro 4
+Preparando (165/479): Livros#111_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_111_T02___Páginas_antigas_001_Color.png
+OK (165/479): Livros#111_T02 | Páginas antigas
+Preparando (166/479): Livros#112_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_112_T02___Couro_4_001_Color.png
+OK (166/479): Livros#112_T02 | Couro 4
+Preparando (167/479): Livros#112_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_112_T02___Páginas_antigas_001_Color.png
+OK (167/479): Livros#112_T02 | Páginas antigas
+Preparando (168/479): Livros#113_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_113_T02___Couro_1_001_Color.png
+OK (168/479): Livros#113_T02 | Couro 1
+Preparando (169/479): Livros#113_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_113_T02___Páginas_antigas_001_Color.png
+OK (169/479): Livros#113_T02 | Páginas antigas
+Preparando (170/479): Livros#114_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_114_T02___Couro_0_001_Color.png
+OK (170/479): Livros#114_T02 | Couro 0
+Preparando (171/479): Livros#114_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_114_T02___Páginas_antigas_001_Color.png
+OK (171/479): Livros#114_T02 | Páginas antigas
+Preparando (172/479): Livros#115_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_115_T02___Couro_0_001_Color.png
+OK (172/479): Livros#115_T02 | Couro 0
+Preparando (173/479): Livros#115_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_115_T02___Páginas_antigas_001_Color.png
+OK (173/479): Livros#115_T02 | Páginas antigas
+Preparando (174/479): Livros#116_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_116_T02___Couro_3_001_Color.png
+OK (174/479): Livros#116_T02 | Couro 3
+Preparando (175/479): Livros#116_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_116_T02___Páginas_antigas_001_Color.png
+OK (175/479): Livros#116_T02 | Páginas antigas
+Preparando (176/479): Livros#117_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_117_T02___Couro_0_001_Color.png
+OK (176/479): Livros#117_T02 | Couro 0
+Preparando (177/479): Livros#117_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_117_T02___Páginas_antigas_001_Color.png
+OK (177/479): Livros#117_T02 | Páginas antigas
+Preparando (178/479): Livros#118_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_118_T02___Couro_3_001_Color.png
+OK (178/479): Livros#118_T02 | Couro 3
+Preparando (179/479): Livros#118_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_118_T02___Páginas_antigas_001_Color.png
+OK (179/479): Livros#118_T02 | Páginas antigas
+Preparando (180/479): Livros#119_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_119_T02___Couro_1_001_Color.png
+OK (180/479): Livros#119_T02 | Couro 1
+Preparando (181/479): Livros#119_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_119_T02___Páginas_antigas_001_Color.png
+OK (181/479): Livros#119_T02 | Páginas antigas
+Preparando (182/479): Livros#120_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_120_T02___Couro_0_001_Color.png
+OK (182/479): Livros#120_T02 | Couro 0
+Preparando (183/479): Livros#120_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_120_T02___Páginas_antigas_001_Color.png
+OK (183/479): Livros#120_T02 | Páginas antigas
+Preparando (184/479): Livros#121_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_121_T02___Couro_0_001_Color.png
+OK (184/479): Livros#121_T02 | Couro 0
+Preparando (185/479): Livros#121_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_121_T02___Páginas_antigas_001_Color.png
+OK (185/479): Livros#121_T02 | Páginas antigas
+Preparando (186/479): Livros#122_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_122_T02___Couro_4_001_Color.png
+OK (186/479): Livros#122_T02 | Couro 4
+Preparando (187/479): Livros#122_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_122_T02___Páginas_antigas_001_Color.png
+OK (187/479): Livros#122_T02 | Páginas antigas
+Preparando (188/479): Livros#123_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_123_T02___Couro_0_001_Color.png
+OK (188/479): Livros#123_T02 | Couro 0
+Preparando (189/479): Livros#123_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_123_T02___Páginas_antigas_001_Color.png
+OK (189/479): Livros#123_T02 | Páginas antigas
+Preparando (190/479): Livros#124_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_124_T02___Couro_4_001_Color.png
+OK (190/479): Livros#124_T02 | Couro 4
+Preparando (191/479): Livros#124_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_124_T02___Páginas_antigas_001_Color.png
+OK (191/479): Livros#124_T02 | Páginas antigas
+Preparando (192/479): Livros#125_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_125_T02___Couro_0_001_Color.png
+OK (192/479): Livros#125_T02 | Couro 0
+Preparando (193/479): Livros#125_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_125_T02___Páginas_antigas_001_Color.png
+OK (193/479): Livros#125_T02 | Páginas antigas
+Preparando (194/479): Livros#126_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_126_T02___Couro_3_001_Color.png
+OK (194/479): Livros#126_T02 | Couro 3
+Preparando (195/479): Livros#126_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_126_T02___Páginas_antigas_001_Color.png
+OK (195/479): Livros#126_T02 | Páginas antigas
+Preparando (196/479): Livros#127_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_127_T02___Couro_4_001_Color.png
+OK (196/479): Livros#127_T02 | Couro 4
+Preparando (197/479): Livros#127_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_127_T02___Páginas_antigas_001_Color.png
+OK (197/479): Livros#127_T02 | Páginas antigas
+Preparando (198/479): Livros#128_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_128_T02___Couro_2_001_Color.png
+OK (198/479): Livros#128_T02 | Couro 2
+Preparando (199/479): Livros#128_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_128_T02___Páginas_antigas_001_Color.png
+OK (199/479): Livros#128_T02 | Páginas antigas
+Preparando (200/479): Livros#129_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_129_T02___Couro_4_001_Color.png
+OK (200/479): Livros#129_T02 | Couro 4
+Preparando (201/479): Livros#129_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_129_T02___Páginas_antigas_001_Color.png
+OK (201/479): Livros#129_T02 | Páginas antigas
+Preparando (202/479): Livros#130_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_130_T02___Couro_2_001_Color.png
+OK (202/479): Livros#130_T02 | Couro 2
+Preparando (203/479): Livros#130_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_130_T02___Páginas_antigas_001_Color.png
+OK (203/479): Livros#130_T02 | Páginas antigas
+Preparando (204/479): Livros#131_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_131_T02___Couro_0_001_Color.png
+OK (204/479): Livros#131_T02 | Couro 0
+Preparando (205/479): Livros#131_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_131_T02___Páginas_antigas_001_Color.png
+OK (205/479): Livros#131_T02 | Páginas antigas
+Preparando (206/479): Livros#132_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_132_T02___Couro_2_001_Color.png
+OK (206/479): Livros#132_T02 | Couro 2
+Preparando (207/479): Livros#132_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_132_T02___Páginas_antigas_001_Color.png
+OK (207/479): Livros#132_T02 | Páginas antigas
+Preparando (208/479): Livros#133_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_133_T02___Couro_3_001_Color.png
+OK (208/479): Livros#133_T02 | Couro 3
+Preparando (209/479): Livros#133_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_133_T02___Páginas_antigas_001_Color.png
+OK (209/479): Livros#133_T02 | Páginas antigas
+Preparando (210/479): Livros#134_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_134_T02___Couro_2_001_Color.png
+OK (210/479): Livros#134_T02 | Couro 2
+Preparando (211/479): Livros#134_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_134_T02___Páginas_antigas_001_Color.png
+OK (211/479): Livros#134_T02 | Páginas antigas
+Preparando (212/479): Livros#135_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_135_T02___Couro_2_001_Color.png
+OK (212/479): Livros#135_T02 | Couro 2
+Preparando (213/479): Livros#135_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_135_T02___Páginas_antigas_001_Color.png
+OK (213/479): Livros#135_T02 | Páginas antigas
+Preparando (214/479): Livros#136_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_136_T02___Couro_2_001_Color.png
+OK (214/479): Livros#136_T02 | Couro 2
+Preparando (215/479): Livros#136_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_136_T02___Páginas_antigas_001_Color.png
+OK (215/479): Livros#136_T02 | Páginas antigas
+Preparando (216/479): Livros#137_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_137_T02___Couro_1_001_Color.png
+OK (216/479): Livros#137_T02 | Couro 1
+Preparando (217/479): Livros#137_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_137_T02___Páginas_antigas_001_Color.png
+OK (217/479): Livros#137_T02 | Páginas antigas
+Preparando (218/479): Livros#138_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_138_T02___Couro_3_001_Color.png
+OK (218/479): Livros#138_T02 | Couro 3
+Preparando (219/479): Livros#138_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_138_T02___Páginas_antigas_001_Color.png
+OK (219/479): Livros#138_T02 | Páginas antigas
+Preparando (220/479): Livros#139_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_139_T02___Couro_3_001_Color.png
+OK (220/479): Livros#139_T02 | Couro 3
+Preparando (221/479): Livros#139_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_139_T02___Páginas_antigas_001_Color.png
+OK (221/479): Livros#139_T02 | Páginas antigas
+Preparando (222/479): Livros#140_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_140_T02___Couro_2_001_Color.png
+OK (222/479): Livros#140_T02 | Couro 2
+Preparando (223/479): Livros#140_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_140_T02___Páginas_antigas_001_Color.png
+OK (223/479): Livros#140_T02 | Páginas antigas
+Preparando (224/479): Livros#141_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_141_T02___Couro_4_001_Color.png
+OK (224/479): Livros#141_T02 | Couro 4
+Preparando (225/479): Livros#141_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_141_T02___Páginas_antigas_001_Color.png
+OK (225/479): Livros#141_T02 | Páginas antigas
+Preparando (226/479): Livros#142_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_142_T02___Couro_4_001_Color.png
+OK (226/479): Livros#142_T02 | Couro 4
+Preparando (227/479): Livros#142_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_142_T02___Páginas_antigas_001_Color.png
+OK (227/479): Livros#142_T02 | Páginas antigas
+Preparando (228/479): Livros#143_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_143_T02___Couro_0_001_Color.png
+OK (228/479): Livros#143_T02 | Couro 0
+Preparando (229/479): Livros#143_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_143_T02___Páginas_antigas_001_Color.png
+OK (229/479): Livros#143_T02 | Páginas antigas
+Preparando (230/479): Livros#144_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_144_T02___Couro_0_001_Color.png
+OK (230/479): Livros#144_T02 | Couro 0
+Preparando (231/479): Livros#144_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_144_T02___Páginas_antigas_001_Color.png
+OK (231/479): Livros#144_T02 | Páginas antigas
+Preparando (232/479): Livros#145_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_145_T02___Couro_4_001_Color.png
+OK (232/479): Livros#145_T02 | Couro 4
+Preparando (233/479): Livros#145_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_145_T02___Páginas_antigas_001_Color.png
+OK (233/479): Livros#145_T02 | Páginas antigas
+Preparando (234/479): Livros#146_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_146_T02___Couro_1_001_Color.png
+OK (234/479): Livros#146_T02 | Couro 1
+Preparando (235/479): Livros#146_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_146_T02___Páginas_antigas_001_Color.png
+OK (235/479): Livros#146_T02 | Páginas antigas
+Preparando (236/479): Livros#147_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_147_T02___Couro_3_001_Color.png
+OK (236/479): Livros#147_T02 | Couro 3
+Preparando (237/479): Livros#147_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_147_T02___Páginas_antigas_001_Color.png
+OK (237/479): Livros#147_T02 | Páginas antigas
+Preparando (238/479): Livros#148_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_148_T02___Couro_0_001_Color.png
+OK (238/479): Livros#148_T02 | Couro 0
+Preparando (239/479): Livros#148_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_148_T02___Páginas_antigas_001_Color.png
+OK (239/479): Livros#148_T02 | Páginas antigas
+Preparando (240/479): Livros#149_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_149_T02___Couro_1_001_Color.png
+OK (240/479): Livros#149_T02 | Couro 1
+Preparando (241/479): Livros#149_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_149_T02___Páginas_antigas_001_Color.png
+OK (241/479): Livros#149_T02 | Páginas antigas
+Preparando (242/479): Livros#150_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_150_T02___Couro_0_001_Color.png
+OK (242/479): Livros#150_T02 | Couro 0
+Preparando (243/479): Livros#150_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_150_T02___Páginas_antigas_001_Color.png
+OK (243/479): Livros#150_T02 | Páginas antigas
+Preparando (244/479): Livros#151_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_151_T02___Couro_2_001_Color.png
+OK (244/479): Livros#151_T02 | Couro 2
+Preparando (245/479): Livros#151_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_151_T02___Páginas_antigas_001_Color.png
+OK (245/479): Livros#151_T02 | Páginas antigas
+Preparando (246/479): Livros#152_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_152_T02___Couro_3_001_Color.png
+OK (246/479): Livros#152_T02 | Couro 3
+Preparando (247/479): Livros#152_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_152_T02___Páginas_antigas_001_Color.png
+OK (247/479): Livros#152_T02 | Páginas antigas
+Preparando (248/479): Livros#153_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_153_T02___Couro_4_001_Color.png
+OK (248/479): Livros#153_T02 | Couro 4
+Preparando (249/479): Livros#153_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_153_T02___Páginas_antigas_001_Color.png
+OK (249/479): Livros#153_T02 | Páginas antigas
+Preparando (250/479): Livros#154_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_154_T02___Couro_1_001_Color.png
+OK (250/479): Livros#154_T02 | Couro 1
+Preparando (251/479): Livros#154_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_154_T02___Páginas_antigas_001_Color.png
+OK (251/479): Livros#154_T02 | Páginas antigas
+Preparando (252/479): Livros#155_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_155_T02___Couro_0_001_Color.png
+OK (252/479): Livros#155_T02 | Couro 0
+Preparando (253/479): Livros#155_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_155_T02___Páginas_antigas_001_Color.png
+OK (253/479): Livros#155_T02 | Páginas antigas
+Preparando (254/479): Livros#156_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_156_T02___Couro_0_001_Color.png
+OK (254/479): Livros#156_T02 | Couro 0
+Preparando (255/479): Livros#156_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_156_T02___Páginas_antigas_001_Color.png
+OK (255/479): Livros#156_T02 | Páginas antigas
+Preparando (256/479): Livros#157_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_157_T02___Couro_3_001_Color.png
+OK (256/479): Livros#157_T02 | Couro 3
+Preparando (257/479): Livros#157_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_157_T02___Páginas_antigas_001_Color.png
+OK (257/479): Livros#157_T02 | Páginas antigas
+Preparando (258/479): Livros#158_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_158_T02___Couro_2_001_Color.png
+OK (258/479): Livros#158_T02 | Couro 2
+Preparando (259/479): Livros#158_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_158_T02___Páginas_antigas_001_Color.png
+OK (259/479): Livros#158_T02 | Páginas antigas
+Preparando (260/479): Livros#159_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_159_T02___Couro_3_001_Color.png
+OK (260/479): Livros#159_T02 | Couro 3
+Preparando (261/479): Livros#159_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_159_T02___Páginas_antigas_001_Color.png
+OK (261/479): Livros#159_T02 | Páginas antigas
+Preparando (262/479): Livros#160_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_160_T02___Couro_3_001_Color.png
+OK (262/479): Livros#160_T02 | Couro 3
+Preparando (263/479): Livros#160_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_160_T02___Páginas_antigas_001_Color.png
+OK (263/479): Livros#160_T02 | Páginas antigas
+Preparando (264/479): Livros#161_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_161_T02___Couro_1_001_Color.png
+OK (264/479): Livros#161_T02 | Couro 1
+Preparando (265/479): Livros#161_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_161_T02___Páginas_antigas_001_Color.png
+OK (265/479): Livros#161_T02 | Páginas antigas
+Preparando (266/479): Livros#162_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_162_T02___Couro_0_001_Color.png
+OK (266/479): Livros#162_T02 | Couro 0
+Preparando (267/479): Livros#162_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_162_T02___Páginas_antigas_001_Color.png
+OK (267/479): Livros#162_T02 | Páginas antigas
+Preparando (268/479): Livros#163_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_163_T02___Couro_0_001_Color.png
+OK (268/479): Livros#163_T02 | Couro 0
+Preparando (269/479): Livros#163_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_163_T02___Páginas_antigas_001_Color.png
+OK (269/479): Livros#163_T02 | Páginas antigas
+Preparando (270/479): Livros#164_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_164_T02___Couro_0_001_Color.png
+OK (270/479): Livros#164_T02 | Couro 0
+Preparando (271/479): Livros#164_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_164_T02___Páginas_antigas_001_Color.png
+OK (271/479): Livros#164_T02 | Páginas antigas
+Preparando (272/479): Livros#165_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_165_T02___Couro_4_001_Color.png
+OK (272/479): Livros#165_T02 | Couro 4
+Preparando (273/479): Livros#165_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_165_T02___Páginas_antigas_001_Color.png
+OK (273/479): Livros#165_T02 | Páginas antigas
+Preparando (274/479): Livros#166_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_166_T02___Couro_4_001_Color.png
+OK (274/479): Livros#166_T02 | Couro 4
+Preparando (275/479): Livros#166_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_166_T02___Páginas_antigas_001_Color.png
+OK (275/479): Livros#166_T02 | Páginas antigas
+Preparando (276/479): Livros#167_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_167_T02___Couro_2_001_Color.png
+OK (276/479): Livros#167_T02 | Couro 2
+Preparando (277/479): Livros#167_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_167_T02___Páginas_antigas_001_Color.png
+OK (277/479): Livros#167_T02 | Páginas antigas
+Preparando (278/479): Livros#168_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_168_T02___Couro_1_001_Color.png
+OK (278/479): Livros#168_T02 | Couro 1
+Preparando (279/479): Livros#168_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_168_T02___Páginas_antigas_001_Color.png
+OK (279/479): Livros#168_T02 | Páginas antigas
+Preparando (280/479): Livros#169_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_169_T02___Couro_0_001_Color.png
+OK (280/479): Livros#169_T02 | Couro 0
+Preparando (281/479): Livros#169_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_169_T02___Páginas_antigas_001_Color.png
+OK (281/479): Livros#169_T02 | Páginas antigas
+Preparando (282/479): Livros#170_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_170_T02___Couro_2_001_Color.png
+OK (282/479): Livros#170_T02 | Couro 2
+Preparando (283/479): Livros#170_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_170_T02___Páginas_antigas_001_Color.png
+OK (283/479): Livros#170_T02 | Páginas antigas
+Preparando (284/479): Livros#171_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_171_T02___Couro_1_001_Color.png
+OK (284/479): Livros#171_T02 | Couro 1
+Preparando (285/479): Livros#171_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_171_T02___Páginas_antigas_001_Color.png
+OK (285/479): Livros#171_T02 | Páginas antigas
+Preparando (286/479): Livros#172_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_172_T02___Couro_2_001_Color.png
+OK (286/479): Livros#172_T02 | Couro 2
+Preparando (287/479): Livros#172_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_172_T02___Páginas_antigas_001_Color.png
+OK (287/479): Livros#172_T02 | Páginas antigas
+Preparando (288/479): Livros#173_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_173_T02___Couro_1_001_Color.png
+OK (288/479): Livros#173_T02 | Couro 1
+Preparando (289/479): Livros#173_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_173_T02___Páginas_antigas_001_Color.png
+OK (289/479): Livros#173_T02 | Páginas antigas
+Preparando (290/479): Livros#174_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_174_T02___Couro_4_001_Color.png
+OK (290/479): Livros#174_T02 | Couro 4
+Preparando (291/479): Livros#174_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_174_T02___Páginas_antigas_001_Color.png
+OK (291/479): Livros#174_T02 | Páginas antigas
+Preparando (292/479): Livros#175_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_175_T02___Couro_3_001_Color.png
+OK (292/479): Livros#175_T02 | Couro 3
+Preparando (293/479): Livros#175_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_175_T02___Páginas_antigas_001_Color.png
+OK (293/479): Livros#175_T02 | Páginas antigas
+Preparando (294/479): Livros#176_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_176_T02___Couro_1_001_Color.png
+OK (294/479): Livros#176_T02 | Couro 1
+Preparando (295/479): Livros#176_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_176_T02___Páginas_antigas_001_Color.png
+OK (295/479): Livros#176_T02 | Páginas antigas
+Preparando (296/479): Livros#177_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_177_T02___Couro_2_001_Color.png
+OK (296/479): Livros#177_T02 | Couro 2
+Preparando (297/479): Livros#177_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_177_T02___Páginas_antigas_001_Color.png
+OK (297/479): Livros#177_T02 | Páginas antigas
+Preparando (298/479): Livros#178_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_178_T02___Couro_0_001_Color.png
+OK (298/479): Livros#178_T02 | Couro 0
+Preparando (299/479): Livros#178_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_178_T02___Páginas_antigas_001_Color.png
+OK (299/479): Livros#178_T02 | Páginas antigas
+Preparando (300/479): Livros#179_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_179_T02___Couro_1_001_Color.png
+OK (300/479): Livros#179_T02 | Couro 1
+Preparando (301/479): Livros#179_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_179_T02___Páginas_antigas_001_Color.png
+OK (301/479): Livros#179_T02 | Páginas antigas
+Preparando (302/479): Livros#180_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_180_T02___Couro_4_001_Color.png
+OK (302/479): Livros#180_T02 | Couro 4
+Preparando (303/479): Livros#180_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_180_T02___Páginas_antigas_001_Color.png
+OK (303/479): Livros#180_T02 | Páginas antigas
+Preparando (304/479): Livros#181_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_181_T02___Couro_2_001_Color.png
+OK (304/479): Livros#181_T02 | Couro 2
+Preparando (305/479): Livros#181_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_181_T02___Páginas_antigas_001_Color.png
+OK (305/479): Livros#181_T02 | Páginas antigas
+Preparando (306/479): Livros#182_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_182_T02___Couro_2_001_Color.png
+OK (306/479): Livros#182_T02 | Couro 2
+Preparando (307/479): Livros#182_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_182_T02___Páginas_antigas_001_Color.png
+OK (307/479): Livros#182_T02 | Páginas antigas
+Preparando (308/479): Livros#183_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_183_T02___Couro_4_001_Color.png
+OK (308/479): Livros#183_T02 | Couro 4
+Preparando (309/479): Livros#183_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_183_T02___Páginas_antigas_001_Color.png
+OK (309/479): Livros#183_T02 | Páginas antigas
+Preparando (310/479): Livros#184_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_184_T02___Couro_3_001_Color.png
+OK (310/479): Livros#184_T02 | Couro 3
+Preparando (311/479): Livros#184_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_184_T02___Páginas_antigas_001_Color.png
+OK (311/479): Livros#184_T02 | Páginas antigas
+Preparando (312/479): Livros#185_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_185_T02___Couro_3_001_Color.png
+OK (312/479): Livros#185_T02 | Couro 3
+Preparando (313/479): Livros#185_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_185_T02___Páginas_antigas_001_Color.png
+OK (313/479): Livros#185_T02 | Páginas antigas
+Preparando (314/479): Livros#186_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_186_T02___Couro_2_001_Color.png
+OK (314/479): Livros#186_T02 | Couro 2
+Preparando (315/479): Livros#186_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_186_T02___Páginas_antigas_001_Color.png
+OK (315/479): Livros#186_T02 | Páginas antigas
+Preparando (316/479): Livros#187_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_187_T02___Couro_2_001_Color.png
+OK (316/479): Livros#187_T02 | Couro 2
+Preparando (317/479): Livros#187_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_187_T02___Páginas_antigas_001_Color.png
+OK (317/479): Livros#187_T02 | Páginas antigas
+Preparando (318/479): Livros#188_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_188_T02___Couro_2_001_Color.png
+OK (318/479): Livros#188_T02 | Couro 2
+Preparando (319/479): Livros#188_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_188_T02___Páginas_antigas_001_Color.png
+OK (319/479): Livros#188_T02 | Páginas antigas
+Preparando (320/479): Livros#189_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_189_T02___Couro_2_001_Color.png
+OK (320/479): Livros#189_T02 | Couro 2
+Preparando (321/479): Livros#189_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_189_T02___Páginas_antigas_001_Color.png
+OK (321/479): Livros#189_T02 | Páginas antigas
+Preparando (322/479): Livros#190_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_190_T02___Couro_3_001_Color.png
+OK (322/479): Livros#190_T02 | Couro 3
+Preparando (323/479): Livros#190_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_190_T02___Páginas_antigas_001_Color.png
+OK (323/479): Livros#190_T02 | Páginas antigas
+Preparando (324/479): Livros#191_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_191_T02___Couro_3_001_Color.png
+OK (324/479): Livros#191_T02 | Couro 3
+Preparando (325/479): Livros#191_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_191_T02___Páginas_antigas_001_Color.png
+OK (325/479): Livros#191_T02 | Páginas antigas
+Preparando (326/479): Livros#192_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_192_T02___Couro_4_001_Color.png
+OK (326/479): Livros#192_T02 | Couro 4
+Preparando (327/479): Livros#192_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_192_T02___Páginas_antigas_001_Color.png
+OK (327/479): Livros#192_T02 | Páginas antigas
+Preparando (328/479): Livros#193_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_193_T02___Couro_4_001_Color.png
+OK (328/479): Livros#193_T02 | Couro 4
+Preparando (329/479): Livros#193_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_193_T02___Páginas_antigas_001_Color.png
+OK (329/479): Livros#193_T02 | Páginas antigas
+Preparando (330/479): Livros#194_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_194_T02___Couro_0_001_Color.png
+OK (330/479): Livros#194_T02 | Couro 0
+Preparando (331/479): Livros#194_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_194_T02___Páginas_antigas_001_Color.png
+OK (331/479): Livros#194_T02 | Páginas antigas
+Preparando (332/479): Livros#195_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_195_T02___Couro_3_001_Color.png
+OK (332/479): Livros#195_T02 | Couro 3
+Preparando (333/479): Livros#195_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_195_T02___Páginas_antigas_001_Color.png
+OK (333/479): Livros#195_T02 | Páginas antigas
+Preparando (334/479): Livros#196_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_196_T02___Couro_3_001_Color.png
+OK (334/479): Livros#196_T02 | Couro 3
+Preparando (335/479): Livros#196_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_196_T02___Páginas_antigas_001_Color.png
+OK (335/479): Livros#196_T02 | Páginas antigas
+Preparando (336/479): Livros#197_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_197_T02___Couro_1_001_Color.png
+OK (336/479): Livros#197_T02 | Couro 1
+Preparando (337/479): Livros#197_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_197_T02___Páginas_antigas_001_Color.png
+OK (337/479): Livros#197_T02 | Páginas antigas
+Preparando (338/479): Livros#198_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_198_T02___Couro_3_001_Color.png
+OK (338/479): Livros#198_T02 | Couro 3
+Preparando (339/479): Livros#198_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_198_T02___Páginas_antigas_001_Color.png
+OK (339/479): Livros#198_T02 | Páginas antigas
+Preparando (340/479): Livros#199_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_199_T02___Couro_3_001_Color.png
+OK (340/479): Livros#199_T02 | Couro 3
+Preparando (341/479): Livros#199_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_199_T02___Páginas_antigas_001_Color.png
+OK (341/479): Livros#199_T02 | Páginas antigas
+Preparando (342/479): Livros#200_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_200_T02___Couro_4_001_Color.png
+OK (342/479): Livros#200_T02 | Couro 4
+Preparando (343/479): Livros#200_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_200_T02___Páginas_antigas_001_Color.png
+OK (343/479): Livros#200_T02 | Páginas antigas
+Preparando (344/479): Livros#201_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_201_T02___Couro_0_001_Color.png
+OK (344/479): Livros#201_T02 | Couro 0
+Preparando (345/479): Livros#201_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_201_T02___Páginas_antigas_001_Color.png
+OK (345/479): Livros#201_T02 | Páginas antigas
+Preparando (346/479): Livros#202_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_202_T02___Couro_3_001_Color.png
+OK (346/479): Livros#202_T02 | Couro 3
+Preparando (347/479): Livros#202_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_202_T02___Páginas_antigas_001_Color.png
+OK (347/479): Livros#202_T02 | Páginas antigas
+Preparando (348/479): Livros#203_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_203_T02___Couro_4_001_Color.png
+OK (348/479): Livros#203_T02 | Couro 4
+Preparando (349/479): Livros#203_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_203_T02___Páginas_antigas_001_Color.png
+OK (349/479): Livros#203_T02 | Páginas antigas
+Preparando (350/479): Livros#204_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_204_T02___Couro_0_001_Color.png
+OK (350/479): Livros#204_T02 | Couro 0
+Preparando (351/479): Livros#204_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_204_T02___Páginas_antigas_001_Color.png
+OK (351/479): Livros#204_T02 | Páginas antigas
+Preparando (352/479): Livros#205_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_205_T02___Couro_4_001_Color.png
+OK (352/479): Livros#205_T02 | Couro 4
+Preparando (353/479): Livros#205_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_205_T02___Páginas_antigas_001_Color.png
+OK (353/479): Livros#205_T02 | Páginas antigas
+Preparando (354/479): Livros#206_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_206_T02___Couro_3_001_Color.png
+OK (354/479): Livros#206_T02 | Couro 3
+Preparando (355/479): Livros#206_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_206_T02___Páginas_antigas_001_Color.png
+OK (355/479): Livros#206_T02 | Páginas antigas
+Preparando (356/479): Livros#207_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_207_T02___Couro_4_001_Color.png
+OK (356/479): Livros#207_T02 | Couro 4
+Preparando (357/479): Livros#207_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_207_T02___Páginas_antigas_001_Color.png
+OK (357/479): Livros#207_T02 | Páginas antigas
+Preparando (358/479): Livros#208_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_208_T02___Couro_2_001_Color.png
+OK (358/479): Livros#208_T02 | Couro 2
+Preparando (359/479): Livros#208_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_208_T02___Páginas_antigas_001_Color.png
+OK (359/479): Livros#208_T02 | Páginas antigas
+Preparando (360/479): Livros#209_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_209_T02___Couro_1_001_Color.png
+OK (360/479): Livros#209_T02 | Couro 1
+Preparando (361/479): Livros#209_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_209_T02___Páginas_antigas_001_Color.png
+OK (361/479): Livros#209_T02 | Páginas antigas
+Preparando (362/479): Livros#210_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_210_T02___Couro_3_001_Color.png
+OK (362/479): Livros#210_T02 | Couro 3
+Preparando (363/479): Livros#210_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_210_T02___Páginas_antigas_001_Color.png
+OK (363/479): Livros#210_T02 | Páginas antigas
+Preparando (364/479): Livros#211_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_211_T02___Couro_1_001_Color.png
+OK (364/479): Livros#211_T02 | Couro 1
+Preparando (365/479): Livros#211_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_211_T02___Páginas_antigas_001_Color.png
+OK (365/479): Livros#211_T02 | Páginas antigas
+Preparando (366/479): Livros#212_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_212_T02___Couro_3_001_Color.png
+OK (366/479): Livros#212_T02 | Couro 3
+Preparando (367/479): Livros#212_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_212_T02___Páginas_antigas_001_Color.png
+OK (367/479): Livros#212_T02 | Páginas antigas
+Preparando (368/479): Livros#213_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_213_T02___Couro_3_001_Color.png
+OK (368/479): Livros#213_T02 | Couro 3
+Preparando (369/479): Livros#213_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_213_T02___Páginas_antigas_001_Color.png
+OK (369/479): Livros#213_T02 | Páginas antigas
+Preparando (370/479): Livros#214_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_214_T02___Couro_1_001_Color.png
+OK (370/479): Livros#214_T02 | Couro 1
+Preparando (371/479): Livros#214_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_214_T02___Páginas_antigas_001_Color.png
+OK (371/479): Livros#214_T02 | Páginas antigas
+Preparando (372/479): Livros#215_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_215_T02___Couro_3_001_Color.png
+OK (372/479): Livros#215_T02 | Couro 3
+Preparando (373/479): Livros#215_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_215_T02___Páginas_antigas_001_Color.png
+OK (373/479): Livros#215_T02 | Páginas antigas
+Preparando (374/479): Livros#216_T02 | Couro 1
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_216_T02___Couro_1_001_Color.png
+OK (374/479): Livros#216_T02 | Couro 1
+Preparando (375/479): Livros#216_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_216_T02___Páginas_antigas_001_Color.png
+OK (375/479): Livros#216_T02 | Páginas antigas
+Preparando (376/479): Livros#217_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_217_T02___Couro_2_001_Color.png
+OK (376/479): Livros#217_T02 | Couro 2
+Preparando (377/479): Livros#217_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_217_T02___Páginas_antigas_001_Color.png
+OK (377/479): Livros#217_T02 | Páginas antigas
+Preparando (378/479): Livros#218_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_218_T02___Couro_0_001_Color.png
+OK (378/479): Livros#218_T02 | Couro 0
+Preparando (379/479): Livros#218_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_218_T02___Páginas_antigas_001_Color.png
+OK (379/479): Livros#218_T02 | Páginas antigas
+Preparando (380/479): Livros#219_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_219_T02___Couro_0_001_Color.png
+OK (380/479): Livros#219_T02 | Couro 0
+Preparando (381/479): Livros#219_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_219_T02___Páginas_antigas_001_Color.png
+OK (381/479): Livros#219_T02 | Páginas antigas
+Preparando (382/479): Livros#220_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_220_T02___Couro_4_001_Color.png
+OK (382/479): Livros#220_T02 | Couro 4
+Preparando (383/479): Livros#220_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_220_T02___Páginas_antigas_001_Color.png
+OK (383/479): Livros#220_T02 | Páginas antigas
+Preparando (384/479): Livros#221_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_221_T02___Couro_3_001_Color.png
+OK (384/479): Livros#221_T02 | Couro 3
+Preparando (385/479): Livros#221_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_221_T02___Páginas_antigas_001_Color.png
+OK (385/479): Livros#221_T02 | Páginas antigas
+Preparando (386/479): Livros#222_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_222_T02___Couro_4_001_Color.png
+OK (386/479): Livros#222_T02 | Couro 4
+Preparando (387/479): Livros#222_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_222_T02___Páginas_antigas_001_Color.png
+OK (387/479): Livros#222_T02 | Páginas antigas
+Preparando (388/479): Livros#223_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_223_T02___Couro_4_001_Color.png
+OK (388/479): Livros#223_T02 | Couro 4
+Preparando (389/479): Livros#223_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_223_T02___Páginas_antigas_001_Color.png
+OK (389/479): Livros#223_T02 | Páginas antigas
+Preparando (390/479): Livros#224_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_224_T02___Couro_0_001_Color.png
+OK (390/479): Livros#224_T02 | Couro 0
+Preparando (391/479): Livros#224_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_224_T02___Páginas_antigas_001_Color.png
+OK (391/479): Livros#224_T02 | Páginas antigas
+Preparando (392/479): Livros#225_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_225_T02___Couro_3_001_Color.png
+OK (392/479): Livros#225_T02 | Couro 3
+Preparando (393/479): Livros#225_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_225_T02___Páginas_antigas_001_Color.png
+OK (393/479): Livros#225_T02 | Páginas antigas
+Preparando (394/479): Livros#226_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_226_T02___Couro_4_001_Color.png
+OK (394/479): Livros#226_T02 | Couro 4
+Preparando (395/479): Livros#226_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_226_T02___Páginas_antigas_001_Color.png
+OK (395/479): Livros#226_T02 | Páginas antigas
+Preparando (396/479): Livros#227_T02 | Couro 2
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_227_T02___Couro_2_001_Color.png
+OK (396/479): Livros#227_T02 | Couro 2
+Preparando (397/479): Livros#227_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_227_T02___Páginas_antigas_001_Color.png
+OK (397/479): Livros#227_T02 | Páginas antigas
+Preparando (398/479): Livros#228_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_228_T02___Couro_0_001_Color.png
+OK (398/479): Livros#228_T02 | Couro 0
+Preparando (399/479): Livros#228_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_228_T02___Páginas_antigas_001_Color.png
+OK (399/479): Livros#228_T02 | Páginas antigas
+Preparando (400/479): Livros#229_T02 | Couro 4
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_229_T02___Couro_4_001_Color.png
+OK (400/479): Livros#229_T02 | Couro 4
+Preparando (401/479): Livros#229_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_229_T02___Páginas_antigas_001_Color.png
+OK (401/479): Livros#229_T02 | Páginas antigas
+Preparando (402/479): Livros#230_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_230_T02___Couro_3_001_Color.png
+OK (402/479): Livros#230_T02 | Couro 3
+Preparando (403/479): Livros#230_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_230_T02___Páginas_antigas_001_Color.png
+OK (403/479): Livros#230_T02 | Páginas antigas
+Preparando (404/479): Livros#231_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_231_T02___Couro_3_001_Color.png
+OK (404/479): Livros#231_T02 | Couro 3
+Preparando (405/479): Livros#231_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_231_T02___Páginas_antigas_001_Color.png
+OK (405/479): Livros#231_T02 | Páginas antigas
+Preparando (406/479): Livros#232_T02 | Couro 0
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_232_T02___Couro_0_001_Color.png
+OK (406/479): Livros#232_T02 | Couro 0
+Preparando (407/479): Livros#232_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_232_T02___Páginas_antigas_001_Color.png
+OK (407/479): Livros#232_T02 | Páginas antigas
+Preparando (408/479): Livros#233_T02 | Couro 3
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_233_T02___Couro_3_001_Color.png
+OK (408/479): Livros#233_T02 | Couro 3
+Preparando (409/479): Livros#233_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_233_T02___Páginas_antigas_001_Color.png
+OK (409/479): Livros#233_T02 | Páginas antigas
+Preparando (410/479): Livros#234_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_234_T02___Páginas_antigas_001_Color.png
+OK (410/479): Livros#234_T02 | Páginas antigas
+Preparando (411/479): Livros#235_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_235_T02___Páginas_antigas_001_Color.png
+OK (411/479): Livros#235_T02 | Páginas antigas
+Preparando (412/479): Livros#236_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_236_T02___Páginas_antigas_001_Color.png
+OK (412/479): Livros#236_T02 | Páginas antigas
+Preparando (413/479): Livros#237_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_237_T02___Páginas_antigas_001_Color.png
+OK (413/479): Livros#237_T02 | Páginas antigas
+Preparando (414/479): Livros#238_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_238_T02___Páginas_antigas_001_Color.png
+OK (414/479): Livros#238_T02 | Páginas antigas
+Preparando (415/479): Livros#239_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_239_T02___Páginas_antigas_001_Color.png
+OK (415/479): Livros#239_T02 | Páginas antigas
+Preparando (416/479): Livros#240_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_240_T02___Páginas_antigas_001_Color.png
+OK (416/479): Livros#240_T02 | Páginas antigas
+Preparando (417/479): Livros#241_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_241_T02___Páginas_antigas_001_Color.png
+OK (417/479): Livros#241_T02 | Páginas antigas
+Preparando (418/479): Livros#242_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_242_T02___Páginas_antigas_001_Color.png
+OK (418/479): Livros#242_T02 | Páginas antigas
+Preparando (419/479): Livros#243_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_243_T02___Páginas_antigas_001_Color.png
+OK (419/479): Livros#243_T02 | Páginas antigas
+Preparando (420/479): Livros#244_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_244_T02___Páginas_antigas_001_Color.png
+OK (420/479): Livros#244_T02 | Páginas antigas
+Preparando (421/479): Livros#245_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_245_T02___Páginas_antigas_001_Color.png
+OK (421/479): Livros#245_T02 | Páginas antigas
+Preparando (422/479): Livros#246_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_246_T02___Páginas_antigas_001_Color.png
+OK (422/479): Livros#246_T02 | Páginas antigas
+Preparando (423/479): Livros#247_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_247_T02___Páginas_antigas_001_Color.png
+OK (423/479): Livros#247_T02 | Páginas antigas
+Preparando (424/479): Livros#248_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_248_T02___Páginas_antigas_001_Color.png
+OK (424/479): Livros#248_T02 | Páginas antigas
+Preparando (425/479): Livros#249_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_249_T02___Páginas_antigas_001_Color.png
+OK (425/479): Livros#249_T02 | Páginas antigas
+Preparando (426/479): Livros#250_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_250_T02___Páginas_antigas_001_Color.png
+OK (426/479): Livros#250_T02 | Páginas antigas
+Preparando (427/479): Livros#251_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_251_T02___Páginas_antigas_001_Color.png
+OK (427/479): Livros#251_T02 | Páginas antigas
+Preparando (428/479): Livros#252_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_252_T02___Páginas_antigas_001_Color.png
+OK (428/479): Livros#252_T02 | Páginas antigas
+Preparando (429/479): Livros#253_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_253_T02___Páginas_antigas_001_Color.png
+OK (429/479): Livros#253_T02 | Páginas antigas
+Preparando (430/479): Livros#254_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_254_T02___Páginas_antigas_001_Color.png
+OK (430/479): Livros#254_T02 | Páginas antigas
+Preparando (431/479): Livros#255_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_255_T02___Páginas_antigas_001_Color.png
+OK (431/479): Livros#255_T02 | Páginas antigas
+Preparando (432/479): Livros#256_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_256_T02___Páginas_antigas_001_Color.png
+OK (432/479): Livros#256_T02 | Páginas antigas
+Preparando (433/479): Livros#257_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_257_T02___Páginas_antigas_001_Color.png
+OK (433/479): Livros#257_T02 | Páginas antigas
+Preparando (434/479): Livros#258_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_258_T02___Páginas_antigas_001_Color.png
+OK (434/479): Livros#258_T02 | Páginas antigas
+Preparando (435/479): Livros#259_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_259_T02___Páginas_antigas_001_Color.png
+OK (435/479): Livros#259_T02 | Páginas antigas
+Preparando (436/479): Livros#260_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_260_T02___Páginas_antigas_001_Color.png
+OK (436/479): Livros#260_T02 | Páginas antigas
+Preparando (437/479): Livros#261_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_261_T02___Páginas_antigas_001_Color.png
+OK (437/479): Livros#261_T02 | Páginas antigas
+Preparando (438/479): Livros#262_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_262_T02___Páginas_antigas_001_Color.png
+OK (438/479): Livros#262_T02 | Páginas antigas
+Preparando (439/479): Livros#263_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_263_T02___Páginas_antigas_001_Color.png
+OK (439/479): Livros#263_T02 | Páginas antigas
+Preparando (440/479): Livros#264_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_264_T02___Páginas_antigas_001_Color.png
+OK (440/479): Livros#264_T02 | Páginas antigas
+Preparando (441/479): Livros#265_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_265_T02___Páginas_antigas_001_Color.png
+OK (441/479): Livros#265_T02 | Páginas antigas
+Preparando (442/479): Livros#266_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_266_T02___Páginas_antigas_001_Color.png
+OK (442/479): Livros#266_T02 | Páginas antigas
+Preparando (443/479): Livros#267_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_267_T02___Páginas_antigas_001_Color.png
+OK (443/479): Livros#267_T02 | Páginas antigas
+Preparando (444/479): Livros#268_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_268_T02___Páginas_antigas_001_Color.png
+OK (444/479): Livros#268_T02 | Páginas antigas
+Preparando (445/479): Livros#269_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_269_T02___Páginas_antigas_001_Color.png
+OK (445/479): Livros#269_T02 | Páginas antigas
+Preparando (446/479): Livros#270_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_270_T02___Páginas_antigas_001_Color.png
+OK (446/479): Livros#270_T02 | Páginas antigas
+Preparando (447/479): Livros#271_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_271_T02___Páginas_antigas_001_Color.png
+OK (447/479): Livros#271_T02 | Páginas antigas
+Preparando (448/479): Livros#272_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_272_T02___Páginas_antigas_001_Color.png
+OK (448/479): Livros#272_T02 | Páginas antigas
+Preparando (449/479): Livros#273_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_273_T02___Páginas_antigas_001_Color.png
+OK (449/479): Livros#273_T02 | Páginas antigas
+Preparando (450/479): Livros#274_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_274_T02___Páginas_antigas_001_Color.png
+OK (450/479): Livros#274_T02 | Páginas antigas
+Preparando (451/479): Livros#275_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_275_T02___Páginas_antigas_001_Color.png
+OK (451/479): Livros#275_T02 | Páginas antigas
+Preparando (452/479): Livros#276_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_276_T02___Páginas_antigas_001_Color.png
+OK (452/479): Livros#276_T02 | Páginas antigas
+Preparando (453/479): Livros#277_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_277_T02___Páginas_antigas_001_Color.png
+OK (453/479): Livros#277_T02 | Páginas antigas
+Preparando (454/479): Livros#278_T02 | Páginas antigas
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Livros_278_T02___Páginas_antigas_001_Color.png
+OK (454/479): Livros#278_T02 | Páginas antigas
+Preparando (455/479): Tecidos_N3 | Pano
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Tecidos_N3___Pano_001_Color.png
+OK (455/479): Tecidos_N3 | Pano
+Preparando (456/479): Tecidos#288_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Tecidos_288_T02___Bronze_envelhecido_001_Color.png
+OK (456/479): Tecidos#288_T02 | Bronze envelhecido
+Preparando (457/479): Tecidos#289_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Tecidos_289_T02___Bronze_envelhecido_001_Color.png
+OK (457/479): Tecidos#289_T02 | Bronze envelhecido
+Preparando (458/479): Tecidos#290_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Tecidos_290_T02___Bronze_envelhecido_001_Color.png
+OK (458/479): Tecidos#290_T02 | Bronze envelhecido
+Preparando (459/479): Tecidos#291_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Tecidos_291_T02___Bronze_envelhecido_001_Color.png
+OK (459/479): Tecidos#291_T02 | Bronze envelhecido
+Preparando (460/479): Tecidos#292_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Tecidos_292_T02___Bronze_envelhecido_001_Color.png
+OK (460/479): Tecidos#292_T02 | Bronze envelhecido
+Preparando (461/479): Tecidos#293_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Tecidos_293_T02___Bronze_envelhecido_001_Color.png
+OK (461/479): Tecidos#293_T02 | Bronze envelhecido
+Preparando (462/479): Tecidos#294_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Tecidos_294_T02___Bronze_envelhecido_001_Color.png
+OK (462/479): Tecidos#294_T02 | Bronze envelhecido
+Preparando (463/479): Tecidos#295_T02 | Bronze envelhecido
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Tecidos_295_T02___Bronze_envelhecido_001_Color.png
+OK (463/479): Tecidos#295_T02 | Bronze envelhecido
+Preparando (464/479): Tecidos_N3 | Teia
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Tecidos_N3___Teia_001_Color.png
+OK (464/479): Tecidos_N3 | Teia
+Preparando (465/479): Pedras_N3 | Rachadura
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_N3___Rachadura_001_Color.png
+OK (465/479): Pedras_N3 | Rachadura
+Preparando (466/479): Pedras_T02 | Cantaria 04
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_T02___Cantaria_04_001_Color.png
+OK (466/479): Pedras_T02 | Cantaria 04
+Preparando (467/479): Pedras_T02 | Cantaria 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_T02___Cantaria_01_001_Color.png
+OK (467/479): Pedras_T02 | Cantaria 01
+Preparando (468/479): Pedras_T02 | Cantaria 03
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_T02___Cantaria_03_001_Color.png
+OK (468/479): Pedras_T02 | Cantaria 03
+Preparando (469/479): Pedras_T02 | Cantaria 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_T02___Cantaria_00_001_Color.png
+OK (469/479): Pedras_T02 | Cantaria 00
+Preparando (470/479): Pedras_T02 | Cantaria 02
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_T02___Cantaria_02_001_Color.png
+OK (470/479): Pedras_T02 | Cantaria 02
+Preparando (471/479): Pedras#279_T02 | Cantaria 02
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_279_T02___Cantaria_02_001_Color.png
+OK (471/479): Pedras#279_T02 | Cantaria 02
+Preparando (472/479): Pedras#280_T02 | Cantaria 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_280_T02___Cantaria_01_001_Color.png
+OK (472/479): Pedras#280_T02 | Cantaria 01
+Preparando (473/479): Pedras#281_T02 | Cantaria 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_281_T02___Cantaria_01_001_Color.png
+OK (473/479): Pedras#281_T02 | Cantaria 01
+Preparando (474/479): Pedras#282_T02 | Cantaria 04
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_282_T02___Cantaria_04_001_Color.png
+OK (474/479): Pedras#282_T02 | Cantaria 04
+Preparando (475/479): Pedras#283_T02 | Cantaria 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_283_T02___Cantaria_01_001_Color.png
+OK (475/479): Pedras#283_T02 | Cantaria 01
+Preparando (476/479): Pedras#284_T02 | Cantaria 01
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_284_T02___Cantaria_01_001_Color.png
+OK (476/479): Pedras#284_T02 | Cantaria 01
+Preparando (477/479): Pedras#285_T02 | Cantaria 02
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_285_T02___Cantaria_02_001_Color.png
+OK (477/479): Pedras#285_T02 | Cantaria 02
+Preparando (478/479): Pedras#286_T02 | Cantaria 00
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_286_T02___Cantaria_00_001_Color.png
+OK (478/479): Pedras#286_T02 | Cantaria 00
+Preparando (479/479): Pedras#287_T02 | Cantaria 02
+Bake salvo: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas\Pedras_287_T02___Cantaria_02_001_Color.png
+OK (479/479): Pedras#287_T02 | Cantaria 02
+EXPORTADO: C:\Users\tayla\Downloads\Developer\Jumanji-roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\SalaPrincipal_UV_CORRIGIDO_06.glb (47.72 MB)
+RESUMO: processados=479; malhas_exportadas=523; divididos=20; ignorados=0
+SUCESSO PARCIAL: sala completa com UV corrigido preparada para teste visual no Roblox.
+Observacao: esta versao ainda nao e a otimizada final para celular.
+Original nao foi salvo/sobrescrito.

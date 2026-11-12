@@ -2,7 +2,7 @@
 
 1. No GitHub Desktop: **Fetch origin > Pull origin**. Abra o repositório no VS Code.
 2. No Roblox Studio, abra seu Baseplate e salve um backup **.rbxl**.
-3. Abra a **Barra de Comandos** e cole o conteúdo de `tools/studio-setup-command.luau`. Execute fora do modo Play.
+3. Abra a **Barra de Comandos** e cole o conteúdo de `tools/studio/00_setup_projeto.luau`. Execute fora do modo Play.
 4. No **Explorador** do Studio, clique com botão direito nas pastas abaixo e use **Sincronizar para… (Sync to...)**:
 
 | Studio | Pasta local |

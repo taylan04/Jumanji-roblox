@@ -1,0 +1,200 @@
+-- Install in Edit mode with the imported model selected.
+local Selection = game:GetService("Selection")
+local Players = game:GetService("StarterPlayer").StarterPlayerScripts
+assert(not game:GetService("RunService"):IsRunning(), "Pare o teste antes de instalar.")
+local input = Selection:Get()[1]
+assert(input and input:IsA("Model"), "Selecione o Model inteiro importado de Lenha-e-brasas.glb.")
+local room = workspace.Invokyr.Mansao.Atrio
+assert(not room:IsDescendantOf(input) and input~=room and not input:IsDescendantOf(room), "Selecione o modelo recem-importado, fora do Atrio.")
+local plate = assert(room:FindFirstChild("Braseiro__Lenha_acesa",true), "Braseiro original nao encontrado")
+local lamp = room.Luzes.Lume_da_lareira
+local wood = input:Clone()
+local prototype
+local logs = 0
+for _,p in ipairs(wood:GetDescendants()) do
+    if p:IsA("MeshPart") then
+        if p.Name:find("Molde_Labareda",1,true) then prototype=p end
+        if p.Name:find("Lenha_",1,true) then logs=logs+1 end
+        p.Anchored=true
+        p.CanCollide=false
+        p.CanTouch=false
+        p.CanQuery=false
+    end
+end
+assert(prototype and logs>=4,"Selecione o modelo completo, com a opcao de unir malhas desativada.")
+local surface=prototype:FindFirstChildOfClass("SurfaceAppearance")
+local texture=surface and surface.ColorMap
+if not texture or texture=="" then texture=prototype.TextureID end
+assert(texture and texture~="", "O importador precisa carregar a textura do Molde_Labareda.")
+local server=game.ServerScriptService:FindFirstChild("Invokyr_Totens")
+local signal='maldicaoRE:FireAllClients("chama", hit.Position, CFG.FOGO_RAIO, CFG.FOGO_DURACAO)'
+local withOrigin=signal:sub(1,-2)..', (hrp.CFrame * CFrame.new(0, 0.4, -2)).Position)'
+local oldSource=server and server.Source or ""
+local first,last=oldSource:find(signal,1,true)
+local jetSupported=first or oldSource:find(withOrigin,1,true)
+prototype:Destroy()
+wood.Name="LenhaFisica"
+wood.PrimaryPart=nil
+wood:ScaleTo(wood:GetScale()*4.45/wood:GetExtentsSize().X)
+local bounds,size=wood:GetBoundingBox()
+local front=lamp.Position-plate.Position
+front=Vector3.new(front.X,0,front.Z).Unit
+local floor=plate.Position-front*.76-Vector3.yAxis*(plate.Size.Y*.5+.02)
+local frame=CFrame.lookAt(floor,floor-front)
+local dest=frame*CFrame.new(0,size.Y/2,0)
+wood:PivotTo(dest*bounds:Inverse()*wood:GetPivot())
+local anchor=Instance.new("Part")
+anchor.Name="Focos"
+anchor.Anchored=true
+anchor.CanCollide=false
+anchor.CanTouch=false
+anchor.CanQuery=false
+anchor.Transparency=1
+anchor.Size=Vector3.new(.1,.1,.1)
+anchor.CFrame=frame
+anchor.Parent=wood
+local function keys(a,b,c,d)
+    return NumberSequence.new({NumberSequenceKeypoint.new(0,a),NumberSequenceKeypoint.new(.19,b),NumberSequenceKeypoint.new(.65,c),NumberSequenceKeypoint.new(1,d)})
+end
+local spots={{-1.45,.65,.10,1.20},{-.85,.80,-.38,1.68},{-.31,.90,.33,1.30},{.12,.82,-.22,1.85},{.69,.77,.41,1.47},{1.21,.70,-.27,1.32},{1.60,.63,.13,.97}}
+for i,v in ipairs(spots) do
+    local at=Instance.new("Attachment")
+    at.Position=Vector3.new(v[1],v[2],v[3])
+    at.Parent=anchor
+    local e=Instance.new("ParticleEmitter")
+    e.Name="Labareda"
+    e.Texture=texture
+    e.Orientation=Enum.ParticleOrientation.FacingCameraWorldUp
+    e.Size=keys(.25,v[4]*.83,v[4],.14)
+    e.Transparency=keys(1,.12,.23,1)
+    e.LightEmission=.53
+    e.LightInfluence=0
+    e.Rate=5+i%3
+    e.Lifetime=NumberRange.new(.48,.86)
+    e.Speed=NumberRange.new(.78,1.44)
+    e.Acceleration=Vector3.new(.12,1.2,0)
+    e.SpreadAngle=Vector2.new(11,11)
+    e.Rotation=NumberRange.new(-12,12)
+    e.RotSpeed=NumberRange.new(-20,20)
+    e.Parent=at
+    if i%2==0 then
+        local spark=Instance.new("ParticleEmitter")
+        spark.Name="Fagulha"
+        spark.Texture="rbxasset://textures/particles/SquareParticle.png"
+        spark.Size=NumberSequence.new(.031,.006)
+        spark.Transparency=NumberSequence.new(.05,1)
+        spark.Color=ColorSequence.new(Color3.fromRGB(255,188,92),Color3.fromRGB(160,44,13))
+        spark.LightEmission=.96
+        spark.Rate=.65
+        spark.Lifetime=NumberRange.new(.48,1.05)
+        spark.Speed=NumberRange.new(1.5,2.6)
+        spark.SpreadAngle=Vector2.new(19,19)
+        spark.Parent=at
+    end
+end
+for _,p in ipairs(wood:GetDescendants()) do
+    if p:IsA("MeshPart") and p.Name:find("Leito_Brasa",1,true) then
+        p.Material=Enum.Material.Neon
+        p.Color=Color3.fromRGB(195,63,17)
+    end
+end
+local client=Instance.new("LocalScript")
+client.Name="Invokyr_FogoNaMansao"
+client:SetAttribute("Textura",texture)
+client.Source=[==[
+local texture=script:GetAttribute("Textura")
+local debris=game:GetService("Debris")
+local remote=game.ReplicatedStorage:WaitForChild("Invokyr"):WaitForChild("MaldicaoEfeito")
+local function style(effect)
+    if not effect:IsA("ParticleEmitter") or not effect.Texture:find("fire_main",1,true) then return end
+    local p=effect.Parent
+    if not p or (p.Name~="Invokyr_BrasaLocal" and p.Name~="Invokyr_ChamaLocal") then return end
+    effect.Texture=texture
+    effect.Orientation=Enum.ParticleOrientation.FacingCameraWorldUp
+    effect.Color=ColorSequence.new(Color3.new(1,1,1))
+    effect.Rotation=NumberRange.new(-16,16)
+    effect.RotSpeed=NumberRange.new(-25,25)
+    effect.LightEmission=.52
+    local size=p.Name=="Invokyr_BrasaLocal" and .65 or 1.75
+    effect.Size=NumberSequence.new({NumberSequenceKeypoint.new(0,size*.25),NumberSequenceKeypoint.new(.26,size),NumberSequenceKeypoint.new(.75,size*.84),NumberSequenceKeypoint.new(1,.09)})
+end
+-- The existing curse creates and retires its own emitters.
+workspace.DescendantAdded:Connect(style)
+for _,p in ipairs(workspace:GetChildren()) do
+    if p.Name=="Invokyr_ChamaLocal" or p.Name=="Invokyr_BrasaLocal" then
+        for _,item in ipairs(p:GetChildren()) do style(item) end
+    end
+end
+remote.OnClientEvent:Connect(function(kind,target,_,_,origin)
+    if kind~="chama" or typeof(origin)~="Vector3" or typeof(target)~="Vector3" then return end
+    local travel=target-origin
+    if travel.Magnitude<.2 then return end
+    local nozzle=Instance.new("Part")
+    nozzle.Anchored=true
+    nozzle.CanCollide=false
+    nozzle.CanQuery=false
+    nozzle.CanTouch=false
+    nozzle.Transparency=1
+    nozzle.Size=Vector3.new(.18,.18,.18)
+    nozzle.CFrame=CFrame.lookAt(origin,target)
+    nozzle.Parent=workspace
+    local jet=Instance.new("ParticleEmitter")
+    jet.Texture=texture
+    jet.EmissionDirection=Enum.NormalId.Front
+    jet.Orientation=Enum.ParticleOrientation.VelocityParallel
+    jet.Lifetime=NumberRange.new(.28,.34)
+    jet.Speed=NumberRange.new(travel.Magnitude/.34,travel.Magnitude/.30)
+    jet.SpreadAngle=Vector2.new(3,3)
+    jet.Size=NumberSequence.new({NumberSequenceKeypoint.new(0,.35),NumberSequenceKeypoint.new(.68,1.22),NumberSequenceKeypoint.new(1,.82)})
+    jet.Transparency=NumberSequence.new(.09,1)
+    jet.LightInfluence=0
+    jet.LightEmission=.62
+    jet.Rate=75
+    jet.Parent=nozzle
+    jet:Emit(3)
+    task.delay(.2,function() jet.Enabled=false end)
+    debris:AddItem(nozzle,.65)
+end)
+local room=workspace:WaitForChild("Invokyr"):WaitForChild("Mansao"):WaitForChild("Atrio")
+while room.Parent do
+    local folder=room:FindFirstChild("Luzes")
+    local lamp=folder and folder:FindFirstChild("Lume_da_lareira")
+    local light=lamp and lamp:FindFirstChildOfClass("PointLight")
+    if light then
+        local initial=light.Brightness
+        while light:IsDescendantOf(room) do
+            local c=workspace.CurrentCamera
+            local near=c and (c.CFrame.Position-lamp.Position).Magnitude<85
+            local t=time()
+            light.Brightness=initial*(near and (1+.28*math.noise(t*3.7,.12)+.12*math.noise(t*9.3,.66)) or 1)
+            task.wait(near and .055 or .6)
+        end
+    end
+    task.wait(1)
+end
+]==]
+local prior=room:FindFirstChild("LenhaFisica")
+local oldClient=Players:FindFirstChild(client.Name)
+local oldGif=Players:FindFirstChild("Invokyr_LareiraViva")
+if oldGif then oldGif.Enabled=false end
+-- Disable the older embedded fireplace task in the prototype copy if installed.
+local flashlight=Players:FindFirstChild("Invokyr_Cliente")
+if flashlight then
+    local src=flashlight.Source
+    if src:find("-- Fogo da lareira do atrio.",1,true)==1 then
+        local start=assert(src:find("--[[ Invokyr_Cliente",1,true),"Nao localizei o fim do prototipo anterior.")
+        flashlight.Source=src:sub(start)
+    end
+end
+if first then server.Source=oldSource:sub(1,first-1)..withOrigin..oldSource:sub(last+1) end
+if oldClient then oldClient:Destroy() end
+if prior then prior:Destroy() end
+wood.Parent=room
+client.Parent=Players
+plate.Transparency=1
+local oldEmbers=room:FindFirstChild("Braseiro__Brasa",true)
+if oldEmbers and oldEmbers:IsA("BasePart") then oldEmbers.Transparency=1 end
+input:Destroy()
+Selection:Set({wood})
+if not jetSupported then warn("Lareira instalada. O script do totem desta versao precisa informar a origem do jato.") end
+print("Lenha instalada. Salve e teste com F5.")

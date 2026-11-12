@@ -1,0 +1,41 @@
+{
+  "blend_reopened": true,
+  "studio_import_tested": false,
+  "assets": {
+    "01_Fogo": {
+      "gltf_reimported": true,
+      "triangles": 102960,
+      "mesh_parts": 9,
+      "all_textures_present": true,
+      "uvs_present": true
+    },
+    "02_Gelo": {
+      "gltf_reimported": true,
+      "triangles": 105620,
+      "mesh_parts": 9,
+      "all_textures_present": true,
+      "uvs_present": true
+    },
+    "03_Teleporte": {
+      "gltf_reimported": true,
+      "triangles": 117388,
+      "mesh_parts": 10,
+      "all_textures_present": true,
+      "uvs_present": true
+    },
+    "04_Raio": {
+      "gltf_reimported": true,
+      "triangles": 102384,
+      "mesh_parts": 10,
+      "all_textures_present": true,
+      "uvs_present": true
+    },
+    "05_Diamante_Raro": {
+      "gltf_reimported": true,
+      "triangles": 104404,
+      "mesh_parts": 9,
+      "all_textures_present": true,
+      "uvs_present": true
+    }
+  }
+}

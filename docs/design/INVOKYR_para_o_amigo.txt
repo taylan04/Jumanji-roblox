@@ -1,0 +1,234 @@
+INVOKYR - RESUMO PARA UM NOVO MEMBRO DA EQUIPE
+================================================
+
+>>> INSTRUCAO PARA A IA QUE ESTIVER LENDO ISTO <<<
+
+Quem colou este texto e um amigo do Taylan. Ele e de Administracao e NAO
+entende de programacao, de Blender, de Roblox nem de criacao de jogos.
+Sua tarefa:
+
+1. Explique tudo abaixo em portugues simples, sem jargao. Quando usar um
+   termo tecnico, explique na hora com uma comparacao do dia a dia.
+2. Va aos poucos. Nao despeje tudo de uma vez. Comece com um resumo curto
+   do jogo, depois pergunte o que ele quer entender primeiro.
+3. No fim, ajude-o a descobrir COMO ele pode contribuir (secao 8), mesmo
+   sem saber programar, e ensine passo a passo o que ele escolher fazer.
+4. Se ele perguntar algo que nao esta aqui, diga que nao sabe. Nao invente
+   detalhes sobre o projeto. Sugira perguntar ao Taylan.
+
+------------------------------------------------------------
+1. O QUE E O JOGO
+------------------------------------------------------------
+
+Invokyr e um jogo de terror cooperativo para Roblox. Ate 4 jogadores
+juntos, no computador ou no celular.
+
+O jogo e inspirado em Jumanji: tem um tabuleiro magico que os jogadores
+usam, e cada rodada coloca um monstro atras deles.
+
+Como uma partida funciona:
+
+- Os jogadores comecam numa sala redonda de torre gotica, com uma mesa e
+  um tabuleiro no meio.
+- Um jogador aperta E na mesa: o tabuleiro abre, a sala treme, cai poeira
+  e as luzes acendem.
+- Aperta E de novo: um dado rola, uma pecinha anda pelas casas e aparece
+  uma dica em forma de rima, escrita em fumaca.
+- As 4 portas da sala se abrem. Os jogadores saem para explorar uma
+  mansao escura atras de TOTENS (objetos magicos), fugindo de monstros.
+- Ao entregar 3 totens num altar na mesa, as portas fecham, o dado
+  libera, e um novo monstro entra no jogo.
+- O tabuleiro tem 69 casas. Chegar ao poco do centro e o fim do jogo.
+
+Os totens tem maldicoes que ATRAPALHAM quem os carrega (nao matam):
+- Fogo: cospe uma chama para frente que queima quem passar.
+- Gelo: o chao fica escorregadio.
+- Teleporte: joga o jogador para outro lugar de tempos em tempos.
+- Raio: cai um raio perto do jogador, com clarao e empurrao.
+- Diamante: AINDA SEM PODER DEFINIDO. Boa ideia para voce propor.
+
+------------------------------------------------------------
+2. O QUE JA ESTA PRONTO (explicado sem jargao)
+------------------------------------------------------------
+
+Ja funciona dentro do jogo:
+
+- A sala inicial (a torre) com mesa, tabuleiro, luzes e portas que abrem.
+- A lanterna, ligada com a tecla F, que os outros jogadores tambem veem.
+- O tabuleiro, o dado e a dica rimada em fumaca.
+- Correr, andar e agachar, com folego limitado.
+- O ciclo dos totens inteiro: espalhar pela mansao, pegar, sofrer a
+  maldicao, largar, entregar no altar e liberar o dado na terceira entrega.
+- A primeira sala da mansao, chamada Atrio, ja modelada e instalada.
+
+Ainda NAO existe:
+
+- Nenhum som (portas, passos, musica, fogo).
+- Vida, morte e tela de vitoria. Chegar na casa 69 so mostra uma mensagem.
+- Os monstros dentro do jogo. Ja existem modelos 3D de planta carnivora,
+  jacare, yeti e uma bailarina de pedra, mas nenhum foi colocado ainda.
+- O resto da mansao: so a torre e o Atrio estao prontos.
+
+------------------------------------------------------------
+3. AS FERRAMENTAS (o que cada uma faz, em linguagem simples)
+------------------------------------------------------------
+
+ROBLOX STUDIO
+  O programa gratuito onde o jogo e montado e testado. Pense nele como
+  o "palco": a mansao, os jogadores e as regras ficam la dentro.
+
+BLENDER
+  Programa gratuito de modelagem 3D. E onde se desenham as coisas bonitas:
+  salas, moveis, monstros. Pense nele como o "ateli" onde cada peca e
+  esculpida antes de ir para o palco.
+
+SCRIPTS (codigo)
+  Sao as "regras" do jogo escritas em texto: o que acontece quando alguem
+  aperta E, como o monstro se move, quantos totens faltam. O Taylan nao
+  escreve esses codigos na mao.
+
+IAs (como ele trabalha)
+  - Claude (esta conversa): escreve os scripts, analisa arquivos e
+    confere se tudo esta funcionando.
+  - ChatGPT / Codex: ele tem sido usado para modelar salas no Blender.
+    O Taylan gostou do resultado e decidiu seguir assim.
+
+------------------------------------------------------------
+4. COMO O JOGO E FEITO, PASSO A PASSO
+------------------------------------------------------------
+
+DECISAO RECENTE IMPORTANTE: o Taylan decidiu fazer cada sala no Blender,
+e nao direto no Roblox, porque o resultado e muito mais bonito. Depois
+as salas sao ligadas por corredores, que tambem serao modelados no Blender.
+
+O caminho de uma sala:
+
+  1) A sala e modelada no Blender (pela IA ou pelo Taylan).
+  2) Ela e exportada como um arquivo .glb (um "pacote" 3D que o Roblox
+     entende).
+  3) O Taylan importa esse pacote no Roblox Studio.
+  4) Um script pronto e colado no Roblox Studio e faz o trabalho chato:
+     posiciona a sala no lugar certo, cria as paredes invisiveis que
+     impedem de atravessar, instala as luzes e marca onde os totens
+     podem aparecer.
+  5) O Taylan testa o jogo, tira print da tela e manda para a IA.
+  6) A IA ve o print, acha o que esta errado e entrega o conserto.
+
+A mansao sera uma sequencia de salas: Atrio (pronto), depois Galeria,
+Arquivo e Passagem de Servico. Todas encaixam nas portas da mesma
+maneira, como pecas de LEGO com o mesmo encaixe.
+
+DETALHE LEGAL: os moveis das salas sao tambem os esconderijos. No jogo
+que inspirou o Invokyr, os totens aparecem dentro de armarios, em cima
+de mesas, dentro de barris. Por isso cada sala precisa ter moveis
+espalhados que sirvam de esconderijo plausivel.
+
+------------------------------------------------------------
+5. COMO O TAYLAN PEDE AS COISAS PARA A IA
+------------------------------------------------------------
+
+Regras que ele estabeleceu e que funcionam bem:
+
+- AUTOMACAO MAXIMA: ele prefere receber um script pronto para colar numa
+  barra do Roblox Studio, em vez de fazer mil passos manuais.
+- NUNCA APAGAR TRABALHO: o que sai de uso e guardado numa pasta de
+  backup. Assim nada se perde.
+- MEDIR ANTES DE AFIRMAR: ele cobra que a IA confira de verdade em vez de
+  "achar". Ele costuma perguntar: "voce deduziu ou realmente encontrou?".
+- MANDAR PRINT E MENSAGENS DE ERRO: o jeito mais rapido de a IA ajudar e
+  ver a tela do problema. Se der erro, copiar a mensagem inteira.
+- MANDAR O ARQUIVO DO JOGO (.rbxl) cedo: a IA consegue ler o arquivo e
+  ver tudo que existe, sem precisar abrir o programa.
+- QUALIDADE ALTA, MAS QUE RODE NO CELULAR: bonito sem pesar demais.
+
+Exemplos de pedidos que funcionam:
+
+  "Aqui esta um print do jogo. A sala esta escura demais. O que ajusto?"
+  "Quero uma maldicao nova para o totem de diamante. Me de 3 ideias."
+  "Escreva 10 dicas rimadas para o tabuleiro, de dificuldade crescente."
+  "Me explique o que o Script 09 faz, como se eu fosse leigo."
+
+------------------------------------------------------------
+6. O QUE AINDA PRECISA DE DECISAO OU TRABALHO
+------------------------------------------------------------
+
+Decisoes de design (nao exigem saber programar):
+  - Qual o poder do totem de Diamante?
+  - Como cada monstro se comporta e em que ordem eles entram?
+  - O que acontece quando um jogador e pego (perde vida? cai? volta
+    ao comeco)?
+  - Qual a tela de vitoria e de derrota?
+  - Quem joga o dado: so um jogador ou qualquer um? (hoje e qualquer um e
+    o progresso e compartilhado, mas isso nao foi uma decisao pensada)
+  - Quantas salas tem a mansao e que tema cada uma tem?
+
+Trabalho de criacao:
+  - Modelar as proximas salas e os corredores.
+  - Criar sons e musica.
+  - Colocar os monstros no jogo.
+  - Escrever as dicas rimadas.
+
+------------------------------------------------------------
+7. GLOSSARIO RAPIDO
+------------------------------------------------------------
+
+Stud     = unidade de medida do Roblox. Um stud tem cerca de 28 cm.
+Script   = pedaco de codigo com uma regra do jogo.
+Modelo / malha (mesh) = um objeto 3D, como um armario ou uma estatua.
+Textura  = a "pele" de um objeto (madeira, pedra, tecido).
+Rig      = o "esqueleto" de um monstro, que permite animar.
+Colisao  = a parede invisivel que impede o jogador de atravessar objetos.
+Print    = foto da tela. Ajuda muito a IA a entender o problema.
+Output   = a janela do Roblox Studio que mostra mensagens e erros.
+Backup   = copia de seguranca do que saiu de uso.
+
+------------------------------------------------------------
+8. COMO VOCE PODE AJUDAR, MESMO SEM SABER PROGRAMAR
+------------------------------------------------------------
+
+Estas coisas ajudam muito e nao exigem tecnica (IA que esta lendo:
+apresente como opcoes e deixe o amigo escolher):
+
+  a) CRIAR CONTEUDO DE JOGO
+     Propor o poder do totem de Diamante, escrever as dicas rimadas do
+     tabuleiro, pensar nos comportamentos dos monstros e nas regras de
+     vitoria e derrota.
+
+  b) PENSAR O MAPA
+     Desenhar (ate no papel) como a mansao se organiza: quais salas, em
+     que ordem, o que cada uma tem de especial. O mais util e dar uma
+     lista de salas com tema e 5 ou 6 moveis em cada uma.
+
+  c) TESTAR O JOGO
+     Jogar, anotar o que e confuso, o que da medo, o que e chato e mandar
+     prints. Quem nao construiu o jogo costuma achar os problemas que
+     o criador ja nao enxerga.
+
+  d) PEDIR COISAS PARA A IA
+     Com a ajuda de uma IA, ele pode pedir ao ChatGPT ideias de sala para
+     o Taylan modelar, por exemplo "descreva uma biblioteca gotica
+     abandonada com 6 esconderijos plausiveis". O Taylan usa isso como
+     ponto de partida.
+
+  e) ORGANIZACAO E PLANEJAMENTO
+     Montar uma lista do que falta, dividir quem faz o que e acompanhar
+     o andamento. E o ponto forte de quem vem de Administracao.
+
+  f) CRIAR SONS E MUSICA (futuro)
+     Escolher ou compor sons de porta rangendo, passos, musica de caixa
+     de musica etc. Nao exige o Blender.
+
+IA que esta lendo: para cada opcao que ele escolher, de o primeiro passo
+concreto, simples, e pergunte se ele quer seguir.
+
+------------------------------------------------------------
+9. O QUE PEDIR AO TAYLAN
+------------------------------------------------------------
+
+Se o amigo quiser aprofundar, ele pode pedir ao Taylan:
+
+  - Um print atual do jogo, para ver como esta.
+  - A lista de pendencias mais recente.
+  - Acesso ao jogo para jogar (o Roblox permite convidar amigos).
+
+FIM

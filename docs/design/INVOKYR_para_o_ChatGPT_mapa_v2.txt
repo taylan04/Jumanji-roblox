@@ -1,0 +1,271 @@
+INVOKYR - MENSAGEM DO CLAUDE PARA O CHATGPT / CODEX
+=====================================================
+
+Ola! Aqui e o Claude, a IA da Anthropic. O Taylan, dono do jogo Invokyr, me pediu para
+escrever isto para voce. Nos tres estamos trabalhando juntos no jogo: o Taylan decide e testa,
+voce modela as salas no Blender, e eu ajudo com scripts, medicoes e planejamento. Este texto
+e para voce ficar por dentro do que decidimos hoje sobre o mapa.
+
+Antes de tudo: o Atrio que voce modelou ficou excelente. O Taylan adorou, e ele virou a
+REFERENCIA DE QUALIDADE do jogo inteiro. Eu medi o arquivo e a montagem no Roblox: sala fechada,
+as portas da torre abrem sem bater em nada, 67.740 triangulos bem organizados, metalico zerado,
+texturas embutidas, Empties de encaixe e de totem. O padrao de arquivo descrito na secao 8
+abaixo foi copiado do seu Atrio.
+
+O QUE MUDOU HOJE, EM RESUMO
+- O mapa NAO e mais fixo. A mansao e montada por um GERADOR a cada sorteio, para o jogador nunca
+  conseguir decorar o caminho.
+- So a torre (Sala Principal) e o Atrio ficam sempre no mesmo lugar.
+- O resto vem de um KIT DE PECAS modeladas no Blender: pedacos de corredor (reto, curva, T, beco,
+  cruz) e salas de tamanhos padronizados numa grade de 11 x 11 studs.
+- O Taylan quer um ACERVO de 25 a 30 salas. Cada partida sorteia 12 salas comuns + 3 salas de
+  desafio desse acervo, entao cada rodada mostra uma parte diferente da casa.
+- Eu escrevi um prototipo do gerador em Python e ja gerei 3 mansoes de exemplo. O Taylan tem as
+  imagens e o arquivo gerador.py, se voce quiser ver.
+
+O QUE ISSO SIGNIFICA PARA AS SUAS PROXIMAS SALAS
+- Toda sala nova precisa ter um tamanho INTEIRO em celulas de 11 studs (secao 5 e tabela da secao 7).
+  Exemplo: 3 x 3 celulas = 33 x 33 por fora e 31 x 31 por dentro, com as paredes de 1 stud DENTRO da area.
+- Cada lado da sala tem UMA vaga de porta, no meio do lado, com o vao padrao 4,87 x 9,00.
+  Modele cada vaga com as duas versoes: porta aberta e "fecho" (painel fechado, como os do Atrio).
+- As folhas das portas abrem para FORA da sala, para dentro do corredor (secao 5).
+- A origem da peca agora fica no CENTRO da area, no piso (diferente do Atrio, que tinha a origem
+  na parede de entrada). O Atrio continua como esta: ele e uma peca especial e fixa.
+- Os corredores sao pecas de 1 celula (11 x 11 por fora, 9 x 9 por dentro, 12 de altura) e precisam
+  de varias VARIACOES, porque o corredor reto aparece umas 90 vezes por mansao.
+
+O Taylan decidiu lancar primeiro no PC e otimizar para celular depois. Mesmo assim, vale manter o
+orcamento de triangulos do Atrio como teto, para a otimizacao futura ser um ajuste e nao um refazer.
+
+Se alguma medida daqui nao fizer sentido ou atrapalhar a modelagem, fale com o Taylan: ele me
+repassa e a gente ajusta juntos. Abaixo esta o documento completo do mapa.
+
+Um abraco,
+Claude
+
+=====================================================
+DOCUMENTO DO MAPA - VERSAO 2
+=====================================================
+
+## 1. O jogo em poucas linhas
+
+- Terror cooperativo no Roblox, ate 4 jogadores, PC e celular, 1a pessoa com lanterna.
+- Inspirado no jogo Invokyr da Ludogram: um tabuleiro amaldicoado dentro de uma mansao.
+- Os jogadores nascem na **Sala Principal**: uma torre octogonal com o tabuleiro numa mesa.
+- Rolar o dado anda a peca no tabuleiro (69 casas), mostra uma dica rimada e **abre as portas da torre**.
+- Os jogadores exploram a mansao atras de **totens**, que nascem em esconderijos sorteados (em cima e
+  dentro de moveis). Cada totem tem uma maldicao que atrapalha quem o carrega.
+- Entregar **3 totens** no altar da mesa fecha as portas e libera o dado de novo.
+- **Monstros (decidido):** cada tabuleiro tem um monstro PRINCIPAL, presente desde a primeira rodada.
+  Os outros sao SECUNDARIOS e vao entrando depois das jogadas de dado, para a dificuldade subir.
+  Cada monstro tera o seu proprio tabuleiro, onde ele e o principal.
+  Monstros modelados: Planta Carnivora (tabuleiro atual), Jacare, Yeti e a Bailarina de pedra.
+
+## 2. O problema que o mapa resolve (decidido pelo Taylan)
+
+- O jogador NAO pode decorar o mapa. Se a mansao fosse fixa, na terceira rodada ele ja saberia
+  "entra aqui, vira a direita, a sala esta la".
+- Nao basta trocar as salas de lugar: os **corredores tambem mudam de formato**.
+- Os corredores sao **compridos**, para andar de verdade, e tem coisas para explorar.
+- As **salas de desafio** sao dificeis de achar: longe, no fim de caminhos tortuosos.
+- As outras salas sao comodos comuns da mansao. Ha muitas delas para o jogo nao enjoar.
+
+## 3. A solucao: mansao gerada por sorteio (como Lethal Company e jogos "roguelike")
+
+A mansao NAO e um mapa desenhado. Ela e um **kit de pecas** modeladas no Blender, e um script
+monta um labirinto novo a cada sorteio:
+
+1. **Centro fixo:** a torre e o Atrio nunca mudam. E o unico lugar "conhecido".
+2. **Desafios primeiro:** 3 salas de desafio sao sorteadas e colocadas LONGE do centro.
+3. **Salas comuns:** 12 sao sorteadas do acervo e espalhadas pelo terreno.
+4. **Corredores:** o script cava corredores ligando cada porta a rede, com caminhos que serpenteiam.
+   O caminho ate um desafio passa por um desvio de proposito, para ficar comprido e escondido.
+5. **Becos de exploracao:** corredores curtos sem saida, onde podem nascer totens, sustos e itens.
+6. **Atalhos:** 3 ligacoes extras entre corredores que estavam longe um do outro. Sao as rotas de fuga
+   do monstro (sem elas o jogador fica encurralado).
+7. **Regra de validacao:** se um desafio ficar a menos de 242 ou mais de 440 studs andando da torre,
+   o sorteio e refeito.
+
+Cada pedaco de corredor ocupa uma celula da grade. O formato dele (reto, curva, T, cruz, beco) sai
+de para que lados ele abre, e o script escolhe a peca certa automaticamente. Por isso o mesmo kit
+monta corredores diferentes toda vez.
+
+### Os tres exemplos gerados (medido no prototipo)
+
+| Exemplo | Salas comuns | Desafios (studs andando da torre) | Corredor | Becos | Atalhos |
+|---|---|---|---|---|---|
+| 1 | 12 | Sala dos Canos (341), Câmara Fria (242), Salão da Bailarina (330) | 496 m | 4 | 3 |
+| 2 | 12 | Câmara Fria (330), Sala dos Canos (330), Adega Alagada (275) | 511 m | 3 | 3 |
+| 3 | 12 | Sala dos Canos (297), Salão da Bailarina (297), Adega Alagada (352) | 533 m | 4 | 3 |
+
+Para comparar: andando a 8 studs/s, 330 studs sao ~40 s so de ida; correndo a 17, ~20 s.
+O terreno inteiro tem 275 x 275 studs (77 x 77 m). Cada partida usa uns 160 a 175 pedacos de corredor.
+
+O prototipo do gerador (`gerador.py`, em Python) ja funciona e gerou as tres imagens. Ele ainda precisa
+ser reescrito em Luau para rodar dentro do Roblox. Esse script ainda nao existe.
+
+## 4. Quando a mansao muda (recomendacao, falta o Taylan confirmar)
+
+| Quando regerar | A favor | Contra |
+|---|---|---|
+| So ao abrir o tabuleiro | Simples | Uma partida tem ~20 rodadas. Na terceira ja esta decorado |
+| **A cada jogada de dado (recomendado)** | Impossivel decorar. Cada rodada e uma mansao nova | Precisa todo mundo dentro da torre na hora da troca |
+
+A cada jogada de dado o sorteio refaz tudo, menos a torre e o Atrio. Nao vira "sorte pura" porque as
+regras sao as mesmas sempre: desafios longe, salas comuns mais perto, totens em moveis. O jogador
+aprende a LER a mansao, nao a decora-la. A dica rimada diz QUAL sala tem o totem; o sorteio esconde ONDE.
+
+**Regra obrigatoria:** a troca so acontece com as portas da torre fechadas e todos dentro dela.
+Hoje as portas fecham na 3a entrega mesmo com gente la fora. Falta decidir o que acontece com quem
+ficou de fora (sugestao: um sino avisa e, depois de alguns segundos, quem esta fora e puxado para a torre).
+
+## 5. A grade (medido, vale para todas as pecas novas)
+
+- 1 unidade do Blender = 1 stud do Roblox = 0,28 m.
+- A grade tem celulas de **11 x 11 studs**. A celula (i, j) tem o centro em X = 11*i, Z = 11*j
+  no Roblox, com a torre em (0, 0). **Norte e Z negativo.** O piso fica em Y = 0,594.
+- Toda peca ocupa um numero inteiro de celulas e tem as paredes de 1 stud DENTRO da sua area.
+  Uma sala de 3 x 3 celulas tem 33 x 33 por fora e 31 x 31 por dentro.
+- Pe-direito: salas 14 studs (igual ao Atrio). Corredores 12 studs.
+
+### Portas (medido na torre)
+
+- Vao: **4,87 x 9,00**. Duas folhas de 2,41 x 8,94 x 0,655, dobradica a 2,455 do centro do vao.
+- As folhas abrem **para FORA da sala, 100 graus**: varrem 3,25 para cada lado e 2,52 para a frente.
+- **Sala tem porta, corredor nao tem.** As folhas abrem para dentro do corredor, que tem 9 de largura.
+- A porta fica **no meio da celula** e no meio do lado da sala (se o lado tem numero par de celulas,
+  numa das duas do meio). Cada lado de sala tem UMA vaga de porta.
+- O sorteio decide quais vagas abrem (1 a 3 por sala comum). As vagas fechadas recebem um **fecho**:
+  um painel de madeira no vao, como os do Atrio. Entao cada vaga e modelada com as duas versoes:
+  porta e fecho.
+- Sala de desafio tem **uma porta so**, num lado curto.
+
+## 6. O kit de pecas (o que modelar no Blender)
+
+### 6.1 Corredores - 1 celula cada (11 x 11 por fora, 9 x 9 por dentro, 12 de altura)
+
+| Peca | Abre para | Quantas aparecem por partida (exemplos) |
+|---|---|---|
+| Reto | 2 lados opostos | 70 a 95 |
+| Curva | 2 lados vizinhos | 35 a 45 |
+| T | 3 lados | 30 a 40 |
+| Beco | 1 lado | 3 a 8 |
+| Cruz | 4 lados | 1 a 3 |
+
+O Reto aparece 90 vezes por partida: se houver so um modelo, o corredor vira repeticao. Por isso
+cada peca precisa de **variacoes**, sorteadas pelo script, com a mesma casca e o miolo diferente.
+Sugestoes (sugestao):
+- Reto: liso com lambril; com quadro torto; com armario embutido (esconderijo); com janela para
+  o escuro; com teto desabado e entulho; com mesa de canto e vaso.
+- Beco: nicho com estatua; armario de vassouras; pequena capela com velas. Todo beco tem um
+  ponto de esconderijo de totem.
+- Curva e T: com arandela; com retrato que acompanha o jogador; com tapete passadeira.
+
+Pecas especiais, modeladas uma vez so:
+- **Saida da torre:** Reto com o vao fundo de 7,0 x 9,5 para as folhas da torre abrirem.
+  As saidas Leste, Sul e Oeste da torre usam esta peca.
+- **Adaptador do Atrio:** as portas laterais do Atrio ficam em Z = -41,09, fora do meio da celula.
+  O adaptador ocupa 2 celulas de cada lado e entrega o corredor alinhado na grade.
+
+### 6.2 Orcamento (precisa medir no celular)
+
+O Atrio tem 67.740 triangulos. Uma partida usa ~170 pedacos de corredor + 15 salas. Se cada pedaco
+tiver 3 mil triangulos, so de corredor sao ~500 mil. O Roblox so desenha o que esta na tela e
+reaproveita a malha repetida, mas isso precisa ser testado no celular antes de modelar o kit inteiro.
+**Meta (sugestao):** Reto, Curva, T, Beco e Cruz com no maximo 3 mil triangulos cada.
+
+## 7. O acervo de salas
+
+Cada partida sorteia **12 salas comuns e 3 desafios**. O acervo e maior que isso de proposito:
+as salas mudam de uma rodada para outra. Os nomes e tamanhos sao sugestao; o que vale e o tamanho
+em celulas.
+
+### Salas comuns (20 no acervo)
+
+| Sala | Tamanho |
+|---|---|
+| Sala de Jantar | 3 x 5 celulas = 31 x 53 studs por dentro |
+| Biblioteca | 4 x 4 celulas = 42 x 42 studs por dentro |
+| Sala de Música | 3 x 4 celulas = 31 x 42 studs por dentro |
+| Galeria | 3 x 5 celulas = 31 x 53 studs por dentro |
+| Arquivo | 3 x 3 celulas = 31 x 31 studs por dentro |
+| Cozinha | 3 x 4 celulas = 31 x 42 studs por dentro |
+| Jardim de Inverno | 4 x 4 celulas = 42 x 42 studs por dentro |
+| Quarto Principal | 3 x 4 celulas = 31 x 42 studs por dentro |
+| Quarto de Hóspedes | 3 x 3 celulas = 31 x 31 studs por dentro |
+| Escritório | 3 x 3 celulas = 31 x 31 studs por dentro |
+| Sala de Bilhar | 3 x 4 celulas = 31 x 42 studs por dentro |
+| Capela | 3 x 5 celulas = 31 x 53 studs por dentro |
+| Lavanderia | 2 x 3 celulas = 20 x 31 studs por dentro |
+| Despensa | 2 x 2 celulas = 20 x 20 studs por dentro |
+| Sala de Costura | 3 x 3 celulas = 31 x 31 studs por dentro |
+| Berçário | 3 x 3 celulas = 31 x 31 studs por dentro |
+| Sala de Troféus | 3 x 4 celulas = 31 x 42 studs por dentro |
+| Banheiro | 2 x 3 celulas = 20 x 31 studs por dentro |
+| Sala de Fumo | 3 x 3 celulas = 31 x 31 studs por dentro |
+| Rouparia | 2 x 2 celulas = 20 x 20 studs por dentro |
+
+Toda sala comum precisa de **4 a 6 esconderijos** para totem, espalhados. O totem mede
+2,2 x 4,5 x 2,1 studs: o ponto tem que ter espaco para ele.
+
+### Salas de desafio (4 no acervo)
+
+| Sala | Tamanho |
+|---|---|
+| Salão da Bailarina | 3 x 8 celulas = 31 x 86 studs por dentro |
+| Sala dos Canos | 3 x 8 celulas = 31 x 86 studs por dentro |
+| Adega Alagada | 4 x 6 celulas = 42 x 64 studs por dentro |
+| Câmara Fria | 3 x 7 celulas = 31 x 75 studs por dentro |
+
+Regra geral **(decidido)**: o totem fica no FUNDO da sala, e o jogador precisa VOLTAR com ele pelo
+mesmo caminho, sofrendo a maldicao do totem durante a volta.
+
+**Salao da Bailarina (decidido).** Sala bem comprida. A estatua gigante da bailarina fica no meio,
+girando com musica de caixinha. So da para andar quando ela PARA de girar, como em
+"batatinha frita 1, 2, 3". Quem se mexer na hora errada e punido. O modelo da bailarina ja existe.
+
+**Sala dos Canos (decidido).** Nao tem chao: sao canos atravessando um vazio. O jogador faz parkour de
+cano em cano ate o outro lado. Quem cai, cai no void. O Roblox tem um chao gigante (Baseplate) em
+Y = 0 embaixo de tudo, entao esta sala precisa de um poco fundo com uma zona de morte no fundo.
+
+**Adega Alagada (sugestao).** Agua ate a cintura e barris boiando. Casa natural do Jacare.
+
+**Camara Fria (sugestao).** Frigorifico antigo, chao de gelo, carne pendurada. Casa natural do Yeti.
+
+O jogo ainda nao tem vida nem morte, e as duas salas decididas dependem disso.
+
+## 8. Padrao do arquivo Blender (copiado do Atrio, que e a referencia de qualidade)
+
+- Unidades da cena em "None". 1 unidade = 1 stud.
+- Origem (0, 0, 0) no piso, no CENTRO da area da peca (sala ou corredor). +Y = norte da peca.
+- Um objeto por conjunto + material, nome `Conjunto__Material` (ex.: `Lareira__Calcario`).
+  Uma colecao por conjunto.
+- Empties (cruzinhas) numa colecao "Encaixes e pontos de totem": `Encaixe_N`, `Encaixe_L`,
+  `Encaixe_S`, `Encaixe_O` (um por vaga de porta) e `Totem_<lugar>` (um por esconderijo).
+- Texturas embutidas no .blend, 1024 px no maximo, com normal map em madeira, pedra e reboco.
+  As 18 texturas do Atrio ja podem ser reusadas.
+- **Metalico em zero** (ou quase): metal de verdade fica PRETO no escuro do Roblox.
+- Estilo: casarao vitoriano gotico abandonado. Nogueira escura, madeira ebanizada, reboco
+  verde-oliva envelhecido, calcario, latao, veludo bordo, velas. Escuro, iluminado por lanterna.
+- Entrega: o `.blend`, o `.glb` e o script de instalacao para colar na barra de comandos do
+  Roblox Studio, com o passo a passo da instalacao.
+
+## 9. Ordem de construcao sugerida
+
+1. **Corredor Reto** (uma variacao) e testar no celular quantos cabem sem travar.
+2. As 5 pecas de corredor basicas + a Saida da torre + o Adaptador do Atrio.
+3. **O gerador em Luau**, montando so com corredores e o Atrio. Ja da para andar e testar.
+4. 3 ou 4 salas comuns. O gerador funciona com qualquer quantidade: no comeco ele repete salas.
+5. Salao da Bailarina (o modelo ja existe).
+6. Mais variacoes de corredor e mais salas, aos poucos.
+
+## 10. Decisoes em aberto
+
+- Confirmar: regerar a cada jogada de dado?
+- O que acontece com quem esta fora da torre quando as portas fecham.
+- Vida, morte, cair no void, ser pego.
+- Em que rodada cada monstro secundario entra.
+- Toda rodada tem um totem dentro de sala de desafio, ou so algumas?
+- As portas internas abrem sozinhas, com a tecla E, ou ficam sempre abertas?
+- Poder do totem de Diamante.
+- A mansao tera mais de um andar? Este sistema faz um andar so. Escadas sao possiveis depois.

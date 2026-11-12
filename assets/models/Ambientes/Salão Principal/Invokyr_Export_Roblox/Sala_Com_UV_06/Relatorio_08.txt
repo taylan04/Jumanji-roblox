@@ -1,0 +1,18 @@
+INVOKYR ETAPA 08 - 2026-11-08T16:13:49
+Blender: 5.2.3 LTS
+GLB de entrada: C:\Users\tayla\Downloads\Developer\Invokyr-Roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\SalaPrincipal_UV_CORRIGIDO_06.glb
+PNG de origem: C:\Users\tayla\Downloads\Developer\Invokyr-Roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\Texturas
+O arquivo .blend original nao e modificado.
+PNGs encontrados: 523
+Malhas: 524; primitivas: 524
+Materiais: 524; utilizados pelas malhas: 524
+Primitivas com UV: 524/524
+Imagens ja presentes no GLB: 0
+Materiais com PNG correspondente: 523/524 (99.8%)
+SEM PNG PARA MATERIAL [0]: 'Material'
+Materiais reparados: 523; ja com textura: 0
+Primitivas com baseColorTexture depois do reparo: 523/524
+SUCESSO: C:\Users\tayla\Downloads\Developer\Invokyr-Roblox\assets\models\Salão Principal\Invokyr_Export_Roblox\Sala_Com_UV_06\SalaPrincipal_UV_REPARADO_08.glb (77.87 MiB)
+Agora importe somente o GLB da Etapa 08 em uma Baseplate vazia.
+Ainda e necessario conferir aparencia e otimizar para celular.
+Aviso: o volume atmosferico pode continuar presente na geometria; remova-o no Studio se aparecer.

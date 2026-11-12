@@ -15,3 +15,6 @@ exploração, sobrevivência e eventos aleatórios.
 
 ## Status
 Projeto em desenvolvimento.
+
+## Estrutura
+Veja [docs/ESTRUTURA.md](docs/ESTRUTURA.md).

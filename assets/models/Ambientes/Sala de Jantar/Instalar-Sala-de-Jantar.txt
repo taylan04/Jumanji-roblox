@@ -1,0 +1,160 @@
+-- Importe o GLB como Model em studs, selecione a raiz e execute em modo de edicao.
+local selection=game:GetService("Selection")
+local storage=game:GetService("ServerStorage")
+local tags=game:GetService("CollectionService")
+assert(not game:GetService("RunService"):IsRunning(),"Pare o teste antes de instalar.")
+local chosen=selection:Get()
+assert(#chosen==1 and chosen[1]:IsA("Model"),"Selecione o modelo completo da Sala de Jantar.")
+local imported=chosen[1]
+assert(imported:IsDescendantOf(workspace) and not imported:GetAttribute("PecaInvokyr"),"Selecione a importacao nova.")
+local existing=storage:FindFirstChild("Invokyr_Salas")
+assert(not existing or not existing:FindFirstChild("SalaDeJantar"),"SalaDeJantar ja existe na biblioteca.")
+assert(not workspace:FindFirstChild("Previa_SalaDeJantar"),"Ja existe uma previa desta sala no Workspace.")
+local room=Instance.new("Model")
+room.Name="SalaDeJantar"
+room:SetAttribute("PecaInvokyr",true)
+room:SetAttribute("CelulasX",3)
+room:SetAttribute("CelulasZ",5)
+room:SetAttribute("Tipo","Comum")
+local function folder(parent,name,kind)
+    local x=Instance.new(kind or "Folder")
+    x.Name=name
+    x.Parent=parent
+    return x
+end
+local function part(parent,name,cf,size,solid)
+    local p=Instance.new("Part")
+    p.Name=name
+    p.Size=size
+    p.CFrame=cf
+    p.Anchored=true
+    p.Transparency=1
+    p.CanCollide=solid
+    p.CanQuery=solid
+    p.CanTouch=false
+    p.CastShadow=false
+    p.Parent=parent
+    return p
+end
+local function at(x,y,z)
+    return CFrame.new(x,z,-y)
+end
+local visual=folder(room,"Visual")
+local root=part(room,"Origem",CFrame.identity,Vector3.one*.15,false)
+room.PrimaryPart=root
+local indexed={}
+local function key(s) return string.lower(s):gsub("[^a-z0-9]","") end
+for _,p in ipairs(imported:GetDescendants()) do
+    if p:IsA("MeshPart") then
+        indexed[key(p.Name)]=p
+        indexed[key(p.Parent.Name):gsub("node$","")]=p
+    end
+end
+local floor=assert(indexed.pisoebanizada,"Malha do piso ausente. Mantenha a hierarquia do GLB.")
+local north=assert(indexed.paredendamasco,"Parede norte ausente.")
+local delta=north.Position-floor.Position
+local northDirection=Vector3.new(delta.X,0,delta.Z).Unit
+assert(math.abs(floor.Size.X-33)<.3 and math.abs(floor.Size.Z-55)<.3,"Use Scale Unit = Stud, Scale = 1.")
+local center=floor.Position+Vector3.new(0,.22,0)
+local source=CFrame.lookAt(center,center+northDirection)
+local doors=folder(room,"Portas")
+local sockets=folder(room,"Encaixes")
+local socketsPart=part(sockets,"AncoraEncaixes",CFrame.identity,Vector3.one*.1,false)
+local dirs={N=Vector3.new(0,0,-1),S=Vector3.zAxis,L=Vector3.xAxis,O=-Vector3.xAxis}
+local hinges={["Porta_N_A"]={2.455,27.01,0},["Porta_N_B"]={-2.455,27.01,0},["Porta_S_A"]={-2.455,-27.01,0},["Porta_S_B"]={2.455,-27.01,0},["Porta_L_A"]={16.01,-2.455,0},["Porta_L_B"]={16.01,2.455,0},["Porta_O_A"]={-16.01,2.455,0},["Porta_O_B"]={-16.01,-2.455,0}}
+for side,pos in pairs({["N"]={0,27.5,0},["S"]={0,-27.5,0},["L"]={16.5,0,0},["O"]={-16.5,0,0}}) do
+    local anchor=folder(socketsPart,"Encaixe_"..side,"Attachment")
+    local point=at(table.unpack(pos)).Position
+    anchor.CFrame=CFrame.lookAt(point,point+dirs[side])
+    local door=folder(doors,side)
+    folder(door,"Fecho")
+    for _,label in ipairs({"A","B"}) do
+        local leaf=folder(door,label,"Model")
+        local hinge=part(leaf,"Eixo",at(table.unpack(hinges["Porta_"..side.."_"..label])),Vector3.one*.1,false)
+        leaf.PrimaryPart=hinge
+        leaf:SetAttribute("Fechada",hinge.CFrame)
+    end
+end
+for _,name in ipairs({"Piso__Ebanizada","Piso__Nogueira","Piso__Latao","Teto__Reboco","Teto__Nogueira","Teto__Ebanizada","Parede_N__Damasco","Parede_N__Ebanizada","Parede_N__Nogueira","Parede_N__Talha","Parede_N__Flores","Parede_N__Latao","Porta_N_A__Nogueira","Porta_N_A__Talha","Porta_N_A__Ebanizada","Porta_N_A__Latao","Porta_N_B__Nogueira","Porta_N_B__Talha","Porta_N_B__Ebanizada","Porta_N_B__Latao","Fecho_N__Damasco","Fecho_N__Ebanizada","Fecho_N__Nogueira","Fecho_N__Talha","Ornatos_N__Paisagem","Ornatos_N__Nogueira","Ornatos_N__Latao","Ornatos_N__Flores","Parede_S__Damasco","Parede_S__Ebanizada","Parede_S__Nogueira","Parede_S__Talha","Parede_S__Flores","Parede_S__Latao","Porta_S_A__Nogueira","Porta_S_A__Talha","Porta_S_A__Ebanizada","Porta_S_A__Latao","Porta_S_B__Nogueira","Porta_S_B__Talha","Porta_S_B__Ebanizada","Porta_S_B__Latao","Fecho_S__Damasco","Fecho_S__Ebanizada","Fecho_S__Nogueira","Fecho_S__Talha","Ornatos_S__Paisagem","Ornatos_S__Nogueira","Ornatos_S__Latao","Ornatos_S__Flores","Parede_L__Damasco","Parede_L__Ebanizada","Parede_L__Nogueira","Parede_L__Talha","Parede_L__Flores","Parede_L__Latao","Porta_L_A__Nogueira","Porta_L_A__Talha","Porta_L_A__Ebanizada","Porta_L_A__Latao","Porta_L_B__Nogueira","Porta_L_B__Talha","Porta_L_B__Ebanizada","Porta_L_B__Latao","Fecho_L__Damasco","Fecho_L__Ebanizada","Fecho_L__Nogueira","Fecho_L__Talha","Ornatos_L__Paisagem","Ornatos_L__Nogueira","Ornatos_L__Latao","Ornatos_L__Flores","Parede_O__Damasco","Parede_O__Ebanizada","Parede_O__Nogueira","Parede_O__Talha","Parede_O__Flores","Parede_O__Latao","Porta_O_A__Nogueira","Porta_O_A__Talha","Porta_O_A__Ebanizada","Porta_O_A__Latao","Porta_O_B__Nogueira","Porta_O_B__Talha","Porta_O_B__Ebanizada","Porta_O_B__Latao","Fecho_O__Damasco","Fecho_O__Ebanizada","Fecho_O__Nogueira","Fecho_O__Talha","Ornatos_O__Bosque","Ornatos_O__Ebanizada","Ornatos_O__Ferro","Ornatos_O__Calcario","Mesa_de_banquete__Ebanizada","Mesa_de_banquete__Nogueira","Mesa_de_banquete__Linho","Cadeiras_O__Nogueira","Cadeiras_O__Couro","Cadeiras_O__Talha","Servico_de_mesa__Ceramica","Servico_de_mesa__Marfim","Servico_de_mesa__Latao","Cadeiras_L__Nogueira","Cadeiras_L__Couro","Cadeiras_L__Talha","Cabeceiras__Nogueira","Cabeceiras__Couro","Cabeceiras__Talha","Candelabros__Latao","Candelabros__Marfim","Candelabros__Chama","Centro_de_mesa__Ceramica","Centro_de_mesa__Latao","Centro_de_mesa__Musgo","Centro_de_mesa__Marfim","Prataria_do_jantar__Latao","Prataria_do_jantar__Ceramica","Prataria_do_jantar__Musgo","Prataria_do_jantar__Nogueira","Aparador_S__Nogueira","Aparador_S__Talha","Aparador_S__Ceramica","Aparador_S__Latao","Aparador_S__Marfim","Aparador_N__Nogueira","Aparador_N__Talha","Aparador_N__Ceramica","Aparador_N__Latao","Aparador_N__Marfim","Lustres__Latao","Lustres__Ferro","Lustres__Marfim","Lustres__Chama"}) do
+    local src=assert(indexed[key(name)],"Faltou "..name..". Importe todas as malhas sem unir.")
+    local p=src:Clone()
+    p.Name=name
+    p.CFrame=source:ToObjectSpace(src.CFrame)
+    p.Anchored=true
+    p.CanCollide=false
+    p.CanQuery=false
+    p.CanTouch=false
+    if name:match("__Chama$") then p.Material=Enum.Material.Neon end
+    local side,label=name:match("^Porta_([NSLO])_([AB])__")
+    local panel=name:match("^Fecho_([NSLO])__")
+    p.Parent=side and doors[side][label] or panel and doors[panel].Fecho or visual
+end
+for side,pos in pairs({["N"]={0,27.5,0},["S"]={0,-27.5,0},["L"]={16.5,0,0},["O"]={-16.5,0,0}}) do
+    local outward=dirs[side]
+    local frame=CFrame.lookAt(at(table.unpack(pos)).Position,outward+at(table.unpack(pos)).Position)
+    part(doors[side].Fecho,"BatenteColisao",frame*CFrame.new(0,4.5,.5),Vector3.new(4.87,9,.8),true)
+    for _,label in ipairs({"A","B"}) do
+        local leaf=doors[side][label]
+        local cf=CFrame.lookAt(leaf.PrimaryPart.Position,leaf.PrimaryPart.Position+outward)
+        part(leaf,"FolhaColisao",cf*CFrame.new(label=="A" and -1.225 or 1.225,4.5,0),Vector3.new(2.41,8.94,.655),true)
+    end
+end
+local colliders=folder(room,"Colisao")
+for i,row in ipairs({{"Piso",0.0,0.0,-0.22,33.0,55.0,0.28,0.0},{"Teto",0.0,0.0,14.2,33.0,55.0,0.4,0.0},{"Parede_N",9.4675,27.0,7.0,14.065,1,14,180.0},{"Parede_N",-9.4675,27.0,7.0,14.065,1,14,180.0},{"Parede_N",0.0,27.0,11.5,4.87,1,5,180.0},{"Parede_S",-9.4675,-27.0,7.0,14.065,1,14,0.0},{"Parede_S",9.4675,-27.0,7.0,14.065,1,14,0.0},{"Parede_S",0.0,-27.0,11.5,4.87,1,5,0.0},{"Parede_L",16.0,-14.9675,7.0,25.065,1,14,90.0},{"Parede_L",16.0,14.9675,7.0,25.065,1,14,90.0},{"Parede_L",16.0,0.0,11.5,4.87,1,5,90.0},{"Parede_O",-16.0,14.9675,7.0,25.065,1,14,-90.0},{"Parede_O",-16.0,-14.9675,7.0,25.065,1,14,-90.0},{"Parede_O",-16.0,0.0,11.5,4.87,1,5,-90.0},{"Mesa_de_banquete",0.0,0.0,3.64,7.74,24,0.28,0.0},{"Aparador_S",13.485,-14.0,0.78,10.2,3.81,0.3,90.0},{"Aparador_S",15.245,-14.0,3.41,10.0,0.29,4.96,90.0},{"Aparador_S",13.49,-18.93,3.4,0.26,3.58,4.94,90.0},{"Aparador_S",13.49,-14.0,3.4,0.26,3.58,4.94,90.0},{"Aparador_S",13.49,-9.07,3.4,0.26,3.58,4.94,90.0},{"Aparador_S",13.49,-14.0,6.015,10.28,3.9,0.29,90.0},{"Aparador_N",13.485,14.0,0.78,10.2,3.81,0.3,90.0},{"Aparador_N",15.245,14.0,3.41,10.0,0.29,4.96,90.0},{"Aparador_N",13.49,9.07,3.4,0.26,3.58,4.94,90.0},{"Aparador_N",13.49,14.0,3.4,0.26,3.58,4.94,90.0},{"Aparador_N",13.49,18.93,3.4,0.26,3.58,4.94,90.0},{"Aparador_N",13.49,14.0,6.015,10.28,3.9,0.29,90.0},{"Cadeira",-5,-9,1.03,1.8,2.02,2.0,0},{"Espaldar",-5.87,-9,3.05,0.22,1.82,2.16,0},{"Cadeira",-5,-4.5,1.03,1.8,2.02,2.0,0},{"Espaldar",-5.87,-4.5,3.05,0.22,1.82,2.16,0},{"Cadeira",-5,0,1.03,1.8,2.02,2.0,0},{"Espaldar",-5.87,0,3.05,0.22,1.82,2.16,0},{"Cadeira",-5,4.5,1.03,1.8,2.02,2.0,0},{"Espaldar",-5.87,4.5,3.05,0.22,1.82,2.16,0},{"Cadeira",-5,9,1.03,1.8,2.02,2.0,0},{"Espaldar",-5.87,9,3.05,0.22,1.82,2.16,0},{"Cabeceira",0,-13.55,1.03,2.02,1.8,2,0},{"Espaldar",0,-14.42,3.05,1.82,0.22,2.16,0},{"Cadeira",5,-9,1.03,1.8,2.02,2.0,0},{"Espaldar",5.87,-9,3.05,0.22,1.82,2.16,0},{"Cadeira",5,-4.5,1.03,1.8,2.02,2.0,0},{"Espaldar",5.87,-4.5,3.05,0.22,1.82,2.16,0},{"Cadeira",5,0,1.03,1.8,2.02,2.0,0},{"Espaldar",5.87,0,3.05,0.22,1.82,2.16,0},{"Cadeira",5.38,4.5,1.03,1.8,2.02,2.0,0},{"Espaldar",6.25,4.5,3.05,0.22,1.82,2.16,0},{"Cadeira",5,9,1.03,1.8,2.02,2.0,0},{"Espaldar",5.87,9,3.05,0.22,1.82,2.16,0},{"Cabeceira",0,13.55,1.03,2.02,1.8,2,0},{"Espaldar",0,14.42,3.05,1.82,0.22,2.16,0},{"PeMesa",-1.8,-8,1.7,0.8,0.8,3.3,0},{"PeMesa",1.8,-8,1.7,0.8,0.8,3.3,0},{"PeMesa",-1.8,0,1.7,0.8,0.8,3.3,0},{"PeMesa",1.8,0,1.7,0.8,0.8,3.3,0},{"PeMesa",-1.8,8,1.7,0.8,0.8,3.3,0},{"PeMesa",1.8,8,1.7,0.8,0.8,3.3,0}}) do
+    part(colliders,"COL_"..i,at(row[2],row[3],row[4])*CFrame.Angles(0,math.rad(row[8]),0),Vector3.new(row[5],row[7],row[6]),true)
+end
+local places=folder(room,"Esconderijos")
+for _,v in ipairs({{"Nicho_1",13.5,-16.43,0.94},{"Nicho_2",13.5,-11.57,0.94},{"Nicho_3",13.5,11.57,0.94},{"Nicho_4",13.5,16.43,0.94},{"Ponta_do_aparador",13.5,12.15,6.17}}) do
+    local p=part(places,"Totem_"..v[1],at(v[2],v[3],v[4]),Vector3.new(2.2,.1,2.1),false)
+    tags:AddTag(p,"Invokyr_Esconderijo")
+end
+local lights=folder(room,"Luzes")
+for _,v in ipairs({{"Mesa_0",0,-6.6,6.24,255,183,109,1.25,12},{"Mesa_1",0,0,6.24,255,183,109,1.25,12},{"Mesa_2",0,6.6,6.24,255,183,109,1.25,12},{"Lustre_3",0,-8.8,10.35,255,200,138,1.55,18},{"Lustre_4",0,8.8,10.35,255,200,138,1.55,18},{"Luar_5",-14.4,-13,8.2,151,182,226,1.35,17},{"Luar_6",-14.4,13,8.2,151,182,226,1.35,17}}) do
+    local p=part(lights,v[1],at(v[2],v[3],v[4]),Vector3.one*.1,false)
+    local l=Instance.new("PointLight")
+    l.Color=Color3.fromRGB(v[5],v[6],v[7])
+    l.Range=v[9]
+    l.Shadows=true
+    l.Brightness=v[8]
+    l.Parent=p
+end
+local config=folder(room,"ConfigurarPortas","ModuleScript")
+config.Source=[==[
+-- require(sala.ConfigurarPortas)(sala, {N=100,S=0})
+-- Um angulo (0 a 100) habilita a porta; um lado omitido recebe o painel.
+return function(room,angles)
+    local function show(parent,on)
+        for _,p in ipairs(parent:GetDescendants()) do
+            if p:IsA("MeshPart") then p.Transparency=on and 0 or 1
+            elseif p:IsA("BasePart") and p.Name:match("Colisao$") then
+                p.CanCollide=on
+                p.CanQuery=on
+            end
+        end
+    end
+    for _,side in ipairs(room.Portas:GetChildren()) do
+        local angle=angles[side.Name]
+        local active=type(angle)=="number"
+        show(side.Fecho,not active)
+        for _,label in ipairs({"A","B"}) do
+            local leaf=side[label]
+            show(leaf,active)
+            local turn=active and math.clamp(angle,0,100) or 0
+            leaf:PivotTo(room:GetPivot()*leaf:GetAttribute("Fechada")*CFrame.Angles(0,math.rad(label=="A" and -turn or turn),0))
+        end
+    end
+end
+]==]
+local configure=require(config)
+configure(room,{N=0,S=0})
+local preview=room:Clone()
+preview.Name="Previa_SalaDeJantar"
+for _,p in ipairs(preview.Esconderijos:GetChildren()) do tags:RemoveTag(p,"Invokyr_Esconderijo") end
+preview:PivotTo(CFrame.new(165,.594,0))
+configure(preview,{N=100,S=100})
+local library=existing or folder(storage,"Invokyr_Salas")
+room.Parent=library
+preview.Parent=workspace
+imported:Destroy()
+selection:Set({preview})
+print("Sala pronta em ServerStorage > Invokyr_Salas. Previa no Workspace a leste da torre.")

@@ -1,0 +1,190 @@
+-- Cole o ID numerico da imagem Volume-de-fogo.png entre as aspas.
+local id = "COLE_O_ID"
+id = id:match("^%s*(%d+)%s*$") or id:match("^rbxassetid://(%d+)$")
+assert(id, "Copie o ID da imagem Volume-de-fogo.png para a segunda linha.")
+assert(not game:GetService("RunService"):IsRunning(),"Pare o teste antes de instalar.")
+local room=workspace.Invokyr.Mansao.Atrio
+local wood=assert(room:FindFirstChild("LenhaFisica"),"Instale primeiro a lenha 3D no atrio.")
+local server=assert(game.ServerScriptService:FindFirstChild("Invokyr_Totens"),"Script do totem nao encontrado.")
+local folder=game.StarterPlayer.StarterPlayerScripts
+local client=folder:FindFirstChild("Invokyr_FogoNaMansao")
+assert(not client or client:IsA("LocalScript"),"Nome ocupado em StarterPlayerScripts.")
+local base='maldicaoRE:FireAllClients("chama", hit.Position, CFG.FOGO_RAIO, CFG.FOGO_DURACAO'
+local previous=base..', (hrp.CFrame * CFrame.new(0, 0.4, -2)).Position)'
+local nextSignal=base..', hrp.CFrame:PointToWorldSpace(Vector3.new(.48,.40,-1.55)), frente, char)'
+local src=server.Source
+if not src:find(nextSignal,1,true) then
+    local first,last=src:find(previous,1,true)
+    if not first then first,last=src:find(base..')',1,true) end
+    assert(first,"O codigo do totem mudou. Envie a funcao cuspirFogo para adaptar.")
+    src=src:sub(1,first-1)..nextSignal..src:sub(last+1)
+end
+local hearth={}
+for _,e in ipairs(wood:GetDescendants()) do
+    if e:IsA("ParticleEmitter") and e.Name=="Labareda" then table.insert(hearth,e) end
+end
+assert(#hearth>0,"Emissores de lenha nao encontrados.")
+local texture="rbxassetid://"..id
+for _,e in ipairs(hearth) do
+    e.Texture=texture
+    e.FlipbookLayout=Enum.ParticleFlipbookLayout.Grid4x4
+    e.FlipbookMode=Enum.ParticleFlipbookMode.Loop
+    e.FlipbookFramerate=NumberRange.new(10,16)
+    e.FlipbookStartRandom=true
+    e.FlipbookBlendFrames=true
+    e.LightEmission=.20
+    e.Brightness=1.5
+    e.Rotation=NumberRange.new(-60,60)
+    e.RotSpeed=NumberRange.new(-36,36)
+    e.Squash=NumberSequence.new(-.23)
+    e.Speed=NumberRange.new(1.05,1.85)
+end
+if src~=server.Source then server.Source=src end
+client=client or Instance.new("LocalScript")
+client.Name="Invokyr_FogoNaMansao"
+client:SetAttribute("Textura",texture)
+client.Source=[==[
+local texture = script:GetAttribute("Textura")
+local debris = game:GetService("Debris")
+local players = game:GetService("Players")
+local run = game:GetService("RunService")
+local remote = game.ReplicatedStorage:WaitForChild("Invokyr"):WaitForChild("MaldicaoEfeito")
+
+local function curve(a,b,c,d)
+    return NumberSequence.new({
+        NumberSequenceKeypoint.new(0,a), NumberSequenceKeypoint.new(.20,b),
+        NumberSequenceKeypoint.new(.72,c), NumberSequenceKeypoint.new(1,d)
+    })
+end
+
+local function billow(e)
+    e.Texture = texture
+    e.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid4x4
+    e.FlipbookMode = Enum.ParticleFlipbookMode.Loop
+    e.FlipbookFramerate = NumberRange.new(11,17)
+    e.FlipbookStartRandom = true
+    e.FlipbookBlendFrames = true
+    e.Orientation = Enum.ParticleOrientation.FacingCamera
+    e.Color = ColorSequence.new(Color3.new(1,1,1))
+    e.LightInfluence = 0
+    e.LightEmission = .13
+    e.Brightness = 1.3
+    e.Rotation = NumberRange.new(-180,180)
+    e.RotSpeed = NumberRange.new(-52,52)
+end
+
+local function groundFlame(e)
+    local parent = e.Parent
+    if not parent or not e:IsA("ParticleEmitter") then return end
+    if parent.Name ~= "Invokyr_ChamaLocal" and parent.Name ~= "Invokyr_BrasaLocal" then return end
+    if not string.find(e.Texture,"fire_main",1,true) then return end
+    billow(e)
+    local ground = parent.Name == "Invokyr_ChamaLocal"
+    e.Size = ground and curve(.48,1.3,2.05,.85) or curve(.09,.23,.36,.14)
+    e.Transparency = curve(.48,.14,.30,1)
+    e.Rate = ground and 36 or 8
+end
+workspace.DescendantAdded:Connect(groundFlame)
+for _,p in ipairs(workspace:GetChildren()) do
+    if p.Name=="Invokyr_ChamaLocal" or p.Name=="Invokyr_BrasaLocal" then
+        for _,e in ipairs(p:GetChildren()) do groundFlame(e) end
+    end
+end
+
+remote.OnClientEvent:Connect(function(kind, target, radius, duration, origin, direction, caster)
+    if kind~="chama" or typeof(origin)~="Vector3" or typeof(direction)~="Vector3" or direction.Magnitude<.1 then return end
+    local root = caster and caster:FindFirstChild("HumanoidRootPart")
+    local firstPerson = caster and caster == players.LocalPlayer.Character
+    local cast = RaycastParams.new()
+    cast.FilterType = Enum.RaycastFilterType.Exclude
+    cast.FilterDescendantsInstances = caster and {caster,workspace.CurrentCamera} or {workspace.CurrentCamera}
+    cast.RespectCanCollide = true
+    local length = math.clamp((Vector3.new(target.X,0,target.Z)-Vector3.new(origin.X,0,origin.Z)).Magnitude,1,20)
+    local nozzle = Instance.new("Part")
+    nozzle.Name = "SoproDoTotem"
+    nozzle.Size = Vector3.new(.09,.09,.09)
+    nozzle.Transparency = 1
+    nozzle.Anchored = true
+    nozzle.CanCollide = false
+    nozzle.CanQuery = false
+    nozzle.CanTouch = false
+    local function layer(name, width, spread, rate, color)
+        local e = Instance.new("ParticleEmitter")
+        billow(e)
+        e.Name = name
+        e.Color = ColorSequence.new(color)
+        e.EmissionDirection = Enum.NormalId.Front
+        e.SpreadAngle = Vector2.new(spread,spread)
+        e.Size = curve(.20,width*.34,width,width*.87)
+        e.Transparency = curve(.20,.05,.15,1)
+        e.Rate = rate
+        e.Lifetime = NumberRange.new(.38,.44)
+        e.Acceleration = Vector3.new(0,2,0)
+        e.Parent = nozzle
+        return e
+    end
+    local mantle = layer("Dobras",3.15,6,43,Color3.fromRGB(255,219,184))
+    local core = layer("Miolo",1.40,2.7,37,Color3.fromRGB(255,253,214))
+    core.LightEmission = .43
+    core.Brightness = 1.8
+    local light = Instance.new("PointLight")
+    light.Color = Color3.fromRGB(255,143,55)
+    light.Range = 9
+    light.Shadows = false
+    light.Parent = nozzle
+    local function aim()
+        local pos,dir=origin,direction.Unit
+        if root and root.Parent then
+            pos=root.CFrame:PointToWorldSpace(Vector3.new(.48,.40,-1.55))
+            local look=root.CFrame.LookVector
+            local flat=Vector3.new(look.X,0,look.Z)
+            if flat.Magnitude>.1 then dir=flat.Unit end
+        end
+        local cam=workspace.CurrentCamera
+        if firstPerson and cam and root and (cam.CFrame.Position-root.Position).Magnitude<3.8 then
+            pos=cam.CFrame:PointToWorldSpace(Vector3.new(.55,-.40,-1.35))
+        end
+        nozzle.CFrame=CFrame.lookAt(pos,pos+dir)
+        local hit=workspace:Raycast(pos,dir*length,cast)
+        local reach=hit and hit.Distance or length
+        local speed=math.max(.15,reach)/.44
+        mantle.Speed=NumberRange.new(.92*speed,speed)
+        core.Speed=NumberRange.new(speed*.97,speed)
+    end
+    aim()
+    nozzle.Parent = workspace
+    mantle:Emit(2)
+    core:Emit(2)
+    local elapsed=0
+    while elapsed<.95 and nozzle.Parent do
+        elapsed=elapsed+run.Heartbeat:Wait()
+        aim()
+        light.Brightness=1.25*math.clamp((.95-elapsed)/.23,0,1)
+    end
+    core.Enabled=false
+    mantle.Enabled=false
+    light.Enabled=false
+    debris:AddItem(nozzle,.55)
+end)
+
+local room=workspace:WaitForChild("Invokyr"):WaitForChild("Mansao"):WaitForChild("Atrio")
+while room.Parent do
+    local folder=room:FindFirstChild("Luzes")
+    local lamp=folder and folder:FindFirstChild("Lume_da_lareira")
+    local light=lamp and lamp:FindFirstChildOfClass("PointLight")
+    if light then
+        local initial=light.Brightness
+        while light:IsDescendantOf(room) do
+            local c=workspace.CurrentCamera
+            local near=c and (c.CFrame.Position-lamp.Position).Magnitude<85
+            local t=time()
+            light.Brightness=initial*(near and (1+.28*math.noise(t*3.7,.12)+.12*math.noise(t*9.3,.66)) or 1)
+            task.wait(near and .055 or .6)
+        end
+    end
+    task.wait(1)
+end
+]==]
+client.Enabled=true
+client.Parent=folder
+print("Sopro instalado. Salve o projeto e teste a maldicao do Totem de Fogo.")

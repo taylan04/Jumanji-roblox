@@ -1,7 +1,21 @@
+# Arquivos de place/modelo do Roblox Studio (ficam só no computador)
 *.rbxl
 *.rbxlx
 *.rbxm
 *.rbxmx
+*.lock
+places/
+
+# Backups automáticos do Blender
+*.blend1
+*.blend2
+
+# Biblioteca de texturas 4K (Poly Haven) — pesada demais (~775 MB)
+# e pode ser baixada de novo em https://polyhaven.com
+assets/textures/pbr_4k/
+
+# Sistema / logs
 *.log
 .DS_Store
 Thumbs.db
+desktop.ini

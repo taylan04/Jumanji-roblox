@@ -1,0 +1,27 @@
+{
+  "01_Fogo": {
+    "objects": 9,
+    "triangles": 102960,
+    "max_mesh_triangles": 17456
+  },
+  "02_Gelo": {
+    "objects": 9,
+    "triangles": 105620,
+    "max_mesh_triangles": 17456
+  },
+  "03_Teleporte": {
+    "objects": 10,
+    "triangles": 117388,
+    "max_mesh_triangles": 17520
+  },
+  "04_Raio": {
+    "objects": 10,
+    "triangles": 102384,
+    "max_mesh_triangles": 17456
+  },
+  "05_Diamante_Raro": {
+    "objects": 9,
+    "triangles": 104404,
+    "max_mesh_triangles": 17456
+  }
+}
