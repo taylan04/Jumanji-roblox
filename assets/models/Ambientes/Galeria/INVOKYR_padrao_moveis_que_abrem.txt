@@ -1,0 +1,81 @@
+INVOKYR - PADRAO DE MOVEIS QUE ABREM E ESCONDERIJOS (para quem modela salas no Blender)
+=====================================================================================
+
+Oi! Aqui e o Claude de novo. Fiz a Galeria (sala de 3 x 5 celulas, com mezanino e escada) seguindo
+o padrao da Sala de Jantar que voce fez: mesmo tamanho, mesmas vagas de porta, e as portas, os fechos
+e as texturas sao as suas, copiadas do Sala-de-Jantar.blend. A novidade e que os moveis ABREM, porque
+o Taylan decidiu que totens e dados ficam escondidos dentro deles. Este texto explica a convencao,
+para as salas de nos dois funcionarem com o mesmo script no Roblox.
+
+Por que importa: os jogadores vao abrir moveis procurando totens e DADOS. Vai haver varios tipos de
+dado (cura, dado para tentar matar monstro, teleporte...), e eles nascem dentro de gavetas, baus e
+armarios. Movel que abre e a mecanica principal de exploracao das salas.
+
+1. NOME DAS PECAS QUE SE MEXEM
+------------------------------
+Cada parte que se mexe e um grupo proprio, com o nome:
+
+    Abre_<Movel>_<Parte>__<Material>
+
+Exemplos da Galeria:
+    Abre_Armario_SO_PortaE__Nogueira      (folha esquerda do armario)
+    Abre_Armario_SO_PortaE__Talha
+    Abre_Armario_SO_PortaE__Latao         (puxador e dobradicas da mesma folha)
+    Abre_Gaveteiro_L1_Gaveta3__Nogueira   (frente + caixa da gaveta)
+    Abre_Bau_SO_Tampa__Ferro
+    Abre_Quartinho_Porta__Talha           (porta debaixo da escada)
+
+- Tudo o que comeca com o mesmo "Abre_<Movel>_<Parte>" se move junto.
+- A gaveta precisa da CAIXA modelada (fundo, laterais e traseira), nao so a frente: quando abre,
+  o jogador ve o que tem dentro.
+- O corpo fixo do movel e um conjunto normal: Armario_SO__Nogueira, Gaveteiro_L1__Ebanizada, etc.
+- Em portas e tampas, o puxador e as dobradicas fazem parte da folha (mesmo grupo).
+
+2. COMO A PARTE SE MEXE (vai para o script de instalacao, nao para o GLB)
+----------------------------------------------------------------------
+- Porta ou tampa: gira em torno de uma dobradica. Informar o ponto da dobradica, o eixo
+  (vertical para porta, horizontal para tampa) e o angulo (uso 100 graus em porta e 95 em tampa).
+  A folha tem que girar PARA FORA do movel, sem bater na parede, em coluna ou em outro movel.
+  Testei todas as 40 partes da Galeria abrindo ate o fim contra a colisao da sala.
+- Gaveta: desliza em linha reta. Informar o vetor do curso (uso 70% da profundidade).
+- Na Galeria isso foi calculado no proprio script que monta a sala. Se voce modelar um movel que
+  abre, basta deixar no Blender um Empty "Dobradica_<Movel>_<Parte>" no eixo da dobradica
+  (ou nada, no caso de gaveta) e dizer o angulo. O Taylan me manda e eu faco o resto.
+
+3. ESCONDERIJOS (Empties na colecao "Encaixes e pontos de totem")
+-------------------------------------------------------------
+    Totem_<lugar>   cubo, no PISO do lugar onde o totem fica em pe
+    Dado_<lugar>    esfera, no fundo da gaveta ou do bau
+
+Propriedades personalizadas no Empty (Object Properties > Custom Properties):
+    tipo  = "totem" ou "dado"
+    movel = "<Movel>"     (so se estiver DENTRO de um movel que abre)
+
+Medidas que precisam caber:
+- Totem: 2,2 de largura x 2,1 de profundidade x 4,5 de altura. Nao cabe em gaveta: vai em
+  armario, guarda-roupa, quartinho, em cima de mesa ou de console, ou no chao num canto.
+- Dado: cerca de 1 x 1 x 1. Vai em gaveta, bau, relogio, caixa.
+- Armario para totem: por dentro pelo menos 2,6 de largura, 2,4 de profundidade e 5,4 de altura
+  livre (a prateleira tem que ficar acima disso).
+
+O script de instalacao tambem impede pegar o que esta dentro de um movel FECHADO: o jogador tem que
+abrir primeiro. Isso vale para os totens do sistema que ja existe.
+
+4. RESTO DO PADRAO (igual ao Atrio e a Sala de Jantar)
+------------------------------------------------------
+- 1 unidade = 1 stud. Origem no centro do piso. +Y = norte. Paredes de 1 stud dentro da area.
+- Vagas de porta: Porta_<lado>_A / Porta_<lado>_B / Fecho_<lado>, como as suas.
+- Metalico em zero (ou 0,05 no maximo). Texturas embutidas no .blend.
+- Malha: ate ~10 mil triangulos por objeto. Balaustrada e escada eu dividi em varios objetos.
+- Uma colecao "Colisao (nao exportar)" com caixas simples ajuda muito: o instalador cria a colisao
+  invisivel a partir delas, e as malhas bonitas ficam sem colisao (mais leve e sem prender o jogador).
+
+5. A GALERIA, PARA REFERENCIA
+-----------------------------
+- 3 x 5 celulas (33 x 55 por fora), pe-direito de 24, mezanino em U a 11 de altura, escadaria central
+  de 14 degraus (sobe 11 em 19,5), claraboia, vitral ao sul, lustre de dois aros.
+- 13 moveis que abrem, 40 partes: 2 armarios de colecao e 2 guarda-roupas (totem), 4 gaveteiros
+  com 6 gavetas cada, mesa expositora com 4 gavetas, 2 baus e um relogio de pendulo (dado),
+  e a porta do quartinho debaixo da escada (totem).
+- 7 pontos de totem e 31 de dado.
+- 103 mil triangulos (a sala tem dois andares; e a mais pesada ate agora).

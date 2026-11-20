@@ -1,0 +1,9 @@
+﻿CAPELA | INVOKYR
+
+1. Extraia o ZIP. Capela.blend é o arquivo editável. Nave.jpg e Coro.jpg são vistas do Blender.
+2. No Studio, com o Play parado, use Import 3D e escolha Capela.glb. Marque Import Only as a Model e Add to Workspace. Use Scale Unit = Stud, escala 1. Mantenha as malhas separadas.
+3. Selecione a raiz inteira do modelo recém-importado no Explorer. Cole o conteúdo completo de Instalar-Capela.txt na Command Bar e pressione Enter.
+4. O instalador seleciona Previa_Capela. Com o cursor sobre a vista 3D, pressione F para localizar a sala. A prévia fica em Invokyr > Mansao > Salas quando essa pasta existe, ou no Workspace. A entrada sul fica perto de X 660, Z 82.5.
+5. Para testar a pé, aproxime a câmera do piso na entrada e use Play Here. Suba pela escada lateral até o órgão. Na frente do arquivo de partituras, use E para abrir cada gaveta. O movimento usa Invokyr_Moveis, o controlador que você já usa na Galeria.
+
+A peça da biblioteca fica em ServerStorage > Invokyr_Salas > Capela. Há quatro encaixes no térreo, duas gavetas para dados e quatro lugares para totens. Os marcadores são usados pelo sorteio de itens. Na prévia, os marcadores ficam fora do sorteio. A prévia é independente dos corredores. Para uma cópia da biblioteca, posicione o modelo primeiro e aplique ConfigurarPortas com os lados usados pelo mapa. O cômodo ocupa 3 × 5 células, com 31 × 53 studs internos.

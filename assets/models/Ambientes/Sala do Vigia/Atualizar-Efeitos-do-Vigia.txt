@@ -1,0 +1,254 @@
+-- Sala do Vigia • cole este texto na Command Bar com o Play parado.
+assert(not game:GetService("RunService"):IsRunning(),"Pare o Play para atualizar a sala.")
+assert(#game:GetService("CollectionService"):GetTagged("Invokyr_SalaDosEspinhos")>0,"Instale a sala no place antes de atualizar os efeitos.")
+local function instalarEfeitos()
+ local host=game:GetService("StarterPlayer").StarterPlayerScripts
+ local name="Invokyr_TremorDosEspinhos"
+ local effect=host:FindFirstChild(name)
+ assert(not effect or effect:IsA("LocalScript"),"Outro objeto usa o nome reservado ao efeito do Vigia.")
+ effect=effect or Instance.new("LocalScript")
+ effect.Name=name
+ effect.Source=[====[local players = game:GetService("Players")
+local tags = game:GetService("CollectionService")
+local run = game:GetService("RunService")
+local random = Random.new()
+
+-- Joints along the vault ribs, in room space. The narrow bay in front of the map stays clear.
+local joints = {
+    Vector3.new(-17, 33.6, 21.8), Vector3.new(-5.5, 34.7, 11),
+    Vector3.new(16.3, 33.8, 21.8), Vector3.new(5.5, 34.7, 11),
+    Vector3.new(-16.2, 33.8, 0), Vector3.new(16.2, 33.8, 0),
+    Vector3.new(-21.8, 31.0, -11), Vector3.new(-5.5, 34.7, -11),
+    Vector3.new(6.5, 34.7, -11), Vector3.new(17, 33.6, -11),
+    Vector3.new(21, 31.8, -21.8), Vector3.new(5.5, 34.7, -16.4),
+}
+local smoke = "rbxasset://textures/particles/smoke_main.dds"
+local stoneColors = {
+    Color3.fromRGB(113,106,94), Color3.fromRGB(138,126,103),
+    Color3.fromRGB(94,94,89), Color3.fromRGB(157,145,120),
+}
+local activeRoom, fx, impact, startTime, duration, sliding
+local vents, chips = {}, {}
+local nextPulse, nextScrape, nextJoint, scanAt, releaseAt = 0, 0, 0, 0, 0
+local lastCamera, basePose, appliedPose
+
+local function anchor(name, size, frame)
+    local p = Instance.new("Part")
+    p.Name, p.Size, p.CFrame = name, size, frame
+    p.Anchored, p.CanCollide, p.CanQuery, p.CanTouch = true, false, false, false
+    p.Transparency, p.CastShadow, p.Parent = 1, false, fx
+    return p
+end
+
+local function plume(parent, coarse)
+    local e = Instance.new("ParticleEmitter")
+    e.Name = coarse and "Poeira de calcário" or "Farinha de pedra"
+    e.Texture = smoke
+    e.Enabled, e.Rate, e.LockedToPart = false, 0, false
+    e.EmissionDirection = Enum.NormalId.Bottom
+    e.Speed = coarse and NumberRange.new(5.2,8.8) or NumberRange.new(4.5,7.6)
+    e.Lifetime = coarse and NumberRange.new(2.25,2.65) or NumberRange.new(2.6,3.25)
+    e.Acceleration = coarse and Vector3.new(.3,-8.8,.28) or Vector3.new(-.4,-6.5,.32)
+    e.SpreadAngle = coarse and Vector2.new(13,16) or Vector2.new(24,19)
+    e.Rotation, e.RotSpeed = NumberRange.new(-180,180), NumberRange.new(-30,30)
+    e.LightInfluence = .39
+    e.Color = ColorSequence.new(Color3.fromRGB(201,185,157), Color3.fromRGB(146,138,124))
+    local small, large = coarse and .72 or .12, coarse and 2.65 or .87
+    e.Size = NumberSequence.new({
+        NumberSequenceKeypoint.new(0,small), NumberSequenceKeypoint.new(.39,large,.18),
+        NumberSequenceKeypoint.new(1,large*1.50,.28),
+    })
+    e.Transparency = NumberSequence.new({
+        NumberSequenceKeypoint.new(0,.82), NumberSequenceKeypoint.new(.12,.12),
+        NumberSequenceKeypoint.new(.58,.28), NumberSequenceKeypoint.new(1,1),
+    })
+    e.Parent = parent
+    return e
+end
+
+local function clear()
+    if fx then fx:Destroy() end
+    fx, activeRoom, impact, startTime = nil, nil, nil, nil
+    table.clear(vents)
+    table.clear(chips)
+end
+
+local function build(room)
+    clear()
+    activeRoom = room
+    fx = Instance.new("Folder")
+    fx.Name, fx.Parent = "Vigia_PoeiraLocal", room
+    local origin = room:GetPivot()
+    for i, point in ipairs(joints) do
+        local p = anchor("Junta", Vector3.new(3.2,.15,1.25), origin*CFrame.new(point))
+        vents[i] = {cloud=plume(p,true), grain=plume(p,false)}
+    end
+    local p = anchor("Impactos", Vector3.new(.16,.08,.16), origin)
+    impact = plume(p,true)
+    impact.EmissionDirection = Enum.NormalId.Top
+    impact.Speed, impact.Lifetime = NumberRange.new(1.5,3.1), NumberRange.new(.55,1.05)
+    impact.Acceleration, impact.SpreadAngle = Vector3.new(0,-2,0), Vector2.new(68,68)
+    impact.Size = NumberSequence.new(.50,2.45)
+end
+
+local function puff(origin, position, count)
+    impact.Parent.CFrame = origin*CFrame.new(position)
+    impact:Emit(count)
+end
+
+local function shed(point, origin, now)
+    local chip
+    for _,item in ipairs(chips) do
+        if not item.born then chip = item; break end
+    end
+    if not chip then
+        if #chips >= 36 then return end
+        local piece = Instance.new(#chips%3==0 and "CornerWedgePart" or "WedgePart")
+        piece.Name, piece.Material = "Lasca", Enum.Material.Slate
+        piece.Anchored, piece.CanCollide, piece.CanTouch, piece.CanQuery = true, false, false, false
+        piece.CastShadow = false
+        chip = {part=piece}
+        table.insert(chips,chip)
+    end
+    local size = random:NextNumber(.19,.61)
+    local piece = chip.part
+    piece.Size = Vector3.new(size*random:NextNumber(.78,1.45),size*.54,size*random:NextNumber(.69,1.26))
+    piece.Color = stoneColors[random:NextInteger(1,#stoneColors)]
+    chip.born = now
+    chip.point = point + Vector3.new(random:NextNumber(-1.3,1.3),0,random:NextNumber(-.55,.55))
+    chip.velocity = Vector3.new(random:NextNumber(-1.5,1.5),-random:NextNumber(1,4),random:NextNumber(-1.25,1.25))
+    chip.spin = Vector3.new(random:NextNumber(-5,5),random:NextNumber(-4,4),random:NextNumber(-6,6))
+    chip.heading = random:NextNumber(0,2*math.pi)
+    chip.hit = (chip.velocity.Y + math.sqrt(chip.velocity.Y^2 + 72*(chip.point.Y-.19)))/36
+    chip.landed = false
+    piece.Transparency, piece.CFrame, piece.Parent = 0, origin*CFrame.new(chip.point), fx
+end
+
+local function animateChips(origin, now)
+    for _,chip in ipairs(chips) do
+        if chip.born then
+            local age = now-chip.born
+            local after = age-chip.hit
+            if after >= .95 then
+                chip.part.Transparency, chip.born = 1, nil
+            else
+                local fall = math.min(age,chip.hit)
+                local position = chip.point + chip.velocity*fall - Vector3.new(0,18*fall*fall,0)
+                if after >= 0 then
+                    if not chip.landed then
+                        puff(origin,position,3)
+                        chip.landed = true
+                    end
+                    local bounce = math.min(after,.32)
+                    position = position + Vector3.new(chip.velocity.X*bounce,16*bounce*(.32-bounce),chip.velocity.Z*bounce)
+                    chip.part.Transparency = math.clamp((after-.46)/.49,0,1)
+                end
+                local turn = chip.spin*(fall+math.clamp(after,0,.32))
+                chip.part.CFrame = origin*CFrame.new(position)*CFrame.Angles(turn.X,chip.heading+turn.Y,turn.Z)
+            end
+        end
+    end
+end
+
+local function findRoom(root)
+    for _,room in ipairs(tags:GetTagged("Invokyr_SalaDosEspinhos")) do
+        if room:IsDescendantOf(workspace) and room:GetAttribute("TremorInicio") then
+            local p = room:GetPivot():PointToObjectSpace(root.Position)
+            if math.abs(p.X)<27 and math.abs(p.Z)<27 and p.Y>-.5 and p.Y<36.6 then return room end
+        end
+    end
+end
+
+local function update()
+    local now = workspace:GetServerTimeNow()
+    if now >= scanAt then
+        scanAt = now+.08
+        local char = players.LocalPlayer.Character
+        local root = char and char:FindFirstChild("HumanoidRootPart")
+        local room = root and findRoom(root)
+        if room then
+            if room ~= activeRoom then build(room) end
+            local stamp = room:GetAttribute("TremorInicio")
+            if stamp ~= startTime then
+                startTime = stamp
+                duration = room:GetAttribute("TremorDuracao") or 5.8
+                nextPulse, nextScrape, nextJoint = now, now, random:NextInteger(1,#joints)
+            end
+            sliding = room:GetAttribute("Estado") == "Abrindo passagem"
+            releaseAt = now+3.35
+        else
+            startTime = nil
+            if activeRoom and (now>=releaseAt or not activeRoom:IsDescendantOf(workspace)) then clear() end
+        end
+    end
+    if not activeRoom then return end
+    local origin = activeRoom:GetPivot()
+    if startTime and now >= startTime and now < startTime+duration then
+        if now >= nextPulse then
+            nextPulse = now + (sliding and .23 or .31)
+            -- Rotate through the vault; five is coprime with the twelve joints.
+            for n=1,(sliding and 4 or 3) do
+                local i = nextJoint
+                nextJoint = 1+(nextJoint-1+5)%#joints
+                vents[i].cloud:Emit(sliding and 9 or 7)
+                vents[i].grain:Emit(sliding and 8 or 6)
+                if n<=2 then shed(joints[i],origin,now) end
+            end
+        end
+        if sliding and now>=nextScrape then
+            nextScrape = now+.17
+            local mechanism = activeRoom:FindFirstChild("Mecanismo")
+            local statue = mechanism and mechanism:FindFirstChild("Vigia")
+            if statue then
+                local side = random:NextNumber()<.5 and -4.7 or 4.7
+                local foot = origin:ToObjectSpace(statue:GetPivot())
+                puff(origin,foot:PointToWorldSpace(Vector3.new(side,.15,3.46)),7)
+            end
+        end
+    end
+    animateChips(origin,now)
+end
+
+local function undo()
+    if lastCamera and lastCamera.CFrame==appliedPose then lastCamera.CFrame=basePose end
+    lastCamera = nil
+end
+
+local function shake()
+    undo()
+    local camera = workspace.CurrentCamera
+    if not camera or not startTime then return end
+    local t = workspace:GetServerTimeNow()-startTime
+    if t<=0 or t>=duration then return end
+    local envelope = math.min(1,t/.22,(duration-t)/.28)
+    local phase = 2*math.pi*t
+    local drift = math.sin(phase*(sliding and 2.65 or 3.7))
+    local grind = math.noise(t*9.7,.47,1.2)
+    local jolt = math.sin(phase*8.1+.75*drift)
+    local strength = envelope*(sliding and 1.36 or (.83+.23*t/duration))
+    local x = (.16*drift+.13*grind)*strength
+    local y = (.095*jolt+.12*math.noise(t*7.6,3.3,.64))*strength
+    local z = .064*math.sin(phase*2.2+.55)*strength
+    local pitch = strength*(.63*jolt+.32*grind)
+    local roll = strength*(.84*drift+.50*grind)
+    lastCamera, basePose = camera, camera.CFrame
+    camera.CFrame = basePose*CFrame.new(x,y,z)*CFrame.Angles(math.rad(pitch),math.rad(-.34*drift*strength),math.rad(roll))
+    appliedPose = camera.CFrame
+end
+
+local connection = run.Heartbeat:Connect(update)
+run:BindToRenderStep("InvokyrEspinhosLimpar",Enum.RenderPriority.Camera.Value-1,undo)
+run:BindToRenderStep("InvokyrEspinhosVibrar",Enum.RenderPriority.Camera.Value+5,shake)
+script.Destroying:Connect(function()
+    connection:Disconnect()
+    run:UnbindFromRenderStep("InvokyrEspinhosLimpar")
+    run:UnbindFromRenderStep("InvokyrEspinhosVibrar")
+    undo()
+    clear()
+end)
+]====]
+ effect.Disabled=false
+ effect.Parent=host
+end
+instalarEfeitos()
+print("[INVOKYR] Tremor, poeira e lascas atualizados. Inicie um novo Play na Sala do Vigia.")

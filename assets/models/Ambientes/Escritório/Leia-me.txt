@@ -1,0 +1,8 @@
+ESCRITÓRIO | Gabinete do astrônomo
+
+Extraia o ZIP. O arquivo .blend é o original editável e a imagem JPG mostra a sala no Blender.
+Com o Play parado, importe Escritorio.glb como Model, em Stud, escala 1. Mantenha as malhas separadas e use Add to Workspace.
+Selecione a raiz do modelo importado e cole Instalar-Escritorio.txt inteiro na Command Bar.
+A instalação cria Escritorio em ServerStorage > Invokyr_Salas e seleciona Previa_Escritorio em Workspace > Invokyr > Mansao > Salas.
+Pressione F para encontrar a prévia. Aproxime a câmera da entrada e use Play Here. Use E nos puxadores. Na prévia há um dado de demonstração em uma das quatro gavetas.
+Os quatro armários têm marcadores de totem. A peça usa a grade 3 × 3 e os quatro encaixes do projeto.

@@ -1,0 +1,4 @@
+1. Com o Play parado, importe Sala-de-Bilhar.glb como Model, Scale Unit = Stud, Scale = 1. Mantenha a hierarquia e as malhas separadas.
+2. Selecione a raiz do modelo novo no Workspace. Cole Instalar-Sala-de-Bilhar.txt na Command Bar e execute.
+3. No Explorer, selecione Workspace > Previa_SalaDeBilhar. Use F para localizar, leve a camera para dentro da sala e use Play Here. Aproxime-se do puxador do aparador e aperte E.
+O modelo para o gerador fica em ServerStorage > Invokyr_Salas > SalaDeBilhar.

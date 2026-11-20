@@ -1,0 +1,209 @@
+-- Aplique na Barra de Comandos, em modo de edicao.
+-- Selecione a raiz da importacao de Galeria-corrigida.glb.
+local selecao = game:GetService("Selection")
+local historico = game:GetService("ChangeHistoryService")
+assert(not game:GetService("RunService"):IsRunning(), "Pare o Play antes de corrigir a Galeria.")
+local salas = workspace:FindFirstChild("Invokyr") and workspace.Invokyr:FindFirstChild("Mansao")
+salas = salas and salas:FindFirstChild("Salas")
+local sala = salas and salas:FindFirstChild("Galeria")
+assert(sala and sala:IsA("Model"), "Galeria instalada pelo Script 15 ausente.")
+local storage = game:GetService("ServerStorage")
+local biblioteca = storage:FindFirstChild("Invokyr_Salas")
+local variantes = biblioteca and biblioteca:FindFirstChild("Galeria_Variantes")
+local moveis, luzes, colisao = sala:FindFirstChild("Moveis"), sala:FindFirstChild("Luzes"), sala:FindFirstChild("Colisao")
+local ancora = sala:FindFirstChild("AncoraEncaixes", true)
+assert(variantes and moveis and luzes and colisao and ancora, "A instalacao original da Galeria esta incompleta.")
+local base = ancora.CFrame
+local selecionados = selecao:Get()
+local novo = selecionados[1]
+assert(#selecionados == 1 and novo:IsA("Model") and novo.Parent == workspace and not sala:IsDescendantOf(novo),
+    "Selecione somente o Model recem-importado, diretamente no Workspace.")
+local function chave(nome)
+    return (nome:lower():gsub("[^a-z0-9]", ""):gsub("node$", ""))
+end
+local antigas = {}
+for _, raiz in ipairs({sala, variantes}) do
+    for _, p in ipairs(raiz:GetDescendants()) do
+        if p:IsA("MeshPart") then
+            local id = chave(p.Name)
+            assert(not antigas[id], "Malha duplicada na sala instalada: " .. p.Name)
+            antigas[id] = p
+        end
+    end
+end
+local fontes = {}
+local mesaV2 = chave("Mesa_Expositora__Nogueira_V2")
+local mesa = chave("Mesa_Expositora__Nogueira")
+local corrigida = false
+local total = 0
+for _, p in ipairs(novo:GetDescendants()) do
+    if p:IsA("MeshPart") then
+        local id = chave(p.Name)
+        if id ~= mesaV2 and not antigas[id] then id = chave(p.Parent.Name) end
+        if id == mesaV2 then id = mesa; corrigida = true end
+        assert(antigas[id] and not fontes[id], "Malha desconhecida ou duplicada: " .. p:GetFullName())
+        fontes[id] = p
+        total = total + 1
+    end
+end
+assert(corrigida and total == 277, "Selecione o GLB corrigido com todas as 277 malhas separadas.")
+for id, p in pairs(antigas) do assert(fontes[id], "Faltou a malha " .. p.Name) end
+
+-- As quatro vagas de porta fornecem os eixos e a unidade da importacao.
+local function pos(lado) return fontes[chave("Fecho_" .. lado .. "__Damasco")].Position end
+local l, o, s, n = pos("L"), pos("O"), pos("S"), pos("N")
+local leste, sul = l-o, s-n
+local escalaX, escalaZ = leste.Magnitude/31.996, sul.Magnitude/53.994
+assert(escalaX > 0.0001 and math.abs(escalaX/escalaZ-1)<0.01 and math.abs(leste.Unit:Dot(sul.Unit))<0.01,
+    "Os quatro encaixes nao formam o retangulo original. Importe com escala uniforme.")
+local escala = (escalaX + escalaZ)/2
+local cima = sul.Unit:Cross(leste.Unit).Unit
+local centroDasPortas = (l+o+s+n)/4
+local centro = centroDasPortas - cima * (4.5*escala)
+local origem = CFrame.fromMatrix(centro, leste.Unit, cima, leste.Unit:Cross(cima))
+assert((origem:PointToObjectSpace(fontes.pisoebanizada.Position)/escala - Vector3.new(0,-.222,0)).Magnitude < .12,
+    "A orientacao do piso nao confere com as quatro portas. Confira a selecao.")
+local plano = {}
+for id, src in pairs(fontes) do
+    local dst = antigas[id]
+    local rel = origem:ToObjectSpace(src.CFrame)
+    local grupo = dst.Name:match("^(Abre_.+)__")
+    local pai = dst.Parent
+    if grupo then
+        local modelo = moveis:FindFirstChild(grupo,true)
+        assert(modelo and modelo:IsA("Model"), "Grupo de interacao ausente: " .. grupo)
+        pai = modelo
+    end
+    table.insert(plano, {dst=dst, src=src, cf=base*CFrame.new(rel.Position/escala)*rel.Rotation, pai=pai})
+end
+
+local V = Vector3.new
+local puxadores = {
+    Abre_Armario_SO_PortaE=V(-12.3500,4.1250,23.6800),
+    Abre_Armario_SO_PortaD=V(-11.6500,4.1250,23.6800),
+    Abre_Armario_SL_PortaE=V(11.6500,4.1250,23.6800),
+    Abre_Armario_SL_PortaD=V(12.3500,4.1250,23.6800),
+    Abre_Gaveteiro_L1_Gaveta1=V(13.1100,1.0433,10.6400),
+    Abre_Gaveteiro_L1_Gaveta2=V(13.1100,2.2900,10.6400),
+    Abre_Gaveteiro_L1_Gaveta3=V(13.1100,3.5367,10.6400),
+    Abre_Gaveteiro_L1_Gaveta4=V(13.1100,1.0433,8.3600),
+    Abre_Gaveteiro_L1_Gaveta5=V(13.1100,2.2900,8.3600),
+    Abre_Gaveteiro_L1_Gaveta6=V(13.1100,3.5367,8.3600),
+    Abre_Gaveteiro_L2_Gaveta1=V(13.1100,1.0433,-8.3600),
+    Abre_Gaveteiro_L2_Gaveta2=V(13.1100,2.2900,-8.3600),
+    Abre_Gaveteiro_L2_Gaveta3=V(13.1100,3.5367,-8.3600),
+    Abre_Gaveteiro_L2_Gaveta4=V(13.1100,1.0433,-10.6400),
+    Abre_Gaveteiro_L2_Gaveta5=V(13.1100,2.2900,-10.6400),
+    Abre_Gaveteiro_L2_Gaveta6=V(13.1100,3.5367,-10.6400),
+    Abre_Gaveteiro_O1_Gaveta1=V(-13.1100,1.0433,8.3600),
+    Abre_Gaveteiro_O1_Gaveta2=V(-13.1100,2.2900,8.3600),
+    Abre_Gaveteiro_O1_Gaveta3=V(-13.1100,3.5367,8.3600),
+    Abre_Gaveteiro_O1_Gaveta4=V(-13.1100,1.0433,10.6400),
+    Abre_Gaveteiro_O1_Gaveta5=V(-13.1100,2.2900,10.6400),
+    Abre_Gaveteiro_O1_Gaveta6=V(-13.1100,3.5367,10.6400),
+    Abre_Gaveteiro_O2_Gaveta1=V(-13.1100,1.0433,-10.6400),
+    Abre_Gaveteiro_O2_Gaveta2=V(-13.1100,2.2900,-10.6400),
+    Abre_Gaveteiro_O2_Gaveta3=V(-13.1100,3.5367,-10.6400),
+    Abre_Gaveteiro_O2_Gaveta4=V(-13.1100,1.0433,-8.3600),
+    Abre_Gaveteiro_O2_Gaveta5=V(-13.1100,2.2900,-8.3600),
+    Abre_Gaveteiro_O2_Gaveta6=V(-13.1100,3.5367,-8.3600),
+    Abre_Relogio_N_Porta=V(12.3000,3.7750,-24.9400),
+    Abre_Mesa_Expositora_Gaveta1=V(-1.8400,2.3200,10.4500),
+    Abre_Mesa_Expositora_Gaveta2=V(-1.8400,2.3200,13.5500),
+    Abre_Mesa_Expositora_Gaveta3=V(1.8400,2.3200,10.4500),
+    Abre_Mesa_Expositora_Gaveta4=V(1.8400,2.3200,13.5500),
+    Abre_GuardaRoupa_NO_PortaE=V(-11.7500,15.3250,-23.6800),
+    Abre_GuardaRoupa_NO_PortaD=V(-12.4500,15.3250,-23.6800),
+    Abre_GuardaRoupa_NL_PortaE=V(12.4500,15.3250,-23.6800),
+    Abre_GuardaRoupa_NL_PortaD=V(11.7500,15.3250,-23.6800),
+    Abre_Bau_SO_Tampa=V(-12.6000,12.8550,23.3650),
+    Abre_Bau_SL_Tampa=V(12.6000,12.8550,23.3650),
+    Abre_Quartinho_Porta=V(0.9500,3.0000,-20.7700),
+}
+local grupos = {}
+for nome in pairs(puxadores) do
+    local g = moveis:FindFirstChild(nome, true)
+    assert(g and g:FindFirstChild("Puxador") and g.Puxador:FindFirstChildOfClass("ProximityPrompt"), "Puxador ausente: " .. nome)
+    grupos[nome] = g
+end
+local function painel(nome, molde, posicao, tamanho, orientacao)
+    local p = colisao:FindFirstChild(nome)
+    if not p then p = molde:Clone(); p.Name = nome; p.Parent = colisao end
+    p.Size = tamanho
+    p.CFrame = orientacao * CFrame.new(posicao)
+end
+local armarios = {
+    {"COL_Armario_SO",-12,0,1}, {"COL_Armario_SL",12,0,1},
+    {"COL_GuardaRoupa_NO",-12.1,11,-1}, {"COL_GuardaRoupa_NL",12.1,11,-1},
+}
+for _, a in ipairs(armarios) do assert(colisao:FindFirstChild(a[1]), "Colisao ausente: " .. a[1]) end
+assert(colisao:FindFirstChild("COL_Mesa_Expositora"), "Colisao da mesa ausente.")
+local potencias = {
+    Lustre={.78,23}, Lampiao_escada_O={.48,10}, Lampiao_escada_L={.48,10},
+    Luar_claraboia={.68,29}, Luar_janela={.62,26}, Preenchimento_norte={.16,8},
+}
+local function corrigir()
+    for _, item in ipairs(plano) do
+        local dst, src = item.dst, item.src
+        local textura = dst.TextureID
+        if dst.MeshId ~= src.MeshId then
+            dst:ApplyMesh(src)
+            if dst.TextureID ~= textura then dst.TextureID = textura end
+        end
+        dst.Size = src.Size/escala
+        dst.CFrame = item.cf
+        dst.Anchored = true
+        dst.Parent = item.pai
+    end
+    for nome, g in pairs(grupos) do
+        g.Puxador.CFrame = base*CFrame.new(puxadores[nome])
+        if nome:find("Gaveta",1,true) then
+            -- A maior medida da caixa das gavetas da mesa fica no eixo Z.
+            local mesaExpositora = nome:find("Mesa_Expositora",1,true)
+            g:SetAttribute("LevaTam", mesaExpositora and V(1.22,.50,2.54) or V(1.70,1.027,1.92))
+        end
+    end
+    -- O casco invisivel macico tambem fechava a frente para consultas de itens.
+    for _, a in ipairs(armarios) do
+        local nome,x,y,sinal = table.unpack(a)
+        local molde = colisao[nome]
+        local alto = sinal==1 and 7.80 or 8.20
+        local largura = sinal==1 and 5.4 or 5.2
+        local cf = base*CFrame.new(x,y,sinal*25.14)*CFrame.Angles(0,sinal==1 and 0 or math.pi,0)
+        painel(nome,molde,V(0,alto/2,1.225),V(largura,alto,.15),cf)
+        for _, lado in ipairs({-1,1}) do
+            painel(nome.."_Lado"..lado,molde,V(lado*(largura/2-.1),alto/2,0),V(.2,alto,2.6),cf)
+        end
+        painel(nome.."_Base",molde,V(0,.3,0),V(largura,.6,2.6),cf)
+        painel(nome.."_Prateleira",molde,V(0,6.06,.025),V(largura-.4,.12,2.25),cf)
+        painel(nome.."_Topo",molde,V(0,alto+.25,0),V(largura,.5,2.6),cf)
+    end
+    local mesaCol = colisao.COL_Mesa_Expositora
+    local mcf = base*CFrame.new(0,0,12)
+    painel(mesaCol.Name,mesaCol,V(0,2.99,0),V(3.8,.22,7.4),mcf)
+    painel("COL_VitrineMesa",mesaCol,V(0,3.865,0),V(3.12,1.53,6.72),mcf)
+    for _, x in ipairs({-1.4,1.4}) do
+        for _, z in ipairs({-3.2,3.2}) do
+            painel("COL_PeMesa_"..x.."_"..z,mesaCol,V(x,.925,z),V(.52,1.85,.50),mcf)
+        end
+    end
+    for _, luz in ipairs(luzes:GetDescendants()) do
+        if luz:IsA("Light") then
+            local nome = luz.Parent.Name
+            local nivel = potencias[nome] or (nome:match("^Arandela_") and {.42,10})
+            if nivel then luz.Brightness = nivel[1]; luz.Range = nivel[2] end
+        end
+    end
+    local backup = storage:FindFirstChild("Invokyr_Backup")
+    if not backup then backup = Instance.new("Folder"); backup.Name = "Invokyr_Backup"; backup.Parent = storage end
+    novo.Name = "Referencia_Galeria_corrigida"
+    novo.Parent = backup
+    selecao:Set({sala})
+end
+local registro = historico:TryBeginRecording("GaleriaCorrigir", "Corrigir a Galeria")
+local ok, erro = pcall(corrigir)
+if registro then
+    historico:FinishRecording(registro, ok and Enum.FinishRecordingOperation.Commit or Enum.FinishRecordingOperation.Cancel)
+end
+if not ok then error(erro) end
+print("[INVOKYR] Galeria corrigida. 277 malhas alinhadas, 40 puxadores conferidos e luzes locais ajustadas.")

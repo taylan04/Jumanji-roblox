@@ -1,0 +1,30 @@
+INVOKYR - BAILARINA: MUSICA, CASTIGO E RISADAS (Script 19)
+===========================================================
+
+O QUE VEM
+  RisadaDaBailarina.ogg                      risadinha macabra (subir no Roblox)
+  DorDoJogador.ogg                           soco + gemido de dor (subir no Roblox)
+  invokyr_19_bailarina_musica_e_castigo.lua  o script (a musica ja esta com o ID 72472246974970)
+
+O QUE FAZ
+  - Musica mais baixa (volume 0.4; antes 0.8).
+  - Levou dano: gemido de dor (todo mundo perto ouve) + a tela leva um tranco, como um soco, e pisca
+    vermelho escuro. O tranco vale para QUALQUER dano do jogo (LocalScript Invokyr_Dor).
+  - Com gente na sala, a bailarina da uma risadinha baixa a cada 18 a 40 s (cada uma um pouco
+    diferente) e, as vezes, logo depois de machucar alguem.
+
+PASSO A PASSO
+1. Suba os 2 audios: VIEW > Asset Manager > Import > escolha RisadaDaBailarina.ogg e DorDoJogador.ogg
+   > Confirm (custa 0). Depois de alguns minutos eles aparecem em Asset Manager > Audio.
+   Botao direito em cada um > "Copy ID to Clipboard".
+2. No comeco do script cole os numeros:
+     RISADA_ID = "numero da risada",
+     DOR_ID = "numero da dor",
+   (ou me mande os dois numeros que eu devolvo o script pronto)
+3. Jogo PARADO. VIEW > Command Bar, cole o script inteiro, Enter.
+4. Output: "musica ... vol 0.4 | risada rbxassetid://... | dor rbxassetid://... | dano 10" (2 vezes)
+   e "LocalScript Invokyr_Dor".
+   Sem os IDs ele avisa em laranja: sem risada ela nao ri; sem dor toca o gemido padrao do Roblox.
+
+AJUSTES (comeco do script, depois rode de novo)
+  VOLUME (musica), VOLUME_RISADA, VOLUME_DOR, RISADA_A_CADA = { 18, 40 }, DANO, CARENCIA

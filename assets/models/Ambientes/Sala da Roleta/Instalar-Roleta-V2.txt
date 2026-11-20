@@ -1,0 +1,345 @@
+local SOM_ROLETA="" -- Cole o ID do WAV Roleta entre as aspas
+local SOM_ALCAPAO="" -- Cole o ID do WAV Alcapao entre as aspas
+-- Importe o GLB como Model em studs, selecione a raiz e execute em modo de edicao.
+local selection=game:GetService("Selection")
+local storage=game:GetService("ServerStorage")
+local tags=game:GetService("CollectionService")
+assert(not game:GetService("RunService"):IsRunning(),"Pare o teste antes de instalar.")
+local destino=workspace.Invokyr.Mansao.Salas
+local chosen=selection:Get()
+assert(#chosen==1 and chosen[1]:IsA("Model"),"Selecione o modelo completo da Sala da Roleta.")
+local imported=chosen[1]
+assert(imported:IsDescendantOf(workspace) and not imported:GetAttribute("PecaInvokyr"),"Selecione a importacao nova.")
+local existing=storage:FindFirstChild("Invokyr_Salas")
+local anterior=existing and existing:FindFirstChild("SalaDaRoleta")
+local antigaPrevia=destino:FindFirstChild("Previa_SalaDaRoleta")
+for _,previous in pairs({anterior,antigaPrevia}) do
+    assert(previous:IsA("Model") and previous:GetAttribute("PecaInvokyr") and previous:FindFirstChild("Arena"),
+        "Ja existe outro modelo com esse nome. Verifique a sala antes de instalar.")
+end
+local room=Instance.new("Model")
+room.Name="SalaDaRoleta"
+room:SetAttribute("PecaInvokyr",true)
+room:SetAttribute("CelulasX",5)
+room:SetAttribute("CelulasZ",6)
+room:SetAttribute("Tipo","Desafio")
+local function folder(parent,name,kind)
+    local x=Instance.new(kind or "Folder")
+    x.Name=name
+    x.Parent=parent
+    return x
+end
+local function part(parent,name,cf,size,solid)
+    local p=Instance.new("Part")
+    p.Name=name
+    p.Size=size
+    p.CFrame=cf
+    p.Anchored=true
+    p.Transparency=1
+    p.CanCollide=solid
+    p.CanQuery=solid
+    p.CanTouch=false
+    p.CastShadow=false
+    p.Parent=parent
+    return p
+end
+local function at(x,y,z)
+    return CFrame.new(x,z,-y)
+end
+local visual=folder(room,"Visual")
+local root=part(room,"Origem",CFrame.identity,Vector3.one*.15,false)
+room.PrimaryPart=root
+local indexed={}
+local function key(s) return string.lower(s):gsub("[^a-z0-9]","") end
+for _,p in ipairs(imported:GetDescendants()) do
+    if p:IsA("MeshPart") then
+        indexed[key(p.Name)]=p
+        indexed[key(p.Parent.Name):gsub("node$","")]=p
+    end
+end
+
+assert(indexed.arquivoltanogueira and indexed.passarelanogueira,"Selecione o GLB V2 completo com as malhas separadas.")
+local south=assert(indexed.entradacalcario,"Selecione a raiz completa da Sala da Roleta.")
+local north=assert(indexed.destinocalcario,"Vestibulo norte ausente.")
+local delta=north.Position-south.Position
+assert(math.abs(delta.Magnitude-60)<.15 and math.abs(delta.Y)<.1,"Use escala Stud 1 e modelo em pe.")
+local center=(north.Position+south.Position)*.5+Vector3.yAxis*.2
+local source=CFrame.lookAt(center,center+delta)
+for _,name in ipairs({"Entrada__Calcario","Entrada__Talha","Entrada__Nogueira","Entrada__Reboco","Entrada__Ebanizada","Entrada__Latao","Destino__Calcario","Destino__Talha","Destino__Nogueira","Destino__Reboco","Destino__Ebanizada","Destino__Latao","LacreS__VidroMel","LacreS__Latao","LacreN__VidroMel","LacreN__Latao","Abismo__Fuligem","Abismo__Lava","MuralhaO__Reboco","MuralhaO__Ebanizada","TriforioO0__Ebanizada","TriforioO0__Nogueira","TriforioO0__Latao","TriforioO0__Calcario","TriforioO0__Ferro","TriforioO13__Ebanizada","TriforioO13__Nogueira","TriforioO13__Latao","TriforioO13__Calcario","TriforioO13__Ferro","TriforioO26__Ebanizada","TriforioO26__Nogueira","TriforioO26__Latao","TriforioO26__Calcario","TriforioO26__Ferro","TriforioO39__Ebanizada","TriforioO39__Nogueira","TriforioO39__Latao","TriforioO39__Calcario","TriforioO39__Ferro","MuralhaL__Reboco","MuralhaL__Ebanizada","TriforioL0__Ebanizada","TriforioL0__Nogueira","TriforioL0__Latao","TriforioL0__Calcario","TriforioL0__Ferro","TriforioL13__Ebanizada","TriforioL13__Nogueira","TriforioL13__Latao","TriforioL13__Calcario","TriforioL13__Ferro","TriforioL26__Ebanizada","TriforioL26__Nogueira","TriforioL26__Latao","TriforioL26__Calcario","TriforioL26__Ferro","TriforioL39__Ebanizada","TriforioL39__Nogueira","TriforioL39__Latao","TriforioL39__Calcario","TriforioL39__Ferro","Teto__Reboco","Teto__Nogueira","FrontaoN__Reboco","Portal_do_retorno__Reboco","Portal_do_retorno__Nogueira","Portal_do_retorno__Talha","PortaoN__Nogueira","PortaoN__Talha","PortaoN__Latao","Passarela__Nogueira","Passarela__Latao","Passarela__Ferro","Placa_0_0__Ebanizada","Placa_0_0__Selo0","Placa_0_0__Latao","Placa_0_1__Ebanizada","Placa_0_1__Selo1","Placa_0_1__Latao","Placa_0_2__Ebanizada","Placa_0_2__Selo2","Placa_0_2__Latao","Placa_0_3__Ebanizada","Placa_0_3__Selo3","Placa_0_3__Latao","Placa_0_4__Ebanizada","Placa_0_4__Selo4","Placa_0_4__Latao","Placa_1_0__Ebanizada","Placa_1_0__Selo2","Placa_1_0__Latao","Placa_1_1__Ebanizada","Placa_1_1__Selo3","Placa_1_1__Latao","Placa_1_2__Ebanizada","Placa_1_2__Selo4","Placa_1_2__Latao","Placa_1_3__Ebanizada","Placa_1_3__Selo5","Placa_1_3__Latao","Placa_1_4__Ebanizada","Placa_1_4__Selo0","Placa_1_4__Latao","Placa_2_0__Ebanizada","Placa_2_0__Selo4","Placa_2_0__Latao","Placa_2_1__Ebanizada","Placa_2_1__Selo5","Placa_2_1__Latao","Placa_2_2__Ebanizada","Placa_2_2__Selo0","Placa_2_2__Latao","Placa_2_3__Ebanizada","Placa_2_3__Selo1","Placa_2_3__Latao","Placa_2_4__Ebanizada","Placa_2_4__Selo2","Placa_2_4__Latao","Placa_3_0__Ebanizada","Placa_3_0__Selo0","Placa_3_0__Latao","Placa_3_1__Ebanizada","Placa_3_1__Selo1","Placa_3_1__Latao","Placa_3_2__Ebanizada","Placa_3_2__Selo2","Placa_3_2__Latao","Placa_3_3__Ebanizada","Placa_3_3__Selo3","Placa_3_3__Latao","Placa_3_4__Ebanizada","Placa_3_4__Selo4","Placa_3_4__Latao","Placa_4_0__Ebanizada","Placa_4_0__Selo2","Placa_4_0__Latao","Placa_4_1__Ebanizada","Placa_4_1__Selo3","Placa_4_1__Latao","Placa_4_2__Ebanizada","Placa_4_2__Selo4","Placa_4_2__Latao","Placa_4_3__Ebanizada","Placa_4_3__Selo5","Placa_4_3__Latao","Placa_4_4__Ebanizada","Placa_4_4__Selo0","Placa_4_4__Latao","Placa_5_0__Ebanizada","Placa_5_0__Selo4","Placa_5_0__Latao","Placa_5_1__Ebanizada","Placa_5_1__Selo5","Placa_5_1__Latao","Placa_5_2__Ebanizada","Placa_5_2__Selo0","Placa_5_2__Latao","Placa_5_3__Ebanizada","Placa_5_3__Selo1","Placa_5_3__Latao","Placa_5_4__Ebanizada","Placa_5_4__Selo2","Placa_5_4__Latao","Caixa_da_roleta__Ebanizada","Caixa_da_roleta__Ferro","Caixa_da_roleta__Latao","Caixa_da_roleta__Talha","Caixa_da_roleta__Nogueira","PilastraO__Nogueira","PilastraO__Latao","PilastraL__Nogueira","PilastraL__Latao","Arquivolta__Nogueira","Arquivolta__Latao","Arquivolta__Ebanizada","Roleta__Nogueira","Roleta__Disco","Roleta__Latao","Roleta__Ebanizada","Ponteiro__Ebanizada","Ponteiro__Latao","Ponteiro__Ferro","Ponteiro__Marfim","Correntes__Ferro"}) do
+    local src=assert(indexed[key(name)],"Faltou "..name..". Importe todas as malhas sem unir.")
+    local p=src:Clone()
+    p.Name=name
+    p.CFrame=source:ToObjectSpace(src.CFrame)
+    p.Anchored=true
+    p.CanCollide=false
+    p.CanQuery=false
+    p.CanTouch=false
+    if name:match("__Chama$") then p.Material=Enum.Material.Neon end
+    p.Parent=visual
+end
+local colliders=folder(room,"Colisao")
+for i,row in ipairs({{"Entrada",0.0,-30.0,-0.2,12,6,0.4,0.0},{"Entrada",0.0,-26.875,5.0,12,0.25,10,0.0},{"Entrada",-5.8,-30.0,5.0,0.4,6,10,0.0},{"Entrada",5.8,-30.0,5.0,0.4,6,10,0.0},{"Entrada",0.0,-30.0,10.15,12,6,0.3,0.0},{"Destino",0.0,30.0,-0.2,12,6,0.4,0.0},{"Destino",0.0,26.875,5.0,12,0.25,10,0.0},{"Destino",-5.8,30.0,5.0,0.4,6,10,0.0},{"Destino",5.8,30.0,5.0,0.4,6,10,0.0},{"Destino",0.0,30.0,10.15,12,6,0.3,0.0},{"MuralhaO",-26.925,0.0,43.35,55.2,0.85,77.3,-90.0},{"MuralhaL",26.925,0.0,43.35,55.2,0.85,77.3,90.0},{"Teto",0.0,0.0,82.05,54.9,56,0.5,0.0},{"FrontaoN",0.0,27.5,43.35,53.0,1,77.3,0.0},{"Portal_do_retorno",-14.9,-27.5,43.35,23.2,1,77.3,0.0},{"Portal_do_retorno",14.9,-27.5,43.35,23.2,1,77.3,0.0},{"Portal_do_retorno",0.0,-27.5,28.345,6.6,1,47.29,0.0},{"Portal_do_retorno",0.0,-27.5,71.5,6.6,1,21,0.0},{"Portal_do_retorno",0.0,-29.1,51.75,6.6,4.2,0.5,0.0},{"Portal_do_retorno",-3.4,-29.1,56.5,0.2,4.2,9,0.0},{"Portal_do_retorno",3.4,-29.1,56.5,0.2,4.2,9,0.0},{"Portal_do_retorno",0.0,-31.25,56.5,6.8,0.2,9,0.0}}) do
+    part(colliders,"COL_"..i,at(row[2],row[3],row[4])*CFrame.Angles(0,math.rad(row[8]),0),Vector3.new(row[5],row[7],row[6]),true)
+end
+local lights=folder(room,"Luzes")
+for _,v in ipairs({{"LacreS",0,-28,6.7,197,128,71,0.7,9},{"LacreN",0,28,6.7,197,128,71,0.7,9},{"Ponteiro",0,21.86,71.9,250,179,99,1.9,15},{"Leitura",0,18.85,62,250,168,97,0.9,25},{"Lava",0,0,8,255,83,25,2.5,32},{"ReflexoO0",-22,-15,37.8,255,86,26,0.45,19},{"ReflexoO1",-22,0,37.8,255,86,26,0.45,19},{"ReflexoO2",-22,15,37.8,255,86,26,0.45,19},{"ReflexoL0",22,-15,37.8,255,86,26,0.45,19},{"ReflexoL1",22,0,37.8,255,86,26,0.45,19},{"ReflexoL2",22,15,37.8,255,86,26,0.45,19}}) do
+    local p=part(lights,v[1],at(v[2],v[3],v[4]),Vector3.one*.1,false)
+    local l=Instance.new("PointLight")
+    l.Color=Color3.fromRGB(v[5],v[6],v[7])
+    l.Range=v[9]
+    l.Shadows=true
+    l.Brightness=v[8]
+    l.Name="PointLight"
+    l.Parent=p
+end
+local arena=folder(room,"Arena")
+local tiles=folder(arena,"Placas")
+local function moving(parent,name,cf)
+ local model=folder(parent,name,"Model")
+ model.PrimaryPart=part(model,"Eixo",cf,Vector3.one*.1,false)
+ return model
+end
+local groups={}
+groups.Roleta=moving(arena,"Roleta",at(0,25,52))
+local door=moving(arena,"PortaoN",at(0,-27,52))
+part(door,"Colisor",at(0,-27.1,56.5),Vector3.new(6.6,9,.60),true)
+groups.PortaoN=door
+local bridge=moving(arena,"Passarela",at(0,-27,52))
+part(bridge,"Colisor",at(0,-24,51.8),Vector3.new(5.8,.4,6.10),false)
+groups.Passarela=bridge
+for row=0,5 do
+ for col=0,4 do
+  local name="Placa_"..row.."_"..col
+  local x,y=(col-2)*7,(row-2.5)*7
+  local hinge=at(x,y-3.45,52)
+  local model=moving(tiles,name,hinge)
+  model:SetAttribute("Dobradica",hinge)
+  model:SetAttribute("Simbolo",(col+row*2)%6)
+  part(model,"Colisor",at(x,y,51.81),Vector3.new(6.90,.38,6.90),true)
+  groups[name]=model
+ end
+end
+for _,p in ipairs(visual:GetChildren()) do
+ local name=p.Name:match("^(.-)__")
+ if groups[name] then p.Parent=groups[name] end
+ if name=="Abismo" and p.Name:match("__Lava$") then
+  p.Material=Enum.Material.Neon
+  local glow=Instance.new("SurfaceLight")
+  glow.Face=Enum.NormalId.Top;glow.Range=26;glow.Angle=135
+  glow.Color=Color3.fromRGB(255,83,23);glow.Brightness=2;glow.Parent=p
+ end
+end
+bridge:PivotTo(at(0,-27,52)*CFrame.Angles(-math.pi/2,0,0))
+local sockets=folder(room,"Encaixes")
+local anchor=part(sockets,"AncoraEncaixes",CFrame.identity,Vector3.one*.1,false)
+for _,side in ipairs({"N","S"}) do
+ local sign=side=="N" and 1 or -1
+ local a=folder(anchor,"Encaixe_"..side,"Attachment")
+ a.CFrame=at(0,sign*33,0)*CFrame.Angles(0,side=="N" and 0 or math.pi,0)
+end
+room:SetAttribute("SaidaRecompensa","N")
+room:SetAttribute("ProximaSalaRequerTotem",true)
+local panel=part(arena,"Painel",at(0,23.1,74.9),Vector3.new(10,1.6,.08),false)
+local gui=folder(panel,"Mostrador","SurfaceGui")
+gui.Face=Enum.NormalId.Back;gui.CanvasSize=Vector2.new(750,120);gui.LightInfluence=.12
+local text=folder(gui,"Texto","TextLabel")
+text.Size=UDim2.fromScale(1,1);text.BackgroundTransparency=1;text.TextColor3=Color3.fromRGB(247,222,166)
+text.TextScaled=true;text.Font=Enum.Font.Garamond;text.Text="◆"
+for _,name in ipairs({"Roleta","Alcapao"}) do
+ local s=folder(panel,name,"Sound")
+ s.Volume=.7;s.RollOffMinDistance=16;s.RollOffMaxDistance=95
+ room:SetAttribute(name.."Id",name=="Roleta" and SOM_ROLETA or SOM_ALCAPAO)
+end
+local scriptSala=folder(room,"Desafio","Script")
+scriptSala.Source=[====[
+local room=script.Parent
+local players=game:GetService("Players")
+local heartbeat=game:GetService("RunService").Heartbeat
+local rng=Random.new()
+local arena=room.Arena
+local labels={"Quadrado","Triângulo","Estrela","Círculo","Olho","Espiral"}
+local colors={Color3.fromRGB(249,119,92),Color3.fromRGB(99,158,255),Color3.fromRGB(255,214,95),Color3.fromRGB(115,226,159),Color3.fromRGB(230,132,222),Color3.fromRGB(245,155,91)}
+local function localFrame(x,y,z) return room:GetPivot()*CFrame.new(x,y,z) end
+local function position(char)
+ local root=char and char:FindFirstChild("HumanoidRootPart")
+ local hum=char and char:FindFirstChildOfClass("Humanoid")
+ if root and hum and hum.Health>0 then return room:GetPivot():PointToObjectSpace(root.Position),hum end
+end
+local function move(char,x,y,z,north)
+ local target=localFrame(x,y,z)
+ char:PivotTo(north and target or target*CFrame.Angles(0,math.pi,0))
+ local root=char:FindFirstChild("HumanoidRootPart")
+ if root then root.AssemblyLinearVelocity=Vector3.zero end
+end
+local function gate(name,open)
+ local m=arena[name]
+ m:PivotTo(localFrame(0,52+(open and 9.3 or 0),27))
+ m.Colisor.CanCollide=not open
+end
+local plates=arena.Placas:GetChildren()
+local function tilt(tile,k)
+ local hinge=room:GetPivot()*tile:GetAttribute("Dobradica")
+ tile:PivotTo(hinge*CFrame.Angles(-1.51*k,0,0))
+end
+local function animate(duration,fn)
+ local start=os.clock()
+ repeat
+  local t=math.min((os.clock()-start)/duration,1)
+  fn(t)
+  if t==1 then break end
+  heartbeat:Wait()
+ until not room.Parent
+end
+local dial=arena.Roleta
+local angle=0
+local function spinAt(a)
+ dial:PivotTo(localFrame(0,52,-25)*CFrame.Angles(0,0,a))
+end
+local indicator=room.Luzes.Ponteiro.PointLight
+local wash=room.Luzes.Leitura.PointLight
+local display=arena.Painel.Mostrador.Texto
+local function sound(name)
+ local id=tostring(room:GetAttribute(name.."Id") or ""):match("%d+")
+ if not id or id=="0" then return end
+ local s=arena.Painel[name]
+ s.SoundId="rbxassetid://"..id
+ s:Play()
+end
+local lens=room.Visual:WaitForChild("Ponteiro__Marfim")
+local coating=lens:FindFirstChildWhichIsA("SurfaceAppearance")
+local function tint(color)
+ indicator.Color=color
+ if coating then coating.Color=color else lens.Color=color end
+end
+local function bridge(open)
+ local model=arena.Passarela
+ model:PivotTo(localFrame(0,52,27)*CFrame.Angles(open and 0 or -math.pi/2,0,0))
+ model.Colisor.CanCollide=open
+end
+local function setPhase(s)
+ room:SetAttribute("Estado",s)
+end
+local active=false
+local solved=false
+local function round()
+ setPhase("Em jogo")
+ local deadline=os.clock()+40
+ local last=-1
+ for r=1,4 do
+  local pick=rng:NextInteger(0,5)
+  if pick==last then pick=(pick+rng:NextInteger(1,5))%6 end
+  last=pick
+  local from=angle
+  local sector=pick+6*rng:NextInteger(0,1)
+  local target=2*math.pi+(sector*math.pi/6-from)%(2*math.pi)+from
+  display.Text="◆   "..r.." / 4   ◆"
+  tint(Color3.fromRGB(239,202,139))
+  sound("Roleta")
+  animate(2.3,function(t)
+   local a=from+(target-from)*(1-(1-t)^2)
+   spinAt(a)
+   tint(colors[math.floor(a/(math.pi/6)+.5)%6+1])
+  end)
+  angle=sector*math.pi/6
+  spinAt(angle)
+  room:SetAttribute("Simbolo",labels[pick+1])
+  display.Text=labels[pick+1]
+  tint(colors[pick+1])
+  wash.Color=Color3.fromRGB(238,217,189):Lerp(colors[pick+1],.62)
+  task.wait(4.3)
+  local wrong={}
+  for _,tile in ipairs(plates) do
+   if tile:GetAttribute("Simbolo")~=pick then
+    table.insert(wrong,tile)
+    tile.Colisor.CanCollide=false
+   end
+  end
+  sound("Alcapao")
+  animate(.43,function(t) for _,tile in ipairs(wrong) do tilt(tile,t*t) end end)
+  task.wait(1.55)
+  animate(.60,function(t) for _,tile in ipairs(wrong) do tilt(tile,1-t) end end)
+  for _,tile in ipairs(wrong) do tile.Colisor.CanCollide=true end
+  task.wait(math.max(.02,deadline-(4-r)*10-os.clock()))
+ end
+ local survivor=false
+ for _,p in ipairs(players:GetPlayers()) do
+  local v=position(p.Character)
+  if v and math.abs(v.X)<18.5 and math.abs(v.Z)<22.5 and v.Y>=51 and v.Y<82 then survivor=true end
+ end
+ solved=survivor
+ bridge(solved)
+ gate("PortaoN",solved)
+ wash.Color=solved and Color3.fromRGB(152,225,173) or Color3.fromRGB(239,187,128)
+ display.Text=solved and "PASSAGEM ABERTA" or "◆"
+ setPhase(solved and "Concluido" or "Aguardando")
+ active=false
+end
+bridge(false)
+gate("PortaoN",false)
+
+setPhase("Aguardando")
+local cooldown={}
+players.PlayerRemoving:Connect(function(p) cooldown[p]=nil end)
+while room:IsDescendantOf(workspace) do
+ local waiting={}
+ for _,p in ipairs(players:GetPlayers()) do
+  local c=p.Character
+  local v,h=position(c)
+  if v and math.abs(v.X)<26.6 and math.abs(v.Z)<27 and v.Y<7.6 and v.Y> -8 then
+   h.Health=0
+  elseif v and (cooldown[p] or 0)<os.clock() then
+   if math.abs(v.X)<5.9 and v.Y>0 and v.Y<9 and v.Z>27.4 and v.Z<30.4 then
+    if solved then move(c,0,3.8,-32,true);cooldown[p]=os.clock()+1
+    elseif not active then table.insert(waiting,p) end
+   elseif solved and math.abs(v.X)<3.25 and v.Y>51 and v.Y<61 and v.Z>27.35 and v.Z<31.35 then
+    move(c,0,3.8,-32,true);cooldown[p]=os.clock()+1
+   elseif solved and math.abs(v.X)<5.9 and v.Y>0 and v.Y<9 and v.Z< -27.4 and v.Z> -30.4 then
+    move(c,0,3.8,32,false);cooldown[p]=os.clock()+1
+   end
+  end
+ end
+ if #waiting>0 and not active then
+  active=true
+  -- Small assembly interval lets nearby teammates enter together.
+  setPhase("Reunindo")
+  task.delay(2,function()
+   local count=0
+   for _,p in ipairs(players:GetPlayers()) do
+    local v=position(p.Character)
+    if v and math.abs(v.X)<6 and v.Z>27 and v.Z<33 and v.Y>0 and v.Y<10 then
+     move(p.Character,-16+(count%8)*4.3,55.6,16.6-(math.floor(count/8)%9)*3.8,true)
+     count+=1
+    end
+   end
+   if count>0 then round() else active=false;setPhase("Aguardando") end
+  end)
+ end
+ task.wait(.08)
+end
+
+
+
+]====]
+local function audioSettings(model,previous)
+ for _,key in ipairs({"RoletaId","AlcapaoId"}) do
+  local manual=key=="RoletaId" and SOM_ROLETA or SOM_ALCAPAO
+  local id=previous and previous:GetAttribute(key)
+  if manual~="" then model:SetAttribute(key,manual)
+  elseif id and tostring(id)~="" then model:SetAttribute(key,id) end
+ end
+end
+audioSettings(room,antigaPrevia)
+audioSettings(room,anterior)
+local preview=room:Clone()
+preview.Name="Previa_SalaDaRoleta"
+audioSettings(preview,antigaPrevia)
+preview:PivotTo(antigaPrevia and antigaPrevia:GetPivot() or CFrame.new(965,.594,154))
+local library=existing or folder(storage,"Invokyr_Salas")
+room.Parent=library
+preview.Parent=destino
+if anterior then anterior:Destroy() end
+if antigaPrevia then antigaPrevia:Destroy() end
+imported:Destroy()
+selection:Set({preview})
+workspace.CurrentCamera.CFrame=preview:GetPivot()*CFrame.lookAt(Vector3.new(0,5,36),Vector3.new(0,5,27))
+print("Roleta instalada. Use Play Here junto à entrada. Aproxime-se do arco para subir à arena.")

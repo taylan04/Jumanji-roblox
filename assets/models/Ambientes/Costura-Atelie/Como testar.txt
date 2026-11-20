@@ -1,0 +1,13 @@
+﻿INVOKYR | Sala de Costura
+Sala comum de 3 × 3 células. O biombo de três folhas ocupa o centro. Há passagem pelas duas extremidades.
+
+Se a edição anterior já estiver instalada, mova o modelo Costura da biblioteca e a Previa_Costura do Workspace para uma pasta de backup no ServerStorage antes de instalar. Assim a prévia antiga também sai do local de teste. Guarde apenas a edição em uso na pasta Invokyr_Salas.
+
+1. No projeto da mansão, pare o Play. O instalador usa o controlador Invokyr_Moveis da Galeria em ServerScriptService.
+2. Importe Costura.glb como Model, com unidade Stud, escala 1 e malhas separadas. Selecione a raiz importada. Cole Instalar-Costura.txt inteiro na Command Bar e execute uma vez.
+3. O modelo fica em ServerStorage > Invokyr_Salas > Costura. Selecione Workspace > Previa_Costura, aperte F, leve a câmera para dentro da sala e use Play Here. As portas norte e sul ficam abertas na prévia. Contorne o biombo pelos dois lados e atravesse os dois vãos e confira a leitura do vestido e das saídas com a iluminação do jogo.
+4. Aproxime-se do puxador da bancada e aperte E. A gaveta deve trazer os carretéis, os botões e um dado de amostra. Feche e abra de novo para verificar o movimento. O dado da prévia serve para inspeção visual.
+5. Abra o armário de moldes com E e ilumine o compartimento inferior. O espaço e o marcador são para o totem gerado pela partida. A prévia fica fora do sorteio da mansão.
+6. Para usar o módulo com os corredores, clone o modelo da biblioteca, posicione-o antes de colocá-lo no Workspace e use ConfigurarPortas no padrão do Arquivo. Os encaixes norte, sul, leste e oeste ficam no centro dos lados.
+
+As quatro imagens foram renderizadas no Blender. As vistas abertas mostram a geometria dos compartimentos. A iluminação, as colisões, a tecla E e o sorteio dos itens reais precisam ser testados no Studio.

@@ -1,0 +1,76 @@
+INVOKYR - ADEGA ALAGADA (sala de DESAFIO, 4 x 6 celulas = 44 x 66 studs por fora)
+==================================================================================
+
+O QUE VEM NESTE PACOTE
+  Adega.blend                   a sala no Blender
+  AdegaAlagada.glb              o que vai para o Roblox Studio
+  invokyr_18_adega_alagada.lua  o script que monta a sala no Studio
+  AdegaAlagada_*.png            fotos da sala
+
+
+INSTALAR NO ROBLOX STUDIO (passo a passo)
+-----------------------------------------
+1. Abra o Jogo-V2 no Studio, com o jogo PARADO.
+
+2. Aba HOME > "Import 3D" > escolha o AdegaAlagada.glb.
+     - Scale Unit: Stud      - Scale: 1
+     - "Merge Meshes" DESLIGADO
+   Clique em Import e espere terminar (o arquivo e grande, pode demorar um pouco).
+
+3. VIEW > "Command Bar". Abra o invokyr_18_adega_alagada.lua no Bloco de Notas,
+   Ctrl+A, Ctrl+C, cole na Command Bar e aperte Enter.
+
+4. No Output (VIEW > Output) tem que aparecer:
+     ========== INVOKYR 18: ADEGA ALAGADA ==========
+       Invokyr_Movimento: agora anda mais devagar na agua (...)
+       AdegaAlagada guardada em ServerStorage > Invokyr_Salas | pecas: 91 de 91
+       Moveis que abrem: 7 partes em 4 moveis | esconderijos: 1 de totem, 6 de dado
+       ...
+       Sem avisos.
+   AVISO em laranja = me manda print.
+
+5. Ficou assim:
+     ServerStorage > Invokyr_Salas > AdegaAlagada                 (a peca do gerador)
+     Workspace > Invokyr > Mansao > Salas > Previa_AdegaAlagada   (para andar dentro)
+     StarterPlayer > StarterPlayerScripts > Invokyr_Agua          (novo: agua deixa lento e embaca debaixo)
+     StarterPlayer > StarterPlayerScripts > Invokyr_Escuridao     (atualizado: agora vale para sala que desce no chao)
+     StarterPlayer > StarterPlayerScripts > Invokyr_Movimento     (1 linha mudou: a velocidade e multiplicada
+                                                                   pelo atributo MultVelocidade; a versao antiga
+                                                                   esta em Invokyr_Backup)
+     ServerScriptService > Invokyr_Moveis                         (o mesmo de sempre)
+
+6. Para andar: a camera ja fica no patamar da entrada. TEST > setinha do Play > "Play Here".
+   A previa fica 8 studs acima do chao do Workspace de proposito: o porao desce 7 studs e,
+   no chao normal, ele entraria dentro do Baseplate.
+
+
+COMO E A SALA
+-------------
+  - Porta no nivel do corredor, patamar de pedra e uma escada larga que desce 7 studs ate o porao.
+  - Agua marrom e suja na altura da cintura: dentro dela o jogador anda a 60% da velocidade.
+    Agachando com a camera debaixo d'agua, a tela fica marrom e embacada.
+  - Abobadas de tijolo, pilares de pedra, musgo na linha d'agua e pendurado, adegas de vinho podres,
+    barris tombados e boiando, tabuas, garrafas e tufos de limo na agua.
+  - 3 gaveteiros velhos e quebrados (gavetas faltando, tortas, tampo rachado). 6 gavetas abrem (E),
+    cada uma com um esconderijo de dado. Dois ficam no patamar, um dentro da agua (as gavetas de
+    cima, fora da agua, e que abrem).
+  - O BAU VELHO fica num balcao alto no canto do fundo (nordeste). Do chao da agua nao se alcanca
+    (9 studs). O caminho e pelo canto leste: caixotes -> tonel -> andaime -> pilha de caixotes -> balcao.
+    O totem fica DEITADO dentro do bau; com a tampa fechada nao da para pegar.
+    Testei com um simulador de pulos: sem os caixotes do caminho, o balcao fica inalcancavel.
+  - Escura: lanterna na entrada, vela no gaveteiro, tocha na parede oeste, um feixe de luar caindo
+    pela grade do teto na agua e as velas do balcao do bau (o objetivo aparece de longe).
+  - Ponto do jacare: Previa_AdegaAlagada > Monstros > Monstro_Jacare (no fundo da agua, no meio).
+    A regiao da agua esta em Agua > RegiaoDaAgua (para a IA dele saber onde pode nadar).
+
+
+PARA TESTAR O TOTEM NO BAU
+--------------------------
+No comeco do script troque  PREVIA_COM_ESCONDERIJOS = false  por  true, importe o .glb de novo,
+rode e de Play. Os totens do Script 09 podem cair no bau da previa. Depois volte para false.
+
+
+AVISO PARA O GERADOR DO MAPA (quando for feito)
+-----------------------------------------------
+Esta sala tem o atributo Base = -8: ela desce 8 studs abaixo do nivel dos corredores.
+O gerador nao pode colocar nada embaixo dela, e o chao do mapa (Baseplate) nao pode passar ali.

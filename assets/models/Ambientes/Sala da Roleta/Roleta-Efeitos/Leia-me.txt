@@ -1,0 +1,8 @@
+﻿ATUALIZAÇÃO DA SALA DA ROLETA V2
+
+1. Extraia este ZIP. Com o Play parado, importe os três WAVs como áudios no Roblox, na conta ou grupo do jogo. Se necessário, conceda acesso à experiência. Copie o ID de cada áudio.
+2. Abra Atualizar-Roleta.txt e cole os três IDs entre as aspas nas três primeiras linhas, na ordem Madeira, Tremor e Poeira. Aplique o texto inteiro na Command Bar. Pode aplicar de novo depois para trocar um ID. Um campo vazio conserva o novo ID que já estiver configurado. Na primeira aplicação, esse efeito fica silencioso até receber um ID. O alçapão continua usando o AlcapaoId da sala.
+3. Teste entrando pelo arco inferior ou com Play Here nas placas. Observe os símbolos durante o giro. Ao parar, todos os símbolos do piso desaparecem em quase um segundo. As placas de madeira continuam visíveis. Posicione-se conforme o símbolo do ponteiro. As erradas abrem e os desenhos reaparecem quando o chão se recompõe.
+4. Depois de quatro rodadas, olhe para o lado oposto à roleta. A porta do andar das placas sobe e a passarela baixa sobre o vão. Atravesse para chegar ao vestíbulo de saída, no nível em que o gerador vai encaixar o corredor da sala do totem. Os dois arcos inferiores ficam nas extremidades do módulo, no nível dos corredores. A lava ocupa o poço entre eles.
+
+A atualização inclui o script do desafio e o efeito de câmera. Aplique na prévia e na biblioteca de uma vez com a Command Bar. O modelo e as texturas instalados são reutilizados. Os efeitos sonoros são originais e não há faixa de música no desafio.

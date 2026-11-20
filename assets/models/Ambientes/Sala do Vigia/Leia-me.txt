@@ -1,0 +1,18 @@
+﻿SALA DO VIGIA
+
+ATUALIZAR UMA SALA JÁ INSTALADA
+Com o Play parado, cole todo o conteúdo de Atualizar-Efeitos-do-Vigia.txt na Command Bar e execute. Inicie outro Play. Os efeitos valem para a prévia e para cópias da sala. Se ela ainda tiver o nome antigo e você quiser renomeá-la também, execute Instalar-Sala-do-Vigia.txt com nada selecionado no Explorer.
+
+PRIMEIRA INSTALAÇÃO
+1. Extraia o ZIP. Para editar a arte no Blender, abra Sala-do-Vigia.blend.
+2. No seu place do INVOKYR, com o Play parado, importe Sala-do-Vigia.glb como Model. Use Scale Unit = Stud, Scale = 1, malhas separadas, hierarquia preservada e Add to Workspace.
+3. No Explorer, selecione a raiz inteira da importação. Cole todo o conteúdo de Instalar-Sala-do-Vigia.txt na Command Bar e execute. Os dois scripts já estão incluídos. A instalação cria a prévia em Workspace > Invokyr > Mansao > Salas e a peça SalaDoVigia em ServerStorage > Invokyr_Salas.
+4. A câmera enquadra a entrada sul. Inicie com Play Here junto à soleira e caminhe alguns passos para dentro. Há 2,5 segundos para o grupo se reunir. Também é possível iniciar a prévia com Play Here no piso de placas.
+
+JOGAR
+A estátua fica ao norte. No painel à esquerda dela, a primeira linha corresponde à faixa A, junto à estátua. A faixa D fica junto à entrada. De frente para o Vigia, a coluna 1 fica à esquerda e a 4 à direita. Cada setor tem seu código gravado no chão.
+Durante o tremor, procure no painel um círculo verde-água e corra para o setor com o mesmo código. As cruzes cor de cobre indicam espinhos. As arandelas oscilam e das nervuras do teto caem nuvens de cal e lascas de pedra. As lascas quicam no piso e levantam pó. Quando o tremor para, os espinhos sobem e quem estiver ao alcance deles na região perigosa morre. Há quatro ondas. A cada uma você tem 5,8 segundos para escolher um abrigo.
+Se o grupo inteiro morrer, a entrada reabre para outra tentativa. Se houver sobreviventes, o pedestal, a estátua e a pedra que veda a saída deslizam juntos para a direita. Caminhe pela passagem que aparece atrás deles. A peça permanece aberta nessa partida. Uma nova cópia começa fechada. A sala usa apenas efeitos visuais.
+
+ENCAIXE FUTURO
+Módulo de 55 × 55 studs, 5 × 5 células. Encaixe_S é a entrada e Encaixe_N é a saída. Os atributos ProximaSalaRequerTotem=true e SaidaRecompensa=N registram o destino de recompensa. A prévia termina na soleira norte. O gerador deverá encaixar ali uma sala com totem.

@@ -1,0 +1,13 @@
+Arquivo | INVOKYR
+
+Com o Play parado, importe Arquivo.glb como Model. Use Scale Unit = Stud, Scale = 1 e mantenha as malhas separadas.
+Selecione a raiz da importação no Workspace. Cole Instalar-Arquivo.txt por inteiro na Command Bar e execute uma vez.
+O Arquivo usa o controlador Invokyr_Moveis que já está instalado com a Galeria.
+
+Para testar, selecione Workspace > Previa_Arquivo, aperte F, leve a câmera para dentro e use Play Here.
+Aproxime-se dos puxadores e aperte E. A cada Play, uma das seis gavetas recebe um dado de amostra para o teste visual.
+
+O modelo para o gerador fica em ServerStorage > Invokyr_Salas > Arquivo. Para usar, clone, posicione e coloque a cópia no Workspace.
+O módulo ConfigurarPortas recebe os lados ativos e os ângulos no mesmo padrão da Biblioteca.
+O modelo tem seis pontos Invokyr_EsconderijoDado e dois Invokyr_Esconderijo. A distribuição dos itens reais pertence ao sistema da partida.
+A prévia isolada usa apenas a amostra, sem incluir seus esconderijos no sorteio da mansão.

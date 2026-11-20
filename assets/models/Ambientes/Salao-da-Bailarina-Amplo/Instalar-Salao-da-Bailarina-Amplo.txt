@@ -1,0 +1,291 @@
+-- Importe o GLB como Model em studs, selecione a raiz e execute em modo de edicao.
+local selection=game:GetService("Selection")
+local storage=game:GetService("ServerStorage")
+local tags=game:GetService("CollectionService")
+assert(not game:GetService("RunService"):IsRunning(),"Pare o teste antes de instalar.")
+local chosen=selection:Get()
+assert(#chosen==1 and chosen[1]:IsA("Model"),"Selecione o modelo completo da Salão da Bailarina.")
+local imported=chosen[1]
+assert(imported:IsDescendantOf(workspace) and not imported:GetAttribute("PecaInvokyr"),"Selecione a importacao nova.")
+local existing=storage:FindFirstChild("Invokyr_Salas")
+local antiga=existing and existing:FindFirstChild("SalaoDaBailarina")
+local previaAntiga=workspace:FindFirstChild("Previa_SalaoDaBailarina")
+for _,modelo in pairs({modelo=antiga,previa=previaAntiga}) do
+    assert(modelo:IsA("Model") and modelo:GetAttribute("PecaInvokyr"), "Ha um objeto com esse nome que nao pertence ao instalador.")
+end
+local room=Instance.new("Model")
+room.Name="SalaoDaBailarina"
+room:SetAttribute("PecaInvokyr",true)
+room:SetAttribute("CelulasX",7)
+room:SetAttribute("CelulasZ",24)
+room:SetAttribute("Tipo","Desafio")
+local function folder(parent,name,kind)
+    local x=Instance.new(kind or "Folder")
+    x.Name=name
+    x.Parent=parent
+    return x
+end
+local function part(parent,name,cf,size,solid)
+    local p=Instance.new("Part")
+    p.Name=name
+    p.Size=size
+    p.CFrame=cf
+    p.Anchored=true
+    p.Transparency=1
+    p.CanCollide=solid
+    p.CanQuery=solid
+    p.CanTouch=false
+    p.CastShadow=false
+    p.Parent=parent
+    return p
+end
+local function at(x,y,z)
+    return CFrame.new(x,z,-y)
+end
+local visual=folder(room,"Visual")
+local root=part(room,"Origem",CFrame.identity,Vector3.one*.15,false)
+room.PrimaryPart=root
+local indexed={}
+local function key(s) return string.lower(s):gsub("[^a-z0-9]","") end
+for _,p in ipairs(imported:GetDescendants()) do
+    if p:IsA("MeshPart") then
+        indexed[key(p.Name)]=p
+        indexed[key(p.Parent.Name):gsub("node$","")]=p
+    end
+end
+local floor=assert(indexed.pisoebanizada,"Malha do piso ausente. Mantenha a hierarquia do GLB.")
+local north=assert(indexed.paredenreboco,"Parede norte ausente.")
+local delta=north.Position-floor.Position
+local northDirection=Vector3.new(delta.X,0,delta.Z).Unit
+assert(math.abs(floor.Size.X-77)<.3 and math.abs(floor.Size.Z-264)<.3,"Use Scale Unit = Stud, Scale = 1.")
+local center=floor.Position+Vector3.new(0,.26,0)
+local source=CFrame.lookAt(center,center+northDirection)
+local doors=folder(room,"Portas")
+local sockets=folder(room,"Encaixes")
+local socketsPart=part(sockets,"AncoraEncaixes",CFrame.identity,Vector3.one*.1,false)
+local dirs={N=Vector3.new(0,0,-1),S=Vector3.zAxis,L=Vector3.xAxis,O=-Vector3.xAxis}
+local hinges={["Porta_S_A"]={-2.455,-131.51,0},["Porta_S_B"]={2.455,-131.51,0}}
+for side,pos in pairs({["S"]={0,-132,0}}) do
+    local anchor=folder(socketsPart,"Encaixe_"..side,"Attachment")
+    local point=at(table.unpack(pos)).Position
+    anchor.CFrame=CFrame.lookAt(point,point+dirs[side])
+    local door=folder(doors,side)
+    folder(door,"Fecho")
+    for _,label in ipairs({"A","B"}) do
+        local leaf=folder(door,label,"Model")
+        local hinge=part(leaf,"Eixo",at(table.unpack(hinges["Porta_"..side.."_"..label])),Vector3.one*.1,false)
+        leaf.PrimaryPart=hinge
+        leaf:SetAttribute("Fechada",hinge.CFrame)
+    end
+end
+for _,name in ipairs({"Piso__Ebanizada","Tabuas_0__Nogueira","Tabuas_1__Nogueira","Tabuas_2__Nogueira","Tabuas_3__Nogueira","Tabuas_4__Nogueira","Tabuas_5__Nogueira","Tabuas_6__Nogueira","Tabuas_7__Nogueira","Tabuas_8__Nogueira","Rosa_do_palco__Ebanizada","Rosa_do_palco__Latao","Rosa_do_palco__Calcario","Teto__Reboco","Parede_S__Reboco","Parede_S__Ebanizada","Parede_S__Nogueira","Parede_S__Talha","Porta_S_A__Nogueira","Porta_S_A__Talha","Porta_S_A__Ebanizada","Porta_S_A__Latao","Porta_S_B__Nogueira","Porta_S_B__Talha","Porta_S_B__Ebanizada","Porta_S_B__Latao","Fecho_S__Reboco","Fecho_S__Ebanizada","Fecho_S__Nogueira","Fecho_S__Talha","Parede_N__Reboco","Parede_N__Ebanizada","Parede_N__Nogueira","Parede_N__Talha","Parede_L__Reboco","Lambril_L0__Ebanizada","Lambril_L0__Nogueira","Lambril_L0__Talha","Lambril_L1__Ebanizada","Lambril_L1__Nogueira","Lambril_L1__Talha","Lambril_L2__Ebanizada","Lambril_L2__Nogueira","Lambril_L2__Talha","Lambril_L3__Ebanizada","Lambril_L3__Nogueira","Lambril_L3__Talha","Lambril_L4__Ebanizada","Lambril_L4__Nogueira","Lambril_L4__Talha","Lambril_L5__Ebanizada","Lambril_L5__Nogueira","Lambril_L5__Talha","Lambril_L6__Ebanizada","Lambril_L6__Nogueira","Lambril_L6__Talha","Lambril_L7__Ebanizada","Lambril_L7__Nogueira","Lambril_L7__Talha","Lambril_L8__Ebanizada","Lambril_L8__Nogueira","Lambril_L8__Talha","Lambril_L9__Ebanizada","Lambril_L9__Nogueira","Lambril_L9__Talha","Lambril_L9__Latao","Loge_L0__Ebanizada","Loge_L0__Nogueira","Loge_L0__Latao","Loge_L0__Mercurio","Loge_L1__Ebanizada","Loge_L1__Nogueira","Loge_L1__Latao","Loge_L1__Mercurio","Loge_L1__Veludo","Loge_L2__Ebanizada","Loge_L2__Nogueira","Loge_L2__Latao","Loge_L2__Mercurio","Loge_L3__Ebanizada","Loge_L3__Nogueira","Loge_L3__Latao","Loge_L3__Mercurio","Loge_L4__Ebanizada","Loge_L4__Nogueira","Loge_L4__Latao","Loge_L4__Mercurio","Loge_L4__Veludo","Loge_L5__Ebanizada","Loge_L5__Nogueira","Loge_L5__Latao","Loge_L5__Mercurio","Loge_L6__Ebanizada","Loge_L6__Nogueira","Loge_L6__Latao","Loge_L6__Mercurio","Loge_L6__Veludo","Loge_L7__Ebanizada","Loge_L7__Nogueira","Loge_L7__Latao","Loge_L7__Mercurio","Loge_L8__Ebanizada","Loge_L8__Nogueira","Loge_L8__Latao","Loge_L8__Mercurio","Loge_L9__Ebanizada","Loge_L9__Nogueira","Loge_L9__Latao","Loge_L9__Mercurio","Loge_L9__Veludo","Loge_L10__Ebanizada","Loge_L10__Nogueira","Loge_L10__Latao","Loge_L10__Mercurio","Arandelas_L-117__Latao","Arandelas_L-117__Marfim","Arandelas_L-117__Chama","Arandelas_L-68__Latao","Arandelas_L-68__Marfim","Arandelas_L-68__Chama","Arandelas_L-20__Latao","Arandelas_L-20__Marfim","Arandelas_L-20__Chama","Arandelas_L28__Latao","Arandelas_L28__Marfim","Arandelas_L28__Chama","Arandelas_L76__Latao","Arandelas_L76__Marfim","Arandelas_L76__Chama","Arandelas_L124__Latao","Arandelas_L124__Marfim","Arandelas_L124__Chama","Parede_O__Reboco","Lambril_O0__Ebanizada","Lambril_O0__Nogueira","Lambril_O0__Talha","Lambril_O1__Ebanizada","Lambril_O1__Nogueira","Lambril_O1__Talha","Lambril_O2__Ebanizada","Lambril_O2__Nogueira","Lambril_O2__Talha","Lambril_O3__Ebanizada","Lambril_O3__Nogueira","Lambril_O3__Talha","Lambril_O4__Ebanizada","Lambril_O4__Nogueira","Lambril_O4__Talha","Lambril_O5__Ebanizada","Lambril_O5__Nogueira","Lambril_O5__Talha","Lambril_O6__Ebanizada","Lambril_O6__Nogueira","Lambril_O6__Talha","Lambril_O7__Ebanizada","Lambril_O7__Nogueira","Lambril_O7__Talha","Lambril_O8__Ebanizada","Lambril_O8__Nogueira","Lambril_O8__Talha","Lambril_O9__Ebanizada","Lambril_O9__Nogueira","Lambril_O9__Talha","Lambril_O9__Latao","Loge_O0__Ebanizada","Loge_O0__Nogueira","Loge_O0__Latao","Loge_O0__Mercurio","Loge_O1__Ebanizada","Loge_O1__Nogueira","Loge_O1__Latao","Loge_O1__Mercurio","Loge_O1__Veludo","Loge_O2__Ebanizada","Loge_O2__Nogueira","Loge_O2__Latao","Loge_O2__Mercurio","Loge_O3__Ebanizada","Loge_O3__Nogueira","Loge_O3__Latao","Loge_O3__Mercurio","Loge_O4__Ebanizada","Loge_O4__Nogueira","Loge_O4__Latao","Loge_O4__Mercurio","Loge_O4__Veludo","Loge_O5__Ebanizada","Loge_O5__Nogueira","Loge_O5__Latao","Loge_O5__Mercurio","Loge_O6__Ebanizada","Loge_O6__Nogueira","Loge_O6__Latao","Loge_O6__Mercurio","Loge_O6__Veludo","Loge_O7__Ebanizada","Loge_O7__Nogueira","Loge_O7__Latao","Loge_O7__Mercurio","Loge_O8__Ebanizada","Loge_O8__Nogueira","Loge_O8__Latao","Loge_O8__Mercurio","Loge_O9__Ebanizada","Loge_O9__Nogueira","Loge_O9__Latao","Loge_O9__Mercurio","Loge_O9__Veludo","Loge_O10__Ebanizada","Loge_O10__Nogueira","Loge_O10__Latao","Loge_O10__Mercurio","Arandelas_O-117__Latao","Arandelas_O-117__Marfim","Arandelas_O-117__Chama","Arandelas_O-68__Latao","Arandelas_O-68__Marfim","Arandelas_O-68__Chama","Arandelas_O-20__Latao","Arandelas_O-20__Marfim","Arandelas_O-20__Chama","Arandelas_O28__Latao","Arandelas_O28__Marfim","Arandelas_O28__Chama","Arandelas_O76__Latao","Arandelas_O76__Marfim","Arandelas_O76__Chama","Arandelas_O124__Latao","Arandelas_O124__Marfim","Arandelas_O124__Chama","Luz_de_piso_-116__Latao","Luz_de_piso_-116__VidroMel","Luz_de_piso_-92__Latao","Luz_de_piso_-92__VidroMel","Luz_de_piso_-68__Latao","Luz_de_piso_-68__VidroMel","Luz_de_piso_-44__Latao","Luz_de_piso_-44__VidroMel","Luz_de_piso_44__Latao","Luz_de_piso_44__VidroMel","Luz_de_piso_68__Latao","Luz_de_piso_68__VidroMel","Luz_de_piso_92__Latao","Luz_de_piso_92__VidroMel","Luz_de_piso_116__Latao","Luz_de_piso_116__VidroMel","Frontao_entrada_-1__Ebanizada","Frontao_entrada_-1__Nogueira","Frontao_entrada_-1__Latao","Frontao_entrada_-1__Mercurio","Frontao_entrada_1__Ebanizada","Frontao_entrada_1__Nogueira","Frontao_entrada_1__Latao","Frontao_entrada_1__Mercurio","Frontao_altar_-1__Ebanizada","Frontao_altar_-1__Nogueira","Frontao_altar_-1__Latao","Frontao_altar_-1__Mercurio","Frontao_altar_1__Ebanizada","Frontao_altar_1__Nogueira","Frontao_altar_1__Latao","Frontao_altar_1__Mercurio","Arco_-120__Nogueira","Arco_-120__Latao","Arco_-96__Nogueira","Arco_-96__Latao","Arco_-72__Nogueira","Arco_-72__Latao","Arco_-48__Nogueira","Arco_-48__Latao","Arco_-24__Nogueira","Arco_-24__Latao","Arco_0__Nogueira","Arco_0__Latao","Arco_24__Nogueira","Arco_24__Latao","Arco_48__Nogueira","Arco_48__Latao","Arco_72__Nogueira","Arco_72__Latao","Arco_96__Nogueira","Arco_96__Latao","Arco_120__Nogueira","Arco_120__Latao","Palco_do_altar__Veludo","Palco_do_altar__Latao","Palco_do_altar__Ebanizada","Palco_do_altar__Nogueira","Palco_do_altar__Mercurio","Palco_do_altar__Calcario","Ribalta__Ferro","Ribalta__VidroMel","Estatua_00_0","Estatua_01_0","Estatua_02_0","Estatua_03_0","Estatua_04_0","Estatua_05_0","Estatua_06_0","Estatua_07_0","Estatua_08_0","Estatua_09_0","Estatua_10_0","Estatua_10_1","Estatua_11_0","BaseFixa_12_0","BaseFixa_13_0","BaseFixa_14_0","Estatua_15_0","Estatua_16_0","Estatua_17_0","Estatua_19_0","Estatua_20_0","Estatua_18_0_A","Estatua_18_0_B"}) do
+    local src=assert(indexed[key(name)],"Faltou "..name..". Importe todas as malhas sem unir.")
+    local p=src:Clone()
+    p.Name=name
+    p.CFrame=source:ToObjectSpace(src.CFrame)
+    p.Anchored=true
+    p.CanCollide=false
+    p.CanQuery=false
+    p.CanTouch=false
+    if name:match("__Chama$") then p.Material=Enum.Material.Neon end
+    local side,label=name:match("^Porta_([NSLO])_([AB])__")
+    local panel=name:match("^Fecho_([NSLO])__")
+    p.Parent=side and doors[side][label] or panel and doors[panel].Fecho or visual
+end
+for side,pos in pairs({["S"]={0,-132,0}}) do
+    local outward=dirs[side]
+    local frame=CFrame.lookAt(at(table.unpack(pos)).Position,outward+at(table.unpack(pos)).Position)
+    part(doors[side].Fecho,"BatenteColisao",frame*CFrame.new(0,4.5,.5),Vector3.new(4.87,9,.8),true)
+    for _,label in ipairs({"A","B"}) do
+        local leaf=doors[side][label]
+        local cf=CFrame.lookAt(leaf.PrimaryPart.Position,leaf.PrimaryPart.Position+outward)
+        part(leaf,"FolhaColisao",cf*CFrame.new(label=="A" and -1.225 or 1.225,4.5,0),Vector3.new(2.41,8.94,.655),true)
+    end
+end
+local bailarina=folder(room,"Bailarina","Model")
+local pedestal=folder(bailarina,"Pedestal","Model")
+local giratoria=folder(bailarina,"ParteQueGira","Model")
+for _,p in ipairs(visual:GetChildren()) do
+    if p.Name:match("^BaseFixa_") then
+        p.Parent=pedestal
+        p.CanCollide=true
+        p.CanQuery=true
+    elseif p.Name:match("^Estatua_") then p.Parent=giratoria end
+end
+local eixo=part(giratoria,"Eixo",CFrame.identity,Vector3.one*.1,false)
+giratoria.PrimaryPart=eixo
+-- SpotLights illuminate the porcelain from below. Extra bounce gives the room
+-- reflected red light that would otherwise be absent in a real-time interior.
+local ribalta=folder(room,"Ribalta")
+local function iluminar(nome,pos,destino,cor,intensidade,alcance,angulo,sombra)
+    local cf=destino and CFrame.lookAt(pos,destino) or CFrame.new(pos)
+    local suporte=part(ribalta,nome,cf,Vector3.one*.12,false)
+    local luz=Instance.new(destino and "SpotLight" or "PointLight")
+    if destino then luz.Face=Enum.NormalId.Front; luz.Angle=angulo end
+    luz.Color=cor; luz.Range=alcance; luz.Shadows=sombra
+    luz.Brightness=0; luz:SetAttribute("Intensidade",intensidade); luz.Parent=suporte
+end
+local V=Vector3.new
+local cor=Color3.fromRGB
+for i=0,7 do
+    local a=(i+.5)*math.pi/4
+    local pos=V(7.15*math.cos(a),.36,-7.15*math.sin(a))
+    local frente=pos.Z>0
+    iluminar("Projetor_"..i,pos,V(-pos.X*.22,frente and 21 or 29,0),
+        frente and cor(255,70,42) or cor(248,35,52),frente and 5.6 or 4.0,48,54,i%2==0)
+end
+iluminar("Reflexo_no_soalho",V(0,3.8,8.5),nil,cor(251,96,64),1.55,26,nil,false)
+iluminar("Reflexo_posterior",V(0,4,-9),nil,cor(240,66,51),1.30,27,nil,false)
+iluminar("Recorte_da_porcelana",V(-12,34,-9),V(0,25,0),cor(150,172,208),1.6,34,75,true)
+iluminar("Reflexo_na_mascara",V(6,25,14),V(0,27,0),cor(247,156,123),1.15,33,80,false)
+iluminar("Caminho_de_entrada",V(0,6,27),nil,cor(220,143,108),.68,23,nil,false)
+iluminar("Caminho_do_altar",V(0,6,-26),nil,cor(235,137,111),.78,24,nil,false)
+iluminar("Recorte_cenital",V(0,46,5),V(0,10,0),cor(231,215,194),3.8,55,48,true)
+local giro=folder(room,"BailarinaGiro","Script")
+giro.Source=[==[
+-- Giro adaptado de BailarinaGiro.server.lua para o salao modular.
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local sala = script.Parent
+local bailarina = sala.Bailarina
+local conjunto = bailarina.ParteQueGira
+local velocidades = { giro = math.rad(50), freio = 3.5 }
+local rng = Random.new()
+local eixoLocal = sala:GetPivot():ToObjectSpace(conjunto:GetPivot())
+local refletores = {}
+for _,luz in ipairs(sala.Ribalta:GetDescendants()) do
+    if luz:IsA("Light") then table.insert(refletores,luz) end
+end
+local estado,tempo,angulo,vel,forca = "Repouso",0,0,0,0
+local function mudar(nome,segundos)
+    estado,tempo = nome,segundos
+    sala:SetAttribute("EstadoBailarina",nome)
+end
+local function haJogador()
+    local centro = sala:GetPivot()
+    for _,jogador in ipairs(Players:GetPlayers()) do
+        local personagem = jogador.Character
+        local raiz = personagem and personagem:FindFirstChild("HumanoidRootPart")
+        local humanoide = personagem and personagem:FindFirstChildOfClass("Humanoid")
+        if raiz and humanoide and humanoide.Health>0 then
+            local p = centro:PointToObjectSpace(raiz.Position)
+            local soleira = math.abs(p.X)<=3.6 and p.Z>=130 and p.Z<=136
+            local interior = math.abs(p.X)<37.5 and p.Z>=-131 and p.Z<=131
+            if p.Y>=-1 and p.Y<47 and (soleira or interior) then return true end
+        end
+    end
+    return false
+end
+mudar("Repouso",0)
+local intervalo,presente = .18,false
+local con
+con = RunService.Heartbeat:Connect(function(dt)
+    intervalo = intervalo+dt
+    if intervalo>=.18 then
+        intervalo=0
+        presente=haJogador()
+        if presente and estado=="Repouso" then mudar("Acendendo",.95)
+        elseif not presente and estado~="Repouso" then mudar("Repouso",0) end
+    end
+    local alvoLuz = 0
+    if presente then
+        tempo=tempo-dt
+        if tempo<=0 then
+            if estado=="Girando" then mudar("Freando",.43)
+            elseif estado=="Freando" then mudar("Parada",4)
+            else mudar("Girando",rng:NextNumber(3,7)) end
+        end
+        alvoLuz=(estado=="Parada" or estado=="Freando") and 1.13 or 1
+    end
+    local anterior=forca
+    forca=forca+(alvoLuz-forca)*(1-math.exp(-dt*(presente and 2.3 or 2.0)))
+    if math.abs(alvoLuz-forca)<.003 then forca=alvoLuz end
+    if forca~=anterior then
+        for _,luz in ipairs(refletores) do luz.Brightness=forca*luz:GetAttribute("Intensidade") end
+    end
+    local alvo = estado=="Girando" and velocidades.giro or 0
+    vel=vel+(alvo-vel)*(1-math.exp(-dt*(estado=="Freando" and 9 or velocidades.freio)))
+    if estado=="Parada" or (alvo==0 and vel<.001) then vel=0 end
+    if vel>0 then
+        angulo=(angulo+vel*dt)%(2*math.pi)
+        conjunto:PivotTo(sala:GetPivot()*eixoLocal*CFrame.Angles(0,angulo,0))
+    end
+end)
+script.Destroying:Connect(function() con:Disconnect() end)
+
+]==]
+
+local colliders=folder(room,"Colisao")
+for i,row in ipairs({{"Piso",0.0,0.0,-0.26,77.0,264,0.32,0.0},{"Teto",0.0,0.0,48.2,77.0,264,0.4,0.0},{"Parede_S",-20.4675,-131.5,24.0,36.065,1,48,0.0},{"Parede_S",20.4675,-131.5,24.0,36.065,1,48,0.0},{"Parede_S",0.0,-131.5,28.5,4.87,1,39,0.0},{"Parede_N",0.0,131.5,24.0,77.0,1,48,180.0},{"Parede_L",38.0,0.0,24.0,264,1,48,90.0},{"Parede_O",-38.0,0.0,24.0,264,1,48,-90.0},{"Palco_do_altar",0,127.6,1.58,3.53,3.53,3.16,0}}) do
+    part(colliders,"COL_"..i,at(row[2],row[3],row[4])*CFrame.Angles(0,math.rad(row[8]),0),Vector3.new(row[5],row[7],row[6]),true)
+end
+local places=folder(room,"Esconderijos")
+for _,v in ipairs({{"Altar",0,127.6,3.18}}) do
+    local p=part(places,"Totem_"..v[1],at(v[2],v[3],v[4]),Vector3.new(2.2,.1,2.1),false)
+    p:SetAttribute("TipoEsconderijo","totem")
+    tags:AddTag(p,"Invokyr_Esconderijo")
+end
+local lights=folder(room,"Luzes")
+for _,v in ipairs({{"Vela_L-117",36.02,-122.68,7.71,255,184,113,0.71,12},{"Vela_L-68",36.02,-73.68,7.71,255,184,113,0.71,12},{"Vela_L-20",36.02,-25.68,7.71,255,184,113,0.71,12},{"Vela_L28",36.02,22.32,7.71,255,184,113,0.71,12},{"Vela_L76",36.02,70.32,7.71,255,184,113,0.71,12},{"Vela_L124",36.02,118.32,7.71,255,184,113,0.71,12},{"Vela_O-117",-36.02,122.68,7.71,255,184,113,0.71,12},{"Vela_O-68",-36.02,73.68,7.71,255,184,113,0.71,12},{"Vela_O-20",-36.02,25.68,7.71,255,184,113,0.71,12},{"Vela_O28",-36.02,-22.32,7.71,255,184,113,0.71,12},{"Vela_O76",-36.02,-70.32,7.71,255,184,113,0.71,12},{"Vela_O124",-36.02,-118.32,7.71,255,184,113,0.71,12},{"Baliza_-116_-1",-9.5,-116,0.65,240,173,112,0.52,15},{"Baliza_-116_1",9.5,-116,0.65,240,173,112,0.52,15},{"Baliza_-92_-1",-9.5,-92,0.65,240,173,112,0.52,15},{"Baliza_-92_1",9.5,-92,0.65,240,173,112,0.52,15},{"Baliza_-68_-1",-9.5,-68,0.65,240,173,112,0.52,15},{"Baliza_-68_1",9.5,-68,0.65,240,173,112,0.52,15},{"Baliza_-44_-1",-9.5,-44,0.65,240,173,112,0.52,15},{"Baliza_-44_1",9.5,-44,0.65,240,173,112,0.52,15},{"Baliza_44_-1",-9.5,44,0.65,240,173,112,0.52,15},{"Baliza_44_1",9.5,44,0.65,240,173,112,0.52,15},{"Baliza_68_-1",-9.5,68,0.65,240,173,112,0.52,15},{"Baliza_68_1",9.5,68,0.65,240,173,112,0.52,15},{"Baliza_92_-1",-9.5,92,0.65,240,173,112,0.52,15},{"Baliza_92_1",9.5,92,0.65,240,173,112,0.52,15},{"Baliza_116_-1",-9.5,116,0.65,240,173,112,0.52,15},{"Baliza_116_1",9.5,116,0.65,240,173,112,0.52,15},{"Altar",0,126.1,7.8,255,205,136,1.68,15}}) do
+    local p=part(lights,v[1],at(v[2],v[3],v[4]),Vector3.one*.1,false)
+    local l=Instance.new("PointLight")
+    l.Color=Color3.fromRGB(v[5],v[6],v[7])
+    l.Range=v[9]
+    l.Shadows=true
+    l.Brightness=v[8]
+    l.Parent=p
+end
+local config=folder(room,"ConfigurarPortas","ModuleScript")
+config.Source=[==[
+-- require(sala.ConfigurarPortas)(sala, {N=100,S=0})
+-- Um angulo (0 a 100) habilita a porta; um lado omitido recebe o painel.
+return function(room,angles)
+    local function show(parent,on)
+        for _,p in ipairs(parent:GetDescendants()) do
+            if p:IsA("MeshPart") then p.Transparency=on and 0 or 1
+            elseif p:IsA("BasePart") and p.Name:match("Colisao$") then
+                p.CanCollide=on
+                p.CanQuery=on
+            end
+        end
+    end
+    for _,side in ipairs(room.Portas:GetChildren()) do
+        local angle=angles[side.Name]
+        local active=type(angle)=="number"
+        show(side.Fecho,not active)
+        for _,label in ipairs({"A","B"}) do
+            local leaf=side[label]
+            show(leaf,active)
+            local turn=active and math.clamp(angle,0,100) or 0
+            leaf:PivotTo(room:GetPivot()*leaf:GetAttribute("Fechada")*CFrame.Angles(0,math.rad(label=="A" and -turn or turn),0))
+        end
+    end
+end
+]==]
+local configure=require(config)
+configure(room,{S=100})
+local preview=room:Clone()
+preview.Name="Previa_SalaoDaBailarina"
+for _,p in ipairs(preview.Esconderijos:GetChildren()) do tags:RemoveTag(p,"Invokyr_Esconderijo") end
+preview:PivotTo(CFrame.new(520,.594,110))
+configure(preview,{S=100})
+-- A small outside landing lets Play Here start before the door sensor.
+local landing=part(preview,"PatamarDeTeste",preview:GetPivot()*CFrame.new(0,-.4,138),Vector3.new(11,.8,12),true)
+landing.Transparency=0; landing.Material=Enum.Material.Slate
+landing.Color=Color3.fromRGB(48,43,44)
+local library=existing or folder(storage,"Invokyr_Salas")
+-- So arquivar depois de construir e configurar por completo a nova sala.
+if antiga or previaAntiga then
+    local historico=storage:FindFirstChild("Invokyr_Backup") or folder(storage,"Invokyr_Backup")
+    local copia=folder(historico,"SalaoDaBailarina_"..game:GetService("HttpService"):GenerateGUID(false))
+    if antiga then antiga.Parent=copia end
+    if previaAntiga then previaAntiga.Parent=copia end
+end
+room.Parent=library
+preview.Parent=workspace
+imported:Destroy()
+selection:Set({preview})
+if workspace.CurrentCamera then
+    workspace.CurrentCamera.CFrame=preview:GetPivot()*CFrame.lookAt(Vector3.new(0,5.6,139.5),Vector3.new(0,16,0))
+end
+print("Sala pronta em ServerStorage > Invokyr_Salas. Previa no Workspace a leste da torre.")

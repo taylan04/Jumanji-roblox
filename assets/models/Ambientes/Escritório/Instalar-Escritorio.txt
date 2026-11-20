@@ -1,0 +1,249 @@
+-- Importe o GLB como Model em studs, selecione a raiz e execute em modo de edicao.
+local selection=game:GetService("Selection")
+local storage=game:GetService("ServerStorage")
+local tags=game:GetService("CollectionService")
+assert(not game:GetService("RunService"):IsRunning(),"Pare o teste antes de instalar.")
+local controle=game:GetService("ServerScriptService"):FindFirstChild("Invokyr_Moveis")
+assert(controle and controle:IsA("Script") and controle.Enabled,"Abra o projeto que contem o controlador de moveis da Galeria (Invokyr_Moveis).")
+local chosen=selection:Get()
+assert(#chosen==1 and chosen[1]:IsA("Model"),"Selecione o modelo completo da Escritorio.")
+local imported=chosen[1]
+assert(imported:IsDescendantOf(workspace) and not imported:GetAttribute("PecaInvokyr"),"Selecione a importacao nova.")
+local existing=storage:FindFirstChild("Invokyr_Salas")
+assert(not existing or not existing:FindFirstChild("Escritorio"),"Escritorio ja existe na biblioteca.")
+assert(not workspace.Invokyr.Mansao.Salas:FindFirstChild("Previa_Escritorio"),"Ja existe uma previa desta sala no Workspace.")
+local room=Instance.new("Model")
+room.Name="Escritorio"
+room:SetAttribute("PecaInvokyr",true)
+room:SetAttribute("CelulasX",3)
+room:SetAttribute("CelulasZ",3)
+room:SetAttribute("Tipo","Comum")
+local function folder(parent,name,kind)
+    local x=Instance.new(kind or "Folder")
+    x.Name=name
+    x.Parent=parent
+    return x
+end
+local function part(parent,name,cf,size,solid)
+    local p=Instance.new("Part")
+    p.Name=name
+    p.Size=size
+    p.CFrame=cf
+    p.Anchored=true
+    p.Transparency=1
+    p.CanCollide=solid
+    p.CanQuery=solid
+    p.CanTouch=false
+    p.CastShadow=false
+    p.Parent=parent
+    return p
+end
+local function at(x,y,z)
+    return CFrame.new(x,z,-y)
+end
+local visual=folder(room,"Visual")
+local root=part(room,"Origem",CFrame.identity,Vector3.one*.15,false)
+room.PrimaryPart=root
+local indexed={}
+local function key(s) return string.lower(s):gsub("[^a-z0-9]","") end
+for _,p in ipairs(imported:GetDescendants()) do
+    if p:IsA("MeshPart") then
+        indexed[key(p.Name)]=p
+        indexed[key(p.Parent.Name):gsub("node$","")]=p
+    end
+end
+local floor=assert(indexed.pisoebanizada,"Malha do piso ausente. Mantenha a hierarquia do GLB.")
+local north=assert(indexed.paredenreboco,"Parede norte ausente.")
+local delta=north.Position-floor.Position
+local northDirection=Vector3.new(delta.X,0,delta.Z).Unit
+assert(math.abs(floor.Size.X-33)<.3 and math.abs(floor.Size.Z-33)<.3,"Use Scale Unit = Stud, Scale = 1.")
+local center=floor.Position+Vector3.new(0,.22,0)
+local source=CFrame.lookAt(center,center+northDirection)
+local doors=folder(room,"Portas")
+local sockets=folder(room,"Encaixes")
+local socketsPart=part(sockets,"AncoraEncaixes",CFrame.identity,Vector3.one*.1,false)
+local dirs={N=Vector3.new(0,0,-1),S=Vector3.zAxis,L=Vector3.xAxis,O=-Vector3.xAxis}
+local hinges={["Porta_N_A"]={2.455,16.01,0},["Porta_N_B"]={-2.455,16.01,0},["Porta_S_A"]={-2.455,-16.01,0},["Porta_S_B"]={2.455,-16.01,0},["Porta_L_A"]={16.01,-2.455,0},["Porta_L_B"]={16.01,2.455,0},["Porta_O_A"]={-16.01,2.455,0},["Porta_O_B"]={-16.01,-2.455,0}}
+for side,pos in pairs({["N"]={0,16.5,0},["S"]={0,-16.5,0},["L"]={16.5,0,0},["O"]={-16.5,0,0}}) do
+    local anchor=folder(socketsPart,"Encaixe_"..side,"Attachment")
+    local point=at(table.unpack(pos)).Position
+    anchor.CFrame=CFrame.lookAt(point,point+dirs[side])
+    local door=folder(doors,side)
+    folder(door,"Fecho")
+    for _,label in ipairs({"A","B"}) do
+        local leaf=folder(door,label,"Model")
+        local hinge=part(leaf,"Eixo",at(table.unpack(hinges["Porta_"..side.."_"..label])),Vector3.one*.1,false)
+        leaf.PrimaryPart=hinge
+        leaf:SetAttribute("Fechada",hinge.CFrame)
+    end
+end
+for _,name in ipairs({"Piso__Ebanizada","Piso__Nogueira","Teto__Reboco","Teto__Nogueira","Parede_N__Reboco","Parede_N__Ebanizada","Parede_N__Nogueira","Parede_N__Talha","Porta_N_A__Nogueira","Porta_N_A__Talha","Porta_N_A__Ebanizada","Porta_N_A__Latao","Porta_N_B__Nogueira","Porta_N_B__Talha","Porta_N_B__Ebanizada","Porta_N_B__Latao","Fecho_N__Reboco","Fecho_N__Ebanizada","Fecho_N__Nogueira","Fecho_N__Talha","Parede_S__Reboco","Parede_S__Ebanizada","Parede_S__Nogueira","Parede_S__Talha","Porta_S_A__Nogueira","Porta_S_A__Talha","Porta_S_A__Ebanizada","Porta_S_A__Latao","Porta_S_B__Nogueira","Porta_S_B__Talha","Porta_S_B__Ebanizada","Porta_S_B__Latao","Fecho_S__Reboco","Fecho_S__Ebanizada","Fecho_S__Nogueira","Fecho_S__Talha","Parede_L__Reboco","Parede_L__Ebanizada","Parede_L__Nogueira","Parede_L__Talha","Porta_L_A__Nogueira","Porta_L_A__Talha","Porta_L_A__Ebanizada","Porta_L_A__Latao","Porta_L_B__Nogueira","Porta_L_B__Talha","Porta_L_B__Ebanizada","Porta_L_B__Latao","Fecho_L__Reboco","Fecho_L__Ebanizada","Fecho_L__Nogueira","Fecho_L__Talha","Parede_O__Reboco","Parede_O__Ebanizada","Parede_O__Nogueira","Parede_O__Talha","Porta_O_A__Nogueira","Porta_O_A__Talha","Porta_O_A__Ebanizada","Porta_O_A__Latao","Porta_O_B__Nogueira","Porta_O_B__Talha","Porta_O_B__Ebanizada","Porta_O_B__Latao","Fecho_O__Reboco","Fecho_O__Ebanizada","Fecho_O__Nogueira","Fecho_O__Talha","Efemerides__Ebanizada","Efemerides__Nogueira","Efemerides__Musgo","Efemerides__Latao","Efemerides__Couro","Abre_Efemerides_Porta__Nogueira","Abre_Efemerides_Porta__Talha","Abre_Efemerides_Porta__Latao","Correspondencia__Ebanizada","Correspondencia__Nogueira","Correspondencia__Musgo","Correspondencia__Latao","Correspondencia__Couro","Abre_Correspondencia_Porta__Nogueira","Abre_Correspondencia_Porta__Talha","Abre_Correspondencia_Porta__Latao","Instrumentos__Ebanizada","Instrumentos__Verde","Instrumentos__Nogueira","Instrumentos__Musgo","Instrumentos__Latao","Instrumentos__Couro","Abre_Instrumentos_Porta__Verde","Abre_Instrumentos_Porta__Talha","Abre_Instrumentos_Porta__Latao","Almanaques__Ebanizada","Almanaques__Nogueira","Almanaques__Musgo","Almanaques__Latao","Almanaques__Couro","Abre_Almanaques_Porta__Nogueira","Abre_Almanaques_Porta__Talha","Abre_Almanaques_Porta__Latao","Janela__Bosque","Janela__Ebanizada","Janela__Ferro","Janela__Calcario","Pedestal_0__Ebanizada","Pedestal_0__Nogueira","Abre_Mesa1_Gaveta1__Nogueira","Abre_Mesa1_Gaveta1__Latao","Abre_Mesa1_Gaveta1__Fichas","Abre_Mesa1_Gaveta1__Papel","Abre_Mesa1_Gaveta1__Couro","Abre_Mesa1_Gaveta2__Nogueira","Abre_Mesa1_Gaveta2__Latao","Abre_Mesa1_Gaveta2__Fichas","Abre_Mesa1_Gaveta2__Papel","Abre_Mesa1_Gaveta2__Couro","Pedestal_1__Ebanizada","Pedestal_1__Nogueira","Abre_Mesa2_Gaveta1__Nogueira","Abre_Mesa2_Gaveta1__Latao","Abre_Mesa2_Gaveta1__Fichas","Abre_Mesa2_Gaveta1__Papel","Abre_Mesa2_Gaveta1__Couro","Abre_Mesa2_Gaveta2__Nogueira","Abre_Mesa2_Gaveta2__Latao","Abre_Mesa2_Gaveta2__Fichas","Abre_Mesa2_Gaveta2__Papel","Abre_Mesa2_Gaveta2__Couro","Escrivaninha__Nogueira","Escrivaninha__Verde","Escrivaninha__Latao","Esfera_armilar__Nogueira","Esfera_armilar__Latao","Esfera_armilar__Ceramica","Manuscritos__Papel","Manuscritos__Ferro","Carta_celeste__Carta","Carta_celeste__Nogueira","Carta_celeste__Latao","Luneta__Nogueira","Luneta__Latao","Luneta__Couro","Luneta__Ebanizada","Luneta__Mercurio","Poltrona__Nogueira","Poltrona__Couro","Poltrona__Talha","Retratos__Paisagem","Retratos__Nogueira","Retratos__Latao","Tapete__Tapecaria","Luminaria__Latao","Luminaria__Opala","Arandelas__Latao","Arandelas__Marfim","Arandelas__Chama"}) do
+    local src=assert(indexed[key(name)],"Faltou "..name..". Importe todas as malhas sem unir.")
+    local p=src:Clone()
+    p.Name=name
+    p.CFrame=source:ToObjectSpace(src.CFrame)
+    p.Anchored=true
+    p.CanCollide=false
+    p.CanQuery=false
+    p.CanTouch=false
+    if name:match("__Chama$") then p.Material=Enum.Material.Neon end
+    local side,label=name:match("^Porta_([NSLO])_([AB])__")
+    local panel=name:match("^Fecho_([NSLO])__")
+    p.Parent=side and doors[side][label] or panel and doors[panel].Fecho or visual
+end
+for side,pos in pairs({["N"]={0,16.5,0},["S"]={0,-16.5,0},["L"]={16.5,0,0},["O"]={-16.5,0,0}}) do
+    local outward=dirs[side]
+    local frame=CFrame.lookAt(at(table.unpack(pos)).Position,outward+at(table.unpack(pos)).Position)
+    part(doors[side].Fecho,"BatenteColisao",frame*CFrame.new(0,4.5,.5),Vector3.new(4.87,9,.8),true)
+    for _,label in ipairs({"A","B"}) do
+        local leaf=doors[side][label]
+        local cf=CFrame.lookAt(leaf.PrimaryPart.Position,leaf.PrimaryPart.Position+outward)
+        part(leaf,"FolhaColisao",cf*CFrame.new(label=="A" and -1.225 or 1.225,4.5,0),Vector3.new(2.41,8.94,.655),true)
+    end
+end
+local colliders=folder(room,"Colisao")
+for i,row in ipairs({{"Piso",0.0,0.0,-0.22,33.0,33.0,0.28,0.0},{"Teto",0.0,0.0,13.94,33.0,33.0,0.28,0.0},{"Parede_N",9.4675,16.0,6.9,14.065,1,13.8,180.0},{"Parede_N",-9.4675,16.0,6.9,14.065,1,13.8,180.0},{"Parede_N",0.0,16.0,11.4,4.87,1,4.8,180.0},{"Parede_S",-9.4675,-16.0,6.9,14.065,1,13.8,0.0},{"Parede_S",9.4675,-16.0,6.9,14.065,1,13.8,0.0},{"Parede_S",0.0,-16.0,11.4,4.87,1,4.8,0.0},{"Parede_L",16.0,-9.4675,6.9,14.065,1,13.8,90.0},{"Parede_L",16.0,9.4675,6.9,14.065,1,13.8,90.0},{"Parede_L",16.0,0.0,11.4,4.87,1,4.8,90.0},{"Parede_O",-16.0,9.4675,6.9,14.065,1,13.8,-90.0},{"Parede_O",-16.0,-9.4675,6.9,14.065,1,13.8,-90.0},{"Parede_O",-16.0,0.0,11.4,4.87,1,4.8,-90.0},{"Efemerides",10.0,13.305,0.23,5.02,3.91,0.38,180.0},{"Efemerides",10.0,15.13,4.89,4.74,0.16,8.94,180.0},{"Efemerides",12.295,13.325,4.89,0.15,3.75,8.94,180.0},{"Efemerides",7.705,13.325,4.89,0.15,3.75,8.94,180.0},{"Efemerides",10.0,13.33,9.47,5.06,4.0,0.22,180.0},{"Efemerides",10.0,13.255,6.455,4.4,3.57,0.17,180.0},{"Correspondencia",9.0,-13.305,0.23,5.02,3.91,0.38,0.0},{"Correspondencia",9.0,-15.13,4.89,4.74,0.16,8.94,0.0},{"Correspondencia",6.705,-13.325,4.89,0.15,3.75,8.94,0.0},{"Correspondencia",11.295,-13.325,4.89,0.15,3.75,8.94,0.0},{"Correspondencia",9.0,-13.33,9.47,5.06,4.0,0.22,0.0},{"Correspondencia",9.0,-13.255,6.455,4.4,3.57,0.17,0.0},{"Instrumentos",13.305,-9.0,0.23,5.02,3.91,0.38,90.0},{"Instrumentos",15.13,-9.0,4.89,4.74,0.16,8.94,90.0},{"Instrumentos",13.325,-11.295,4.89,0.15,3.75,8.94,90.0},{"Instrumentos",13.325,-6.705,4.89,0.15,3.75,8.94,90.0},{"Instrumentos",13.33,-9.0,9.47,5.06,4.0,0.22,90.0},{"Instrumentos",13.255,-9.0,6.455,4.4,3.57,0.17,90.0},{"Almanaques",-7.0,-13.305,0.23,5.02,3.91,0.38,0.0},{"Almanaques",-7.0,-15.13,4.89,4.74,0.16,8.94,0.0},{"Almanaques",-9.295,-13.325,4.89,0.15,3.75,8.94,0.0},{"Almanaques",-4.705,-13.325,4.89,0.15,3.75,8.94,0.0},{"Almanaques",-7.0,-13.33,9.47,5.06,4.0,0.22,0.0},{"Almanaques",-7.0,-13.255,6.455,4.4,3.57,0.17,0.0},{"Pedestal_0",-4.7,7.38,0.23,3.32,2.96,0.38,180.0},{"Pedestal_0",-4.7,8.73,2.3,3.04,0.16,3.76,180.0},{"Pedestal_0",-3.255,7.4,2.3,0.15,2.8,3.76,180.0},{"Pedestal_0",-6.145,7.4,2.3,0.15,2.8,3.76,180.0},{"Pedestal_0",-4.7,7.405,4.29,3.36,3.05,0.22,180.0},{"Pedestal_1",-10.7,7.38,0.23,3.32,2.96,0.38,180.0},{"Pedestal_1",-10.7,8.73,2.3,3.04,0.16,3.76,180.0},{"Pedestal_1",-9.255,7.4,2.3,0.15,2.8,3.76,180.0},{"Pedestal_1",-12.145,7.4,2.3,0.15,2.8,3.76,180.0},{"Pedestal_1",-10.7,7.405,4.29,3.36,3.05,0.22,180.0},{"Escrivaninha",-7.7,7.35,4.59,9.66,3.3,0.26,180.0},{"Luneta",-11,-7,2.3,2.34,2.34,4.6,0}}) do
+    part(colliders,"COL_"..i,at(row[2],row[3],row[4])*CFrame.Angles(0,math.rad(row[8]),0),Vector3.new(row[5],row[7],row[6]),true)
+end
+local places=folder(room,"Esconderijos")
+local storageFurniture=folder(room,"Moveis")
+for _,v in ipairs({{["group"]="Abre_Efemerides_Porta",["mob"]="Efemerides",["kind"]="giro",["label"]="Efemerides",["pos"]={10.0,13.34,0.44},["handle"]={8.38,11.01,3.36},["hinge"]={12.18,11.49,0.45},["angle"]=100,["zone"]={10.0,13.28,3.37},["dim"]={4.39,5.91,3.53},["sx"]=-1,["sy"]=0,["face"]={10.0,11.505,3.4},["size"]={4.34,5.86,0.17}},{["group"]="Abre_Correspondencia_Porta",["mob"]="Correspondencia",["kind"]="giro",["label"]="Correspondencia",["pos"]={9.0,-13.34,0.44},["handle"]={10.62,-11.01,3.36},["hinge"]={6.82,-11.49,0.45},["angle"]=100,["zone"]={9.0,-13.28,3.37},["dim"]={4.39,5.91,3.53},["sx"]=1,["sy"]=0,["face"]={9.0,-11.505,3.4},["size"]={4.34,5.86,0.17}},{["group"]="Abre_Instrumentos_Porta",["mob"]="Instrumentos",["kind"]="giro",["label"]="Instrumentos",["pos"]={13.34,-9.0,0.44},["handle"]={11.01,-7.38,3.36},["hinge"]={11.49,-11.18,0.45},["angle"]=100,["zone"]={13.28,-9.0,3.37},["dim"]={4.39,5.91,3.53},["sx"]=0,["sy"]=1,["face"]={11.505,-9.0,3.4},["size"]={4.34,5.86,0.17}},{["group"]="Abre_Almanaques_Porta",["mob"]="Almanaques",["kind"]="giro",["label"]="Almanaques",["pos"]={-7.0,-13.34,0.44},["handle"]={-5.38,-11.01,3.36},["hinge"]={-9.18,-11.49,0.45},["angle"]=100,["zone"]={-7.0,-13.28,3.37},["dim"]={4.39,5.91,3.53},["sx"]=1,["sy"]=0,["face"]={-7.0,-11.505,3.4},["size"]={4.34,5.86,0.17}},{["group"]="Abre_Mesa1_Gaveta1",["mob"]="Mesa1",["kind"]="gaveta",["label"]="Mesa1 1",["pos"]={-4.7,7.17,0.67},["handle"]={-4.7,5.69,1.182},["travel"]={0.0,-2.08,0},["zone"]={-4.7,7.23,1.355},["dim"]={2.31,1.56,2.24},["sx"]=-1,["sy"]=0,["face"]={-4.7,6.05,1.355},["size"]={2.67,1.73,0.14}},{["group"]="Abre_Mesa1_Gaveta2",["mob"]="Mesa1",["kind"]="gaveta",["label"]="Mesa1 2",["pos"]={-4.7,7.17,2.49},["handle"]={-4.7,5.69,3.002},["travel"]={0.0,-2.08,0},["zone"]={-4.7,7.23,3.175},["dim"]={2.31,1.56,2.24},["sx"]=-1,["sy"]=0,["face"]={-4.7,6.05,3.175},["size"]={2.67,1.73,0.14}},{["group"]="Abre_Mesa2_Gaveta1",["mob"]="Mesa2",["kind"]="gaveta",["label"]="Mesa2 1",["pos"]={-10.7,7.17,0.67},["handle"]={-10.7,5.69,1.182},["travel"]={0.0,-2.08,0},["zone"]={-10.7,7.23,1.355},["dim"]={2.31,1.56,2.24},["sx"]=-1,["sy"]=0,["face"]={-10.7,6.05,1.355},["size"]={2.67,1.73,0.14}},{["group"]="Abre_Mesa2_Gaveta2",["mob"]="Mesa2",["kind"]="gaveta",["label"]="Mesa2 2",["pos"]={-10.7,7.17,2.49},["handle"]={-10.7,5.69,3.002},["travel"]={0.0,-2.08,0},["zone"]={-10.7,7.23,3.175},["dim"]={2.31,1.56,2.24},["sx"]=-1,["sy"]=0,["face"]={-10.7,6.05,3.175},["size"]={2.67,1.73,0.14}}}) do
+    local cabinet=storageFurniture:FindFirstChild("Movel_"..v.mob) or folder(storageFurniture,"Movel_"..v.mob,"Model")
+    local group=folder(cabinet,v.group,"Model")
+    for _,p in ipairs(visual:GetChildren()) do
+        if p.Name:sub(1,#v.group+2)==v.group.."__" then p.Parent=group end
+    end
+    local xAxis=Vector3.new(v.sx,0,-v.sy)
+    local axes=CFrame.fromMatrix(Vector3.zero,xAxis,Vector3.yAxis,xAxis:Cross(Vector3.yAxis))
+    local function cf(pos) return at(table.unpack(pos))*axes end
+    local markerName=(v.kind=="gaveta" and "Dado_" or "Totem_")..v.group
+    local tag=(v.kind=="gaveta" and "Invokyr_EsconderijoDado" or "Invokyr_Esconderijo")
+    local marker=part(v.kind=="gaveta" and group or places,markerName,cf(v.pos),Vector3.new(1,.08,1),false)
+    marker:SetAttribute("TipoEsconderijo",v.kind=="gaveta" and "dado" or "totem")
+    marker:SetAttribute("Movel",v.mob)
+    tags:AddTag(marker,tag)
+    part(group,"FrenteColisao",cf(v.face),Vector3.new(table.unpack(v.size)),true)
+    local handle=part(group,"Puxador",cf(v.handle),Vector3.one*.25,false)
+    local prompt=folder(handle,"Abrir","ProximityPrompt")
+    prompt.ActionText="Abrir"; prompt.ObjectText=v.label
+    prompt.MaxActivationDistance=6; prompt.RequiresLineOfSight=false
+    group:SetAttribute("Tipo",v.kind);group:SetAttribute("Aberto",false)
+    group:SetAttribute("ZonaLocal",cf(v.zone));group:SetAttribute("Tam",Vector3.new(table.unpack(v.dim)))
+    if v.kind=="giro" then
+        group:SetAttribute("PivoLocal",at(table.unpack(v.hinge)).Position)
+        group:SetAttribute("Angulo",v.angle)
+    else
+        group:SetAttribute("CursoLocal",at(table.unpack(v.travel)).Position)
+    end
+end
+local binder=folder(room,"PrepararMoveis","Script")
+binder.Source=[==[
+local tags=game:GetService("CollectionService")
+local sala=script.Parent
+local origem=sala:GetPivot()
+local grupos={}
+local gavetas={}
+for _,movel in ipairs(sala.Moveis:GetChildren()) do
+    for _,g in ipairs(movel:GetChildren()) do
+        table.insert(grupos,g)
+        if g:GetAttribute("Tipo")=="gaveta" then table.insert(gavetas,g) end
+    end
+end
+-- Uma amostra por Play somente na copia de demonstracao.
+if sala:GetAttribute("PreviaEscritorio") then
+    local g=gavetas[Random.new():NextInteger(1,#gavetas)]
+    local ponto=g:FindFirstChild("Dado_"..g.Name)
+    local dado=Instance.new("Part")
+    dado.Name="Amostra"; dado.Size=Vector3.one*.82
+    dado.CFrame=ponto.CFrame*CFrame.new(0,.41,0)
+    dado.Color=Color3.fromRGB(213,190,146); dado.Material=Enum.Material.SmoothPlastic
+    dado.Anchored=true; dado.CanCollide=false; dado.CanTouch=false; dado.CanQuery=false
+    local faces={Top={1,3,5,7,9},Bottom={1,9},Front={1,5,9},Back={1,3,7,9},Left={5},Right={1,3,4,6,7,9}}
+    for face,indices in pairs(faces) do
+        local gui=Instance.new("SurfaceGui")
+        gui.Face=Enum.NormalId[face]; gui.CanvasSize=Vector2.new(100,100); gui.LightInfluence=1
+        for _,i in ipairs(indices) do
+            local pip=Instance.new("Frame")
+            pip.AnchorPoint=Vector2.new(.5,.5)
+            pip.Position=UDim2.fromScale(.23+((i-1)%3)*.27,.23+math.floor((i-1)/3)*.27)
+            pip.Size=UDim2.fromScale(.17,.17); pip.BorderSizePixel=0; pip.BackgroundColor3=Color3.fromRGB(58,41,36)
+            local canto=Instance.new("UICorner"); canto.CornerRadius=UDim.new(1,0); canto.Parent=pip
+            pip.Parent=gui
+        end
+        gui.Parent=dado
+    end
+    dado.Parent=g
+end
+-- O controlador da Galeria le as coordenadas ao receber a tag. Registrar depois
+-- do posicionamento permite usar o mesmo modelo nos quatro giros do gerador.
+for _,g in ipairs(grupos) do
+    local zona=origem*g:GetAttribute("ZonaLocal")
+    if g:GetAttribute("Tipo")=="gaveta" then
+        g:SetAttribute("Curso",origem:VectorToWorldSpace(g:GetAttribute("CursoLocal")))
+        g:SetAttribute("LevaCF",zona); g:SetAttribute("LevaTam",g:GetAttribute("Tam"))
+    else
+        g:SetAttribute("Pivo",origem:PointToWorldSpace(g:GetAttribute("PivoLocal")))
+        g:SetAttribute("Eixo",origem.UpVector)
+        g.Parent:SetAttribute("InteriorCF",zona); g.Parent:SetAttribute("InteriorTam",g:GetAttribute("Tam"))
+    end
+    tags:AddTag(g,"Invokyr_Abre")
+end
+
+]==]
+
+local lights=folder(room,"Luzes")
+for _,v in ipairs({{"Lampada",-11.05,7.45,6.03,255,188,109,1.55,14},{"Luar",-13.9,-8.7,8.3,138,177,231,1.15,15},{"Velas_N",0.0,14.05,11.58,255,179,108,1.14,13},{"Velas_S",-7.6,-14.05,7.45,255,179,108,1.14,13},{"Velas_L",14.05,10.1,11.58,255,179,108,1.14,13}}) do
+    local p=part(lights,v[1],at(v[2],v[3],v[4]),Vector3.one*.1,false)
+    local l=Instance.new("PointLight")
+    l.Color=Color3.fromRGB(v[5],v[6],v[7])
+    l.Range=v[9]
+    l.Shadows=true
+    l.Brightness=v[8]
+    l.Parent=p
+end
+local config=folder(room,"ConfigurarPortas","ModuleScript")
+config.Source=[==[
+-- require(sala.ConfigurarPortas)(sala, {N=100,S=0})
+-- Um angulo (0 a 100) habilita a porta; um lado omitido recebe o painel.
+return function(room,angles)
+    local function show(parent,on)
+        for _,p in ipairs(parent:GetDescendants()) do
+            if p:IsA("MeshPart") then p.Transparency=on and 0 or 1
+            elseif p:IsA("BasePart") and p.Name:match("Colisao$") then
+                p.CanCollide=on
+                p.CanQuery=on
+            end
+        end
+    end
+    for _,side in ipairs(room.Portas:GetChildren()) do
+        local angle=angles[side.Name]
+        local active=type(angle)=="number"
+        show(side.Fecho,not active)
+        for _,label in ipairs({"A","B"}) do
+            local leaf=side[label]
+            show(leaf,active)
+            local turn=active and math.clamp(angle,0,100) or 0
+            leaf:PivotTo(room:GetPivot()*leaf:GetAttribute("Fechada")*CFrame.Angles(0,math.rad(label=="A" and -turn or turn),0))
+        end
+    end
+end
+]==]
+local configure=require(config)
+configure(room,{N=0,S=0})
+local preview=room:Clone()
+preview.Name="Previa_Escritorio"
+preview:SetAttribute("PreviaEscritorio",true)
+for _,p in ipairs(preview:GetDescendants()) do
+    if p:GetAttribute("TipoEsconderijo") then
+        tags:RemoveTag(p,"Invokyr_Esconderijo")
+        tags:RemoveTag(p,"Invokyr_EsconderijoDado")
+    end
+end
+preview:PivotTo(CFrame.new(792,.594,66))
+configure(preview,{N=100,S=100})
+local library=existing or folder(storage,"Invokyr_Salas")
+room.Parent=library
+preview.Parent=workspace.Invokyr.Mansao.Salas
+imported:Destroy()
+selection:Set({preview})
+print("Sala pronta em ServerStorage > Invokyr_Salas. Previa no Workspace a leste da torre.")

@@ -1,0 +1,14 @@
+﻿SALA DA ROLETA · V2
+
+INSTALAÇÃO NO ROBLOX STUDIO
+1. Extraia o ZIP. Com o Play parado, importe Sala-da-Roleta-V2.glb como Model. Use unidade Stud, escala 1, malhas separadas e Add to Workspace.
+2. No Explorer, selecione a raiz da importação nova. Abra Instalar-Roleta-V2.txt, copie tudo e execute na Command Bar. O instalador inclui o script Desafio.server.lua. Ele atualiza a biblioteca e a prévia da Roleta no mesmo lugar da prévia anterior. Se for a primeira instalação, ele cria as duas.
+3. Os IDs de áudio configurados na prévia ou na biblioteca são reaproveitados. Para configurar pela primeira vez, importe Roleta.wav e Alcapao.wav como áudio e preencha SOM_ROLETA e SOM_ALCAPAO nas duas primeiras linhas do instalador antes de executá-lo. Use áudios com acesso para a experiência.
+4. Para testar, use Play Here na entrada que a câmera mostra e caminhe para dentro do arco. Após 2 segundos, os jogadores no vestíbulo vão para a arena. Olhe pela lateral do tablado ainda com os alçapões fechados. Ao final de cada giro, procure uma placa com o símbolo que ficou sob o ponteiro. Há cerca de 4,3 segundos para alcançá-la. As demais abrem para baixo.
+5. Após quatro rodadas em cerca de 40 segundos, a passarela se estende e a porta em frente à roleta, do lado oposto ao disco, abre para os sobreviventes. Atravesse a passagem para sair pelo vestíbulo norte. Um grupo eliminado pode tentar de novo.
+
+MODELO E REFERÊNCIAS
+O .blend é o modelo editável com materiais incluídos. Arena.jpg e Beirada.jpg mostram a mesma arena no Blender. O eixo do disco fica à altura do tablado. O vão entre cada lateral do tablado e a parede tem aproximadamente 9 studs. A superfície da lava fica 47 studs abaixo das placas. Os efeitos de luz ficam no modelo da sala.
+
+REGRA PARA O FUTURO GERADOR
+A peça em ServerStorage > Invokyr_Salas > SalaDaRoleta ocupa 5 × 6 células. Use Encaixe_S como entrada e Encaixe_N como saída. A peça leva os atributos ProximaSalaRequerTotem=true e SaidaRecompensa=N. Ao montar a mansão, reserve após essa saída uma sala com pelo menos um totem acessível naquela partida. A prévia permite testar a passagem sem conectar a próxima sala.

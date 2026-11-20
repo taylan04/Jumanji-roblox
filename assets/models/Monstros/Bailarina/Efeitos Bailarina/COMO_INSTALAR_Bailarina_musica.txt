@@ -1,0 +1,31 @@
+INVOKYR - BAILARINA: MUSICA E CASTIGO (Script 19)
+==================================================
+
+O QUE VEM
+  CaixinhaDaBailarina.ogg                   a musica (caixinha de musica macabra, 31 s, emenda em loop)
+  invokyr_19_bailarina_musica_e_castigo.lua o script
+
+COMO FUNCIONA
+  - Gira  -> a caixinha toca (continua de onde parou na ultima vez).
+  - Freia -> a musica perde a corda e morre (fica lenta e grave).
+  - Parada (4 s) -> silencio. Quem se mexer leva 10 de dano. Tem 0,45 s para parar depois que
+    a musica corta; quem continuar andando leva mais 10 a cada 0,9 s. Virar a camera nao conta.
+  - Ninguem na sala -> musica desligada.
+  O giro do Codex (BailarinaGiro) nao foi mexido: o script novo so escuta o estado dela.
+
+PASSO A PASSO
+1. SUBIR A MUSICA (uma vez so):
+   No Studio: VIEW > Asset Manager > botao "Import" > escolha CaixinhaDaBailarina.ogg.
+   Quando terminar, ela aparece em Asset Manager > Audio. Clique com o botao direito nela >
+   "Copy ID to Clipboard" (copia um numero).
+   (Se o Studio nao deixar, suba pelo site: create.roblox.com > Creations > Development Items >
+    Audio > Upload Asset, e copie o ID de la.)
+2. Abra o invokyr_19_bailarina_musica_e_castigo.lua no Bloco de Notas e cole o numero em
+     MUSICA_ID = "",        ->      MUSICA_ID = "123456789",
+3. Jogo PARADO. VIEW > Command Bar, cole o script inteiro, Enter.
+4. No Output: "musica rbxassetid://..., dano 10" para a sala guardada e para a previa.
+   (Sem o ID ele avisa em laranja e instala so o castigo.)
+5. Teste: Play Here dentro da previa da bailarina, espere ela girar e parar, e ande.
+
+AJUSTES (no comeco do script, depois rode de novo)
+  DANO = 10, VOLUME = 0.8, CARENCIA = 0.45 (tempo para reagir), ESPERA_ENTRE_DANOS = 0.9

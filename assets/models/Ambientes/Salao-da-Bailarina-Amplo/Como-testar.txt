@@ -1,0 +1,15 @@
+﻿SALÃO DA BAILARINA | INVOKYR
+
+1. Pare o Play. Importe Salao-da-Bailarina-Amplo.glb como Model, Scale Unit = Stud, Scale = 1, com hierarquia e malhas separadas. A estátua já está no salão.
+2. Selecione no Workspace a raiz inteira dessa importação. Cole o conteúdo de Instalar-Salao-da-Bailarina-Amplo.txt na Command Bar, em modo de edição.
+3. O instalador cria ServerStorage > Invokyr_Salas > SalaoDaBailarina e Workspace > Previa_SalaoDaBailarina. A câmera fica no patamar de teste. Use Play Here. Se o seu sistema de spawn levar o personagem para a torre, em Play, na Command Bar do servidor, use:
+local p=game.Players:GetPlayers()[1]; local sala=workspace.Previa_SalaoDaBailarina; if p and p.Character then p.Character:PivotTo(sala:GetPivot()*CFrame.new(0,4,139)) end
+
+4. Da ponta do patamar, caminhe até a porta com a lanterna apagada. Os refletores vermelhos acendem gradualmente e a figura começa a girar. Avance enquanto ela gira e pare quando ela parar. Contorne a base por qualquer lado e siga até o altar no fundo. Ao sair o último jogador, a luz baixa e o giro desacelera.
+5. A versão ampla ocupa 7 × 24 células (77 × 264 studs). A biblioteca recebe o novo modelo e a prévia anterior fica em ServerStorage > Invokyr_Backup. O protótipo Python ainda reserva 3 × 8. Para montar esta versão em partidas, será necessário adaptar e validar o encaixe no gerador ou usar uma entrada que leve a um salão separado. A prévia funciona isoladamente.
+
+6. A prévia tem um ponto de chegada vazio. O marcador de totem do modelo definitivo está sobre o altar para o sistema da partida. Ao integrar, use a única porta no lado curto e gire a peça conforme a planta.
+
+O arquivo .blend contém a arquitetura, a estátua e os materiais editáveis. A imagem é uma prévia de primeira pessoa renderizada no Blender com o salão aceso. No Studio a iluminação local é criada pelo instalador. O resultado exato depende das configurações de Lighting e da qualidade gráfica do jogo.
+
+O ciclo de BailarinaGiro está incluído no instalador, adaptado para ativar na porta. A base permanece parada. A luz do pedestal é vermelha em ambas as fases. O script original do Claude incluía som opcional, punição e um estado global para a interface. Esta versão é apenas o teste visual do desafio. Dispensa colar os dois scripts antigos. AvisoLuz.client.lua era só o aviso escrito de andar/parar. A mecânica de penalidade e a música ficam para outra etapa.

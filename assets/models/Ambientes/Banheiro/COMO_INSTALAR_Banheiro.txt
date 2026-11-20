@@ -1,0 +1,84 @@
+INVOKYR - BANHEIRO (sala comum, 2 x 3 celulas = 22 x 33 studs por fora)
+=======================================================================
+
+O QUE VEM NESTE PACOTE
+  Banheiro.blend            a sala no Blender (abra para ver ou mexer)
+  Banheiro.glb              o que vai para o Roblox Studio
+  invokyr_16_banheiro.lua   o script que monta a sala no Studio
+  invokyr_15_galeria_v2.lua so use se um dia for reinstalar a Galeria (explicado no fim)
+  Banheiro_*.png            fotos da sala
+
+
+INSTALAR NO ROBLOX STUDIO (passo a passo)
+-----------------------------------------
+1. Abra o seu place (Jogo-V2) no Studio. O jogo tem que estar PARADO (nada de Play).
+
+2. Aba HOME > botao "Import 3D". Escolha o arquivo Banheiro.glb.
+   Na janela de configuracao da importacao confira:
+     - Scale Unit: Stud      - Scale: 1
+     - NAO marque nada de juntar/unir malhas ("Merge Meshes" desligado)
+     - deixe as texturas/material ligados
+   Clique em Import. Espere terminar. O modelo importado fica selecionado.
+   (Se clicar em outra coisa sem querer, tudo bem: o script acha o modelo sozinho.)
+
+3. Abra a barra de comandos: aba VIEW > "Command Bar".
+
+4. Abra o arquivo invokyr_16_banheiro.lua no Bloco de Notas, Ctrl+A, Ctrl+C,
+   clique na Command Bar, Ctrl+V e aperte Enter.
+
+5. Olhe a janela Output (VIEW > Output). Tem que aparecer:
+     ========== INVOKYR 16: BANHEIRO ==========
+       Banheiro guardado em ServerStorage > Invokyr_Salas | pecas: 160 de 160
+       ...
+       Sem avisos.
+   Se aparecer AVISO em laranja, mande print que eu arrumo.
+
+6. Pronto. Ficou assim:
+     ServerStorage > Invokyr_Salas > Banheiro          (a peca que o gerador do mapa vai usar)
+     Workspace > Invokyr > Mansao > Salas > Previa_Banheiro   (copia para voce andar dentro)
+     ServerScriptService > Invokyr_Moveis              (o script que abre gavetas e portas)
+     ServerStorage > Invokyr_Backup > Banheiro_<data>  (a importacao e versoes antigas; nada e apagado)
+
+7. Para andar na sala: a camera ja fica dentro da previa. Aba TEST > setinha embaixo do Play >
+   "Play Here". Chegue perto de um movel e aperte E para abrir/fechar.
+
+Pode rodar o script de novo quantas vezes quiser (sempre importando o .glb antes):
+ele nao duplica nada, a versao anterior vai para o Invokyr_Backup.
+
+
+O QUE TEM NA SALA
+-----------------
+  Moveis que abrem (E):
+    - Banheira de pes de garra com TAMPA de madeira -> totem DEITADO la dentro
+    - Penteadeira dupla: 2 portas + 2 gavetas no meio -> dados
+    - Armarinho atras do espelho (a porta e o proprio espelho) -> dado
+    - Armario de toalhas (2 portas) -> totem embaixo, dado na prateleira de cima
+    - Caixa da descarga do vaso (tampa) -> dado
+    - Cesto de roupa (tampa) -> dado
+  Esconderijos abertos: totem em cima do carrinho de ferro, totem atras do biombo,
+    dado em cima do radiador.
+  Total: 4 esconderijos de totem e 9 de dado.
+  Enquanto o movel esta FECHADO, nao da para pegar o que esta dentro (o "E" do totem/dado some).
+  A gaveta leva o dado junto quando abre.
+
+  Luz (mesmo jeito do Salao da Bailarina): luar azul entrando pela janela sobre a banheira,
+  lampada do teto, arandela dos espelhos, vela no banquinho, e duas luzes de reflexo sem sombra
+  (azulejo e banheira) so para a sala nao ficar preta.
+
+
+PARA TESTAR O TOTEM DEITADO NA BANHEIRA
+---------------------------------------
+A previa nao recebe totens (igual as outras previas). Para testar:
+  no comeco do invokyr_16_banheiro.lua troque  PREVIA_COM_ESCONDERIJOS = false  por  true,
+  rode de novo (importando o .glb antes) e de Play. O Script 09 vai poder sortear totens
+  na previa tambem; um que cair na banheira fica deitado. Depois volte para false.
+
+
+GALERIA (IMPORTANTE)
+--------------------
+O Banheiro trouxe uma versao nova do script Invokyr_Moveis, que funciona com a sala em
+qualquer lugar e girada (o gerador do mapa vai precisar disso). A Galeria continua
+funcionando com ele - testei.
+So NAO rode mais o invokyr_15_galeria.lua ANTIGO: ele colocaria o script velho de volta e os
+moveis do Banheiro parariam de abrir. Se precisar reinstalar a Galeria, use o
+invokyr_15_galeria_v2.lua (e o mesmo de antes, so com o script novo dentro).

@@ -1,0 +1,114 @@
+-- Pare o Play. Importe Bailarina-Corpete.glb como Model e selecione a raiz da importação.
+assert(not game:GetService("RunService"):IsRunning(), "Pare o Play antes de trocar o figurino.")
+local selection = game:GetService("Selection")
+local storage = game:GetService("ServerStorage")
+local history = game:GetService("ChangeHistoryService")
+local selected = selection:Get()
+assert(#selected == 1 and selected[1]:IsA("Model") and selected[1]:IsDescendantOf(workspace),
+    "Selecione somente o Model recém-importado de Bailarina-Corpete.glb.")
+local imported = selected[1]
+local anchors = {"Mao_Alta", "Olhos", "Pernas_Porcelana"}
+local matching = {"Estatua_03_0", "Estatua_05_0", "Estatua_16_0"}
+local additions = {"Veste_01_Brocart", "Veste_02_Drapeado", "Veste_03_Galoes_A", "Veste_03_Galoes_B",
+    "Veste_04_Encolure", "Forro_01_Saia_A", "Forro_01_Saia_B", "Forro_02_Anagua"}
+local originals = {"Estatua_07_0", "Estatua_09_0", "Estatua_11_0"}
+local skirtNames = {"Estatua_18_0_A","Estatua_18_0_B","Estatua_19_0","Estatua_20_0"}
+local function key(name)
+    return (name:lower():gsub("[^a-z0-9]", ""):gsub("node$", ""))
+end
+local expected, source = {}, {}
+local rest = {"Bracos_Ferro","Bracos_Porcelana","Palma_Mascara","Bracos_Gravura","Mascara","Interior_Gola","Encaixe1","Encaixe2",
+    "Pedra_Base","Friso_Base","Aneis_Base","Pernas_Ferro","Sapatilhas_Gravura","Tutu_Damasco_A","Tutu_Damasco_B","Tutu_Forro","Tutu_Bainha"}
+for _, list in ipairs({anchors, additions, rest}) do
+    for _, name in ipairs(list) do expected[key(name)] = name end
+end
+for _, v in ipairs(imported:GetDescendants()) do
+    if v:IsA("MeshPart") then
+        local name = expected[key(v.Name)] or expected[key(v.Parent.Name)]
+        assert(name, "A seleção inclui uma malha de outro modelo: "..v.Name)
+        assert(not source[name], "Malha repetida. Selecione só o modelo novo: "..name)
+        source[name] = v
+    end
+end
+for _,name in pairs(expected) do assert(source[name], "Falta "..name..". Use o GLB novo com as malhas separadas.") end
+local function part(parent,name)
+    local p = parent:FindFirstChild(name)
+    assert(p and p:IsA("MeshPart"), "Falta "..name.." em "..parent:GetFullName())
+    return p
+end
+-- Três centros não colineares orientam as peças mesmo se a sala ou a importação estiverem giradas.
+local function frame(a,b,c)
+    local x = (b-a).Unit
+    local n = x:Cross(c-a)
+    assert(n.Magnitude > .001, "A importação perdeu a posição relativa das peças.")
+    local z = n.Unit
+    return CFrame.fromMatrix(a, x, z:Cross(x), z)
+end
+local a,b,c = source[anchors[1]],source[anchors[2]],source[anchors[3]]
+local basis = frame(a.Position,b.Position,c.Position)
+local halls = {}
+local library = storage:FindFirstChild("Invokyr_Salas")
+if library and library:FindFirstChild("SalaoDaBailarina") then table.insert(halls,library.SalaoDaBailarina) end
+for _, v in ipairs(workspace:GetDescendants()) do
+    if v:IsA("Model") and (v.Name == "Previa_SalaoDaBailarina" or v.Name == "SalaoDaBailarina") and v:FindFirstChild("Bailarina") then
+        table.insert(halls,v)
+    end
+end
+assert(#halls > 0,"Não encontrei o salão instalado.")
+local prepared, oldParts, skirtParts = {}, {}, {}
+for _, hall in ipairs(halls) do
+    assert(hall ~= imported and not hall:IsDescendantOf(imported) and not imported:IsDescendantOf(hall), "Deixe o modelo novo separado do salão antes de selecionar.")
+    local statue = hall:FindFirstChild("Bailarina")
+    local rotor = statue and statue:FindFirstChild("ParteQueGira")
+    assert(rotor and rotor:IsA("Model") and rotor.PrimaryPart, "O salão precisa ter a bailarina com o eixo de giro instalado.")
+    local p,q,r = part(rotor,matching[1]),part(rotor,matching[2]),part(rotor,matching[3])
+    local target = frame(p.Position,q.Position,r.Position)
+    local scale = (p.Position-q.Position).Magnitude / (a.Position-b.Position).Magnitude
+    local function fit(src)
+        local rel = basis:ToObjectSpace(src.CFrame)
+        return target*CFrame.new(rel.Position*scale)*rel.Rotation
+    end
+    assert((fit(c).Position-r.Position).Magnitude < .12 and (a.Size*scale-p.Size).Magnitude < .14,
+        "Escala ou orientação incompatível. Importe em Stud com escala uniforme e hierarquia preservada.")
+    for _, name in ipairs(additions) do
+        local src = source[name]
+        local copy = assert(src:Clone(), "Falha ao copiar "..name)
+        copy.Name = name
+        copy.Size = src.Size*scale
+        copy.CFrame = fit(src)
+        copy.Anchored = true
+        copy.CanCollide = false
+        copy.CanTouch = false
+        copy.CanQuery = false
+        if name:match("^Forro") then copy.DoubleSided = true end
+        table.insert(prepared,{copy=copy, rotor=rotor})
+    end
+    local replace = {}
+    for _, list in ipairs({originals, additions}) do for _,name in ipairs(list) do replace[name]=true end end
+    for _, obj in ipairs(rotor:GetChildren()) do
+        if replace[obj.Name] and obj:IsA("MeshPart") then table.insert(oldParts,{obj=obj, parent=rotor}) end
+    end
+    for _, name in ipairs(skirtNames) do
+        local cloth = part(rotor,name)
+        table.insert(skirtParts, {obj=cloth,before=cloth.DoubleSided})
+    end
+end
+local recording = history:TryBeginRecording("InvokyrFigurino", "Trocar figurino da Bailarina")
+local importParent=imported.Parent
+local ok, err = pcall(function()
+    for _, old in ipairs(oldParts) do old.obj.Parent=nil end
+    for _, item in ipairs(prepared) do item.copy.Parent=item.rotor end
+    for _, cloth in ipairs(skirtParts) do cloth.obj.DoubleSided=true end
+    imported.Parent=nil
+end)
+if not ok then
+    imported.Parent=importParent
+    for _, item in ipairs(prepared) do item.copy:Destroy() end
+    for _, old in ipairs(oldParts) do old.obj.Parent=old.parent end
+    for _, cloth in ipairs(skirtParts) do cloth.obj.DoubleSided=cloth.before end
+end
+if recording then history:FinishRecording(recording,ok and Enum.FinishRecordingOperation.Commit or Enum.FinishRecordingOperation.Cancel) end
+assert(ok,tostring(err))
+local last=halls[#halls]
+selection:Set({last.Bailarina})
+print(("[INVOKYR] Figurino trocado em %d salão(ões). Corpete e forro instalados na ParteQueGira."):format(#halls))

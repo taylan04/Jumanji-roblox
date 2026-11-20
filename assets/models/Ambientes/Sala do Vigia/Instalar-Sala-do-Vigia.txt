@@ -1,0 +1,661 @@
+-- Importe o GLB como Model em studs, selecione a raiz e execute em modo de edicao.
+local selection=game:GetService("Selection")
+local storage=game:GetService("ServerStorage")
+local tags=game:GetService("CollectionService")
+assert(not game:GetService("RunService"):IsRunning(),"Pare o teste antes de instalar.")
+local chosen=selection:Get()
+local existing=storage:FindFirstChild("Invokyr_Salas")
+local destino=workspace:FindFirstChild("Invokyr")
+destino=destino and destino:FindFirstChild("Mansao")
+destino=destino and destino:FindFirstChild("Salas")
+assert(destino,"Abra o place INVOKYR que contém Workspace.Invokyr.Mansao.Salas.")
+local function instalada(parent,novo,antigo)
+ if not parent then return nil end
+ local atual=parent:FindFirstChild(novo)
+ local antiga=parent:FindFirstChild(antigo)
+ assert(not (atual and antiga),"Há duas salas com esses nomes na mesma pasta. Confira as duas no Explorer.")
+ local r=atual or antiga
+ if r then
+  assert(r:IsA("Model") and r:GetAttribute("PecaInvokyr") and tags:HasTag(r,"Invokyr_SalaDosEspinhos") and r:FindFirstChild("Mecanismo"),"Outro objeto já usa o nome da sala.")
+ end
+ return r
+end
+local anterior=instalada(existing,"SalaDoVigia","SalaDosEspinhos")
+local anteriorPrevia=instalada(destino,"Previa_SalaDoVigia","Previa_SalaDosEspinhos")
+local function instalarEfeitos()
+ local host=game:GetService("StarterPlayer").StarterPlayerScripts
+ local name="Invokyr_TremorDosEspinhos"
+ local effect=host:FindFirstChild(name)
+ assert(not effect or effect:IsA("LocalScript"),"Outro objeto usa o nome reservado ao efeito do Vigia.")
+ effect=effect or Instance.new("LocalScript")
+ effect.Name=name
+ effect.Source=[====[local players = game:GetService("Players")
+local tags = game:GetService("CollectionService")
+local run = game:GetService("RunService")
+local random = Random.new()
+
+-- Joints along the vault ribs, in room space. The narrow bay in front of the map stays clear.
+local joints = {
+    Vector3.new(-17, 33.6, 21.8), Vector3.new(-5.5, 34.7, 11),
+    Vector3.new(16.3, 33.8, 21.8), Vector3.new(5.5, 34.7, 11),
+    Vector3.new(-16.2, 33.8, 0), Vector3.new(16.2, 33.8, 0),
+    Vector3.new(-21.8, 31.0, -11), Vector3.new(-5.5, 34.7, -11),
+    Vector3.new(6.5, 34.7, -11), Vector3.new(17, 33.6, -11),
+    Vector3.new(21, 31.8, -21.8), Vector3.new(5.5, 34.7, -16.4),
+}
+local smoke = "rbxasset://textures/particles/smoke_main.dds"
+local stoneColors = {
+    Color3.fromRGB(113,106,94), Color3.fromRGB(138,126,103),
+    Color3.fromRGB(94,94,89), Color3.fromRGB(157,145,120),
+}
+local activeRoom, fx, impact, startTime, duration, sliding
+local vents, chips = {}, {}
+local nextPulse, nextScrape, nextJoint, scanAt, releaseAt = 0, 0, 0, 0, 0
+local lastCamera, basePose, appliedPose
+
+local function anchor(name, size, frame)
+    local p = Instance.new("Part")
+    p.Name, p.Size, p.CFrame = name, size, frame
+    p.Anchored, p.CanCollide, p.CanQuery, p.CanTouch = true, false, false, false
+    p.Transparency, p.CastShadow, p.Parent = 1, false, fx
+    return p
+end
+
+local function plume(parent, coarse)
+    local e = Instance.new("ParticleEmitter")
+    e.Name = coarse and "Poeira de calcário" or "Farinha de pedra"
+    e.Texture = smoke
+    e.Enabled, e.Rate, e.LockedToPart = false, 0, false
+    e.EmissionDirection = Enum.NormalId.Bottom
+    e.Speed = coarse and NumberRange.new(5.2,8.8) or NumberRange.new(4.5,7.6)
+    e.Lifetime = coarse and NumberRange.new(2.25,2.65) or NumberRange.new(2.6,3.25)
+    e.Acceleration = coarse and Vector3.new(.3,-8.8,.28) or Vector3.new(-.4,-6.5,.32)
+    e.SpreadAngle = coarse and Vector2.new(13,16) or Vector2.new(24,19)
+    e.Rotation, e.RotSpeed = NumberRange.new(-180,180), NumberRange.new(-30,30)
+    e.LightInfluence = .39
+    e.Color = ColorSequence.new(Color3.fromRGB(201,185,157), Color3.fromRGB(146,138,124))
+    local small, large = coarse and .72 or .12, coarse and 2.65 or .87
+    e.Size = NumberSequence.new({
+        NumberSequenceKeypoint.new(0,small), NumberSequenceKeypoint.new(.39,large,.18),
+        NumberSequenceKeypoint.new(1,large*1.50,.28),
+    })
+    e.Transparency = NumberSequence.new({
+        NumberSequenceKeypoint.new(0,.82), NumberSequenceKeypoint.new(.12,.12),
+        NumberSequenceKeypoint.new(.58,.28), NumberSequenceKeypoint.new(1,1),
+    })
+    e.Parent = parent
+    return e
+end
+
+local function clear()
+    if fx then fx:Destroy() end
+    fx, activeRoom, impact, startTime = nil, nil, nil, nil
+    table.clear(vents)
+    table.clear(chips)
+end
+
+local function build(room)
+    clear()
+    activeRoom = room
+    fx = Instance.new("Folder")
+    fx.Name, fx.Parent = "Vigia_PoeiraLocal", room
+    local origin = room:GetPivot()
+    for i, point in ipairs(joints) do
+        local p = anchor("Junta", Vector3.new(3.2,.15,1.25), origin*CFrame.new(point))
+        vents[i] = {cloud=plume(p,true), grain=plume(p,false)}
+    end
+    local p = anchor("Impactos", Vector3.new(.16,.08,.16), origin)
+    impact = plume(p,true)
+    impact.EmissionDirection = Enum.NormalId.Top
+    impact.Speed, impact.Lifetime = NumberRange.new(1.5,3.1), NumberRange.new(.55,1.05)
+    impact.Acceleration, impact.SpreadAngle = Vector3.new(0,-2,0), Vector2.new(68,68)
+    impact.Size = NumberSequence.new(.50,2.45)
+end
+
+local function puff(origin, position, count)
+    impact.Parent.CFrame = origin*CFrame.new(position)
+    impact:Emit(count)
+end
+
+local function shed(point, origin, now)
+    local chip
+    for _,item in ipairs(chips) do
+        if not item.born then chip = item; break end
+    end
+    if not chip then
+        if #chips >= 36 then return end
+        local piece = Instance.new(#chips%3==0 and "CornerWedgePart" or "WedgePart")
+        piece.Name, piece.Material = "Lasca", Enum.Material.Slate
+        piece.Anchored, piece.CanCollide, piece.CanTouch, piece.CanQuery = true, false, false, false
+        piece.CastShadow = false
+        chip = {part=piece}
+        table.insert(chips,chip)
+    end
+    local size = random:NextNumber(.19,.61)
+    local piece = chip.part
+    piece.Size = Vector3.new(size*random:NextNumber(.78,1.45),size*.54,size*random:NextNumber(.69,1.26))
+    piece.Color = stoneColors[random:NextInteger(1,#stoneColors)]
+    chip.born = now
+    chip.point = point + Vector3.new(random:NextNumber(-1.3,1.3),0,random:NextNumber(-.55,.55))
+    chip.velocity = Vector3.new(random:NextNumber(-1.5,1.5),-random:NextNumber(1,4),random:NextNumber(-1.25,1.25))
+    chip.spin = Vector3.new(random:NextNumber(-5,5),random:NextNumber(-4,4),random:NextNumber(-6,6))
+    chip.heading = random:NextNumber(0,2*math.pi)
+    chip.hit = (chip.velocity.Y + math.sqrt(chip.velocity.Y^2 + 72*(chip.point.Y-.19)))/36
+    chip.landed = false
+    piece.Transparency, piece.CFrame, piece.Parent = 0, origin*CFrame.new(chip.point), fx
+end
+
+local function animateChips(origin, now)
+    for _,chip in ipairs(chips) do
+        if chip.born then
+            local age = now-chip.born
+            local after = age-chip.hit
+            if after >= .95 then
+                chip.part.Transparency, chip.born = 1, nil
+            else
+                local fall = math.min(age,chip.hit)
+                local position = chip.point + chip.velocity*fall - Vector3.new(0,18*fall*fall,0)
+                if after >= 0 then
+                    if not chip.landed then
+                        puff(origin,position,3)
+                        chip.landed = true
+                    end
+                    local bounce = math.min(after,.32)
+                    position = position + Vector3.new(chip.velocity.X*bounce,16*bounce*(.32-bounce),chip.velocity.Z*bounce)
+                    chip.part.Transparency = math.clamp((after-.46)/.49,0,1)
+                end
+                local turn = chip.spin*(fall+math.clamp(after,0,.32))
+                chip.part.CFrame = origin*CFrame.new(position)*CFrame.Angles(turn.X,chip.heading+turn.Y,turn.Z)
+            end
+        end
+    end
+end
+
+local function findRoom(root)
+    for _,room in ipairs(tags:GetTagged("Invokyr_SalaDosEspinhos")) do
+        if room:IsDescendantOf(workspace) and room:GetAttribute("TremorInicio") then
+            local p = room:GetPivot():PointToObjectSpace(root.Position)
+            if math.abs(p.X)<27 and math.abs(p.Z)<27 and p.Y>-.5 and p.Y<36.6 then return room end
+        end
+    end
+end
+
+local function update()
+    local now = workspace:GetServerTimeNow()
+    if now >= scanAt then
+        scanAt = now+.08
+        local char = players.LocalPlayer.Character
+        local root = char and char:FindFirstChild("HumanoidRootPart")
+        local room = root and findRoom(root)
+        if room then
+            if room ~= activeRoom then build(room) end
+            local stamp = room:GetAttribute("TremorInicio")
+            if stamp ~= startTime then
+                startTime = stamp
+                duration = room:GetAttribute("TremorDuracao") or 5.8
+                nextPulse, nextScrape, nextJoint = now, now, random:NextInteger(1,#joints)
+            end
+            sliding = room:GetAttribute("Estado") == "Abrindo passagem"
+            releaseAt = now+3.35
+        else
+            startTime = nil
+            if activeRoom and (now>=releaseAt or not activeRoom:IsDescendantOf(workspace)) then clear() end
+        end
+    end
+    if not activeRoom then return end
+    local origin = activeRoom:GetPivot()
+    if startTime and now >= startTime and now < startTime+duration then
+        if now >= nextPulse then
+            nextPulse = now + (sliding and .23 or .31)
+            -- Rotate through the vault; five is coprime with the twelve joints.
+            for n=1,(sliding and 4 or 3) do
+                local i = nextJoint
+                nextJoint = 1+(nextJoint-1+5)%#joints
+                vents[i].cloud:Emit(sliding and 9 or 7)
+                vents[i].grain:Emit(sliding and 8 or 6)
+                if n<=2 then shed(joints[i],origin,now) end
+            end
+        end
+        if sliding and now>=nextScrape then
+            nextScrape = now+.17
+            local mechanism = activeRoom:FindFirstChild("Mecanismo")
+            local statue = mechanism and mechanism:FindFirstChild("Vigia")
+            if statue then
+                local side = random:NextNumber()<.5 and -4.7 or 4.7
+                local foot = origin:ToObjectSpace(statue:GetPivot())
+                puff(origin,foot:PointToWorldSpace(Vector3.new(side,.15,3.46)),7)
+            end
+        end
+    end
+    animateChips(origin,now)
+end
+
+local function undo()
+    if lastCamera and lastCamera.CFrame==appliedPose then lastCamera.CFrame=basePose end
+    lastCamera = nil
+end
+
+local function shake()
+    undo()
+    local camera = workspace.CurrentCamera
+    if not camera or not startTime then return end
+    local t = workspace:GetServerTimeNow()-startTime
+    if t<=0 or t>=duration then return end
+    local envelope = math.min(1,t/.22,(duration-t)/.28)
+    local phase = 2*math.pi*t
+    local drift = math.sin(phase*(sliding and 2.65 or 3.7))
+    local grind = math.noise(t*9.7,.47,1.2)
+    local jolt = math.sin(phase*8.1+.75*drift)
+    local strength = envelope*(sliding and 1.36 or (.83+.23*t/duration))
+    local x = (.16*drift+.13*grind)*strength
+    local y = (.095*jolt+.12*math.noise(t*7.6,3.3,.64))*strength
+    local z = .064*math.sin(phase*2.2+.55)*strength
+    local pitch = strength*(.63*jolt+.32*grind)
+    local roll = strength*(.84*drift+.50*grind)
+    lastCamera, basePose = camera, camera.CFrame
+    camera.CFrame = basePose*CFrame.new(x,y,z)*CFrame.Angles(math.rad(pitch),math.rad(-.34*drift*strength),math.rad(roll))
+    appliedPose = camera.CFrame
+end
+
+local connection = run.Heartbeat:Connect(update)
+run:BindToRenderStep("InvokyrEspinhosLimpar",Enum.RenderPriority.Camera.Value-1,undo)
+run:BindToRenderStep("InvokyrEspinhosVibrar",Enum.RenderPriority.Camera.Value+5,shake)
+script.Destroying:Connect(function()
+    connection:Disconnect()
+    run:UnbindFromRenderStep("InvokyrEspinhosLimpar")
+    run:UnbindFromRenderStep("InvokyrEspinhosVibrar")
+    undo()
+    clear()
+end)
+]====]
+ effect.Disabled=false
+ effect.Parent=host
+end
+
+if (anterior or anteriorPrevia) and (#chosen==0 or (#chosen==1 and (chosen[1]==anterior or chosen[1]==anteriorPrevia))) then
+ instalarEfeitos()
+ if anterior then anterior.Name="SalaDoVigia" end
+ if anteriorPrevia then anteriorPrevia.Name="Previa_SalaDoVigia" end
+ print("[INVOKYR] Sala do Vigia atualizada. Entre em Play para sentir os tremores.")
+ return
+end
+assert(#chosen==1 and chosen[1]:IsA("Model"),"Selecione o modelo completo da Sala do Vigia.")
+local imported=chosen[1]
+assert(imported:IsDescendantOf(workspace) and not imported:GetAttribute("PecaInvokyr"),"Selecione a importacao nova.")
+local room=Instance.new("Model")
+room.Name="SalaDoVigia"
+room:SetAttribute("PecaInvokyr",true)
+room:SetAttribute("CelulasX",5)
+room:SetAttribute("CelulasZ",5)
+room:SetAttribute("Tipo","Desafio")
+local function folder(parent,name,kind)
+    local x=Instance.new(kind or "Folder")
+    x.Name=name
+    x.Parent=parent
+    return x
+end
+local function part(parent,name,cf,size,solid)
+    local p=Instance.new("Part")
+    p.Name=name
+    p.Size=size
+    p.CFrame=cf
+    p.Anchored=true
+    p.Transparency=1
+    p.CanCollide=solid
+    p.CanQuery=solid
+    p.CanTouch=false
+    p.CastShadow=false
+    p.Parent=parent
+    return p
+end
+local function at(x,y,z)
+    return CFrame.new(x,z,-y)
+end
+local visual=folder(room,"Visual")
+local root=part(room,"Origem",CFrame.identity,Vector3.one*.15,false)
+room.PrimaryPart=root
+local indexed={}
+local function key(s) return string.lower(s):gsub("[^a-z0-9]","") end
+for _,p in ipairs(imported:GetDescendants()) do
+    if p:IsA("MeshPart") then
+        indexed[key(p.Name)]=p
+        indexed[key(p.Parent.Name):gsub("node$","")]=p
+    end
+end
+
+local south=assert(indexed.limiarsulcalcario,"Selecione a raiz completa da Sala do Vigia.")
+local north=assert(indexed.limiarnortecalcario,"Limiar norte ausente.")
+local delta=north.Position-south.Position
+assert(math.abs(delta.Magnitude-53.5)<.18 and math.abs(delta.Y)<.12,"Use escala Stud, fator 1, e a sala em pé.")
+local center=(south.Position+north.Position)*.5+Vector3.yAxis*.11
+local source=CFrame.lookAt(center,center+delta)
+for _,name in ipairs({"Rei_Base__Basalto","Rei_Base__OuroAntigo","Rei_Pernas__OuroPele","Rei_Pernas__OuroAntigo","Rei_Tunica__OuroManto","Rei_Tunica__OuroClaro","Rei_Bracos__OuroPele","Rei_Pelerine__OuroManto","Rei_Pelerine__OuroClaro","Rei_Pescoco__OuroPele","Rei_Rosto__OuroPele","Rei_Fisionomia__OuroPele","Rei_Fisionomia__OuroCabelo","Rei_Fisionomia__OuroClaro","Rei_Cabeleira0__OuroCabelo","Rei_Cabeleira1__OuroCabelo","Rei_Cabeleira2__OuroCabelo","Rei_Gravura__OuroClaro","Rei_Diadema__OuroAntigo","Rei_Diadema__OuroClaro","Fundacao__Basalto","Laje_00__Ardosia","Laje_00__OuroAntigo","Laje_00__Ferro","Agulhas_00__Aco","Laje_00__A1","Laje_01__Ardosia","Laje_01__OuroAntigo","Laje_01__Ferro","Agulhas_01__Aco","Laje_01__A2","Laje_02__Ardosia","Laje_02__OuroAntigo","Laje_02__Ferro","Agulhas_02__Aco","Laje_02__A3","Laje_03__Ardosia","Laje_03__OuroAntigo","Laje_03__Ferro","Agulhas_03__Aco","Laje_03__A4","Laje_10__Ardosia","Laje_10__OuroAntigo","Laje_10__Ferro","Agulhas_10__Aco","Laje_10__B1","Laje_11__Ardosia","Laje_11__OuroAntigo","Laje_11__Ferro","Agulhas_11__Aco","Laje_11__B2","Laje_12__Ardosia","Laje_12__OuroAntigo","Laje_12__Ferro","Agulhas_12__Aco","Laje_12__B3","Laje_13__Ardosia","Laje_13__OuroAntigo","Laje_13__Ferro","Agulhas_13__Aco","Laje_13__B4","Laje_20__Ardosia","Laje_20__OuroAntigo","Laje_20__Ferro","Agulhas_20__Aco","Laje_20__C1","Laje_21__Ardosia","Laje_21__OuroAntigo","Laje_21__Ferro","Agulhas_21__Aco","Laje_21__C2","Laje_22__Ardosia","Laje_22__OuroAntigo","Laje_22__Ferro","Agulhas_22__Aco","Laje_22__C3","Laje_23__Ardosia","Laje_23__OuroAntigo","Laje_23__Ferro","Agulhas_23__Aco","Laje_23__C4","Laje_30__Ardosia","Laje_30__OuroAntigo","Laje_30__Ferro","Agulhas_30__Aco","Laje_30__D1","Laje_31__Ardosia","Laje_31__OuroAntigo","Laje_31__Ferro","Agulhas_31__Aco","Laje_31__D2","Laje_32__Ardosia","Laje_32__OuroAntigo","Laje_32__Ferro","Agulhas_32__Aco","Laje_32__D3","Laje_33__Ardosia","Laje_33__OuroAntigo","Laje_33__Ferro","Agulhas_33__Aco","Laje_33__D4","LimiarSul__Calcario","LimiarNorte__Calcario","ParedeN__Reboco","ParedeN__Basalto","ParedeN__Ardosia","ParedeN__OuroAntigo","PilaretesN__Basalto","PilaretesN__OuroAntigo","ParedeS__Reboco","ParedeS__Basalto","ParedeS__Ardosia","ParedeS__OuroAntigo","NichoS0__Ardosia","NichoS0__Basalto","NichoS0__OuroAntigo","NichoS1__Ardosia","NichoS1__Basalto","NichoS1__OuroAntigo","NichoS1__VidroMel","NichoS1__Ferro","NichoS3__Ardosia","NichoS3__Basalto","NichoS3__OuroAntigo","NichoS3__VidroMel","NichoS3__Ferro","NichoS4__Ardosia","NichoS4__Basalto","NichoS4__OuroAntigo","PilaretesS__Basalto","PilaretesS__OuroAntigo","ParedeL__Reboco","ParedeL__Basalto","ParedeL__Ardosia","ParedeL__OuroAntigo","NichoL0__Ardosia","NichoL0__Basalto","NichoL0__OuroAntigo","NichoL1__Ardosia","NichoL1__Basalto","NichoL1__OuroAntigo","NichoL1__VidroMel","NichoL1__Ferro","NichoL2__Ardosia","NichoL2__Basalto","NichoL2__OuroAntigo","NichoL3__Ardosia","NichoL3__Basalto","NichoL3__OuroAntigo","NichoL3__VidroMel","NichoL3__Ferro","NichoL4__Ardosia","NichoL4__Basalto","NichoL4__OuroAntigo","PilaretesL__Basalto","PilaretesL__OuroAntigo","ParedeO__Reboco","ParedeO__Basalto","ParedeO__Ardosia","ParedeO__OuroAntigo","NichoO0__Ardosia","NichoO0__Basalto","NichoO0__OuroAntigo","NichoO1__Ardosia","NichoO1__Basalto","NichoO1__OuroAntigo","NichoO1__VidroMel","NichoO1__Ferro","NichoO2__Ardosia","NichoO2__Basalto","NichoO2__OuroAntigo","NichoO3__Ardosia","NichoO3__Basalto","NichoO3__OuroAntigo","NichoO3__VidroMel","NichoO3__Ferro","NichoO4__Ardosia","NichoO4__Basalto","NichoO4__OuroAntigo","PilaretesO__Basalto","PilaretesO__OuroAntigo","Aureola__OuroAntigo","Aureola__OuroClaro","TabuasVotivas__Ardosia","TabuasVotivas__OuroAntigo","Rei_Batente__Basalto","Rei_Batente__OuroAntigo","Painel__Basalto","Painel__OuroAntigo","Painel__Ardosia","Painel__OuroClaro","Painel__Atlas","PortaSul__Basalto","PortaSul__OuroAntigo","Abobada__Reboco","Abobada__Basalto"}) do
+    local src=assert(indexed[key(name)],"Faltou "..name..". Importe todas as malhas sem unir.")
+    local p=src:Clone()
+    p.Name=name
+    p.CFrame=source:ToObjectSpace(src.CFrame)
+    p.Anchored=true
+    p.CanCollide=false
+    p.CanQuery=false
+    p.CanTouch=false
+    if name:match("__Chama$") then p.Material=Enum.Material.Neon end
+    p.Parent=visual
+end
+local colliders=folder(room,"Colisao")
+for i,row in ipairs({{"Piso",0,0,-0.25,55,55,0.5,0},{"ParedeN",-15.55,27.0,17.681,23.9,1,36.462,0.0},{"ParedeN",15.55,27.0,17.681,23.9,1,36.462,0.0},{"ParedeN",0.0,27.0,22.656,7.2,1,26.512,0.0},{"ParedeS",-15.55,-27.0,17.681,23.9,1,36.462,0.0},{"ParedeS",15.55,-27.0,17.681,23.9,1,36.462,0.0},{"ParedeS",0.0,-27.0,22.656,7.2,1,26.512,0.0},{"ParedeL",27.0,0.0,17.681,55.0,1,36.462,90.0},{"ParedeO",-27.0,0.0,17.681,55.0,1,36.462,90.0},{"Abobada",0.0,0.0,36.24,55.0,55.0,0.656,0.0}}) do
+    part(colliders,"COL_"..i,at(row[2],row[3],row[4])*CFrame.Angles(0,math.rad(row[8]),0),Vector3.new(row[5],row[7],row[6]),true)
+end
+local lights=folder(room,"Luzes")
+for _,v in ipairs({{"NichoS1",-11.3,-24.85,8.87,254,186,111,0.82,17},{"NichoS3",11.3,-24.85,8.87,254,186,111,0.82,17},{"NichoL1",24.85,-11.3,8.87,254,186,111,0.82,17},{"NichoL3",24.85,11.3,8.87,254,186,111,0.82,17},{"NichoO1",-24.85,-11.3,8.87,254,186,111,0.82,17},{"NichoO3",-24.85,11.3,8.87,254,186,111,0.82,17},{"Rosto",-3,17,28,255,207,141,1.42,20},{"Recorte",5.2,23.6,28.8,168,201,240,1.15,18},{"Mapa",-13.4,23.4,12.6,246,199,128,0.7,14}}) do
+    local p=part(lights,v[1],at(v[2],v[3],v[4]),Vector3.one*.1,false)
+    local l=Instance.new("PointLight")
+    l.Color=Color3.fromRGB(v[5],v[6],v[7])
+    l.Range=v[9]
+    l.Shadows=true
+    l.Brightness=v[8]
+    l.Parent=p
+end
+local arena=folder(room,"Mecanismo")
+local function mechanism(name,cf)
+ local m=folder(arena,name,"Model")
+ m.PrimaryPart=part(m,"Eixo",cf,Vector3.one*.1,false)
+ return m
+end
+local king=mechanism("Vigia",at(0,22.6,0))
+local door=mechanism("Entrada",at(0,-27,0))
+part(door,"Colisao",at(0,-27,4.68),Vector3.new(7.12,9.36,.64),true)
+part(king,"PortaSecreta",at(0,26.17,4.78),Vector3.new(7.32,9.56,.59),true)
+part(king,"Pedestal",at(0,22.6,1.12),Vector3.new(9.90,2.24,7.10),true)
+part(king,"Escultura",at(0,22.6,14.76),Vector3.new(4.65,25,3.12),true)
+local pins=folder(arena,"Agulhas")
+for _,p in ipairs(visual:GetChildren()) do
+ if p.Name:match("^Rei_") then p.Parent=king
+ elseif p.Name:match("^PortaSul__") then p.Parent=door
+ else
+  local sector=p.Name:match("^Agulhas_(%d%d)__Aco$")
+  if sector then p.Name="Setor"..sector;p.Parent=pins end
+ end
+end
+assert(#pins:GetChildren()==16,"Importação incompleta das malhas de espinhos.")
+door:PivotTo(at(0,-27,10.1))
+local sockets=folder(room,"Encaixes")
+local origin=part(sockets,"AncoraEncaixes",CFrame.identity,Vector3.one*.10,false)
+for _,side in ipairs({"N","S"}) do
+ local a=folder(origin,"Encaixe_"..side,"Attachment")
+ a.CFrame=at(0,side=="N" and 27.5 or -27.5,0)*CFrame.Angles(0,side=="N" and 0 or math.pi,0)
+end
+room:SetAttribute("Escuridao",.91)
+room:SetAttribute("Exposicao",-.72)
+room:SetAttribute("Altura",37)
+room:SetAttribute("SaidaRecompensa","N")
+room:SetAttribute("ProximaSalaRequerTotem",true)
+local panel=part(arena,"Painel",at(-14,25.52,10.1),Vector3.new(10.0,11.40,.05),false)
+local gui=folder(panel,"Mapa","SurfaceGui")
+gui.Face=Enum.NormalId.Back
+gui.CanvasSize=Vector2.new(800,912)
+gui.LightInfluence=.12
+gui.Brightness=1.3
+local back=folder(gui,"Esmalte","Frame")
+back.Size=UDim2.fromScale(1,1)
+back.BackgroundColor3=Color3.fromRGB(18,28,29)
+back.BorderSizePixel=0
+back.ZIndex=1
+local function label(name,text,x,y,w,h)
+ local l=folder(gui,name,"TextLabel")
+ l.ZIndex=2;l.Text=text;l.Position=UDim2.fromOffset(x,y);l.Size=UDim2.fromOffset(w,h)
+ l.Font=Enum.Font.Garamond;l.TextScaled=true;l.BackgroundTransparency=1
+ l.TextColor3=Color3.fromRGB(230,212,169);l.BorderSizePixel=0
+ return l
+end
+label("Leitura","ENTRE PARA INICIAR",12,15,776,84)
+label("Norte","▲   ESTÁTUA",70,107,660,63)
+for row=0,3 do for col=0,3 do
+ local l=label("Zona"..row..col,string.char(65+row)..(col+1),28+col*188,185+row*135,178,122)
+ l.BackgroundColor3=Color3.fromRGB(52,65,62)
+ l.BackgroundTransparency=0
+end end
+label("Sul","▼   ENTRADA",45,740,710,56)
+label("Chave","○  SEGURO      ×  ESPINHOS",18,813,764,72)
+local indicator=part(arena,"Saida",at(0,25.2,8.6),Vector3.one*.1,false)
+local led=folder(indicator,"Luz","PointLight")
+led.Color=Color3.fromRGB(244,194,124);led.Range=16;led.Brightness=1.8;led.Enabled=false
+local dust=folder(arena,"Poeira")
+for i,pt in ipairs({{-15,-14},{3,-15},{15,-5},{-9,2},{9,8},{-14,16},{2,14}}) do
+ local nozzle=part(dust,"Fenda"..i,at(pt[1],pt[2],35.45),Vector3.new(2,.1,2),false)
+ local e=folder(nozzle,"Cal","ParticleEmitter")
+ e.Texture="rbxasset://textures/particles/smoke_main.dds"
+ e.Enabled=false;e.Rate=4.2;e.Lifetime=NumberRange.new(2.55,3.35)
+ e.EmissionDirection=Enum.NormalId.Bottom;e.Speed=NumberRange.new(1.8,3.5)
+ e.Acceleration=Vector3.new(.34,-6.25,.15);e.SpreadAngle=Vector2.new(18,24)
+ e.Rotation=NumberRange.new(0,360);e.RotSpeed=NumberRange.new(-17,17)
+ e.Color=ColorSequence.new(Color3.fromRGB(175,160,137),Color3.fromRGB(136,129,119))
+ e.LightInfluence=.47
+ e.Size=NumberSequence.new({NumberSequenceKeypoint.new(0,.11),NumberSequenceKeypoint.new(.63,.64),NumberSequenceKeypoint.new(1,1.12)})
+ e.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,.95),NumberSequenceKeypoint.new(.22,.48),NumberSequenceKeypoint.new(.74,.70),NumberSequenceKeypoint.new(1,1)})
+end
+local controller=folder(room,"Desafio","Script")
+controller.Source=[====[local room=script.Parent
+local players=game:GetService("Players")
+local run=game:GetService("RunService")
+local rng=Random.new()
+local arena=room.Mecanismo
+local statue,gate=arena.Vigia,arena.Entrada
+local closedStatue=room:GetPivot():ToObjectSpace(statue:GetPivot())
+local gateRest=CFrame.new(0,0,27)
+local map=arena.Painel.Mapa
+local sectors={}
+for row=0,3 do
+ for col=0,3 do
+  local id=4*row+col+1
+  local key=row..""..col
+  local spikes=arena.Agulhas["Setor"..key]
+  sectors[id]={p=spikes,rest=room:GetPivot():ToObjectSpace(spikes.CFrame),cell=map["Zona"..key]}
+ end
+end
+local alive={}
+local completed=false
+local active=false
+local teal=Color3.fromRGB(97,210,187)
+local amber=Color3.fromRGB(224,133,94)
+local idle=Color3.fromRGB(52,65,62)
+local function cellAt(p)
+ local row=math.clamp(math.floor((p.Z+26)/13),0,3)
+ local col=math.clamp(math.floor((p.X+26)/13),0,3)
+ return 4*row+col+1
+end
+local function location(char)
+ local root=char and char:FindFirstChild("HumanoidRootPart")
+ local h=char and char:FindFirstChildOfClass("Humanoid")
+ if root and h and h.Health>0 then return room:GetPivot():PointToObjectSpace(root.Position),h end
+end
+local function inside(p)
+ return p and math.abs(p.X)<26.65 and math.abs(p.Z)<26.55 and p.Y>-.4 and p.Y<36.5
+end
+local function roster(danger,tip)
+ local count=0
+ for player,char in pairs(alive) do
+  local p,h=location(char)
+  if player.Character~=char or not inside(p) then alive[player]=nil
+  elseif danger and not danger[cellAt(p)] and p.Y<tip+3.3 then
+   h.Health=0
+   alive[player]=nil
+  else count+=1 end
+ end
+ return count
+end
+local function animation(duration,update)
+ local start=os.clock()
+ repeat
+  local t=math.min(1,(os.clock()-start)/duration)
+  update(t)
+  if t==1 then return end
+  run.Heartbeat:Wait()
+ until not room.Parent
+end
+local function gateHeight(height)
+ gate:PivotTo(room:GetPivot()*CFrame.new(0,height,0)*gateRest)
+end
+local function pick(last)
+ -- One refuge per quadrant. Its position changes independently on every wave.
+ local safe={}
+ for quadrant=0,3 do
+  local row=2*math.floor(quadrant/2)
+  local col=2*(quadrant%2)
+  local choices={}
+  for dr=0,1 do for dc=0,1 do
+   local id=1+4*(row+dr)+col+dc
+   if not last[id] then table.insert(choices,id) end
+  end end
+  safe[choices[rng:NextInteger(1,#choices)]]=true
+ end
+ return safe
+end
+local function board(safe,title)
+ map.Leitura.Text=title
+ for id,s in ipairs(sectors) do
+  local code=string.char(65+math.floor((id-1)/4))..(1+(id-1)%4)
+  s.cell.Text=code..(safe and (safe[id] and "  ○" or "  ×") or "")
+  s.cell.BackgroundColor3=safe and (safe[id] and teal or amber) or idle
+  s.cell.TextColor3=safe and Color3.fromRGB(26,24,22) or Color3.fromRGB(199,186,146)
+ end
+end
+local fixtures={}
+for _,p in ipairs(room.Luzes:GetChildren()) do
+ local light=p:FindFirstChildOfClass("PointLight")
+ if light and p.Name~="Mapa" then table.insert(fixtures,{light=light,base=light.Brightness}) end
+end
+local dust=arena.Poeira:GetDescendants()
+local function shake(seconds)
+ room:SetAttribute("TremorDuracao",seconds)
+ room:SetAttribute("TremorInicio",workspace:GetServerTimeNow())
+ for _,e in ipairs(dust) do
+  if e:IsA("ParticleEmitter") then e.Enabled=true;e:Emit(3) end
+ end
+end
+local function flicker(elapsed)
+ for i,f in ipairs(fixtures) do
+  local dip=math.max(0,math.sin(elapsed*9.4+i*1.3))^6
+  f.light.Brightness=f.base*(1-.68*dip)
+ end
+end
+local function calm()
+ room:SetAttribute("TremorInicio",nil)
+ for _,e in ipairs(dust) do if e:IsA("ParticleEmitter") then e.Enabled=false end end
+ for _,f in ipairs(fixtures) do f.light.Brightness=f.base end
+end
+local function spikes(safe,height)
+ local base=room:GetPivot()*CFrame.new(0,height,0)
+ for i,s in ipairs(sectors) do
+  if not safe[i] then s.p.CFrame=base*s.rest end
+ end
+end
+local function openExit()
+ room:SetAttribute("Estado","Abrindo passagem")
+ board(nil,"O VIGIA CEDE PASSAGEM")
+ shake(5.4)
+ animation(5.4,function(t)
+  local distance=11.0*(t^3*(10-15*t+6*t*t))
+  statue:PivotTo(room:GetPivot()*CFrame.new(distance,0,0)*closedStatue)
+  flicker(t*5.4)
+ end)
+ calm()
+ completed=true
+ room:SetAttribute("Estado","Concluido")
+ board(nil,"PASSAGEM LIBERADA")
+ arena.Saida.Luz.Enabled=true
+end
+local function challenge()
+ -- Activation waits while friends cross the threshold. Never close the entrance on a player.
+ room:SetAttribute("Estado","Reunindo")
+ board(nil,"ENTREM NA SALA")
+ task.wait(2.5)
+ for _,player in ipairs(players:GetPlayers()) do
+  local char=player.Character
+  local p=location(char)
+  if inside(p) then alive[player]=char end
+ end
+ if roster()>0 then
+  gateHeight(0)
+  room:SetAttribute("Estado","Em jogo")
+  local last={}
+  for wave=1,4 do
+   local safe=pick(last)
+   last=safe
+   board(safe,"RODADA "..wave.." / 4")
+   local warning=5.8
+   shake(warning)
+   animation(warning,function(t) flicker(t*warning) end)
+   calm()
+   if roster()==0 then break end
+   animation(.43,function(t)
+    local height=6.49*(1-(1-t)^2)
+    spikes(safe,height)
+    if height>.45 then roster(safe,height-.06) end
+   end)
+   animation(1.45,function() roster(safe,6.43) end)
+   animation(.90,function(t)
+    local height=6.49*(1-t*t*(3-2*t))
+    spikes(safe,height)
+    if height>.45 then roster(safe,height-.06) end
+   end)
+   if roster()==0 then break end
+   task.wait(.70)
+  end
+  if roster()>0 then openExit() end
+ end
+ gateHeight(10.1)
+ table.clear(alive)
+ if not completed then board(nil,"ENTRE PARA INICIAR");room:SetAttribute("Estado","Aguardando") end
+ active=false
+end
+gateHeight(10.1)
+board(nil,"ENTRE PARA INICIAR")
+room:SetAttribute("Estado","Aguardando")
+while room:IsDescendantOf(workspace) and not completed do
+ if not active then
+  for _,player in ipairs(players:GetPlayers()) do
+   local p=location(player.Character)
+   if inside(p) and p.Z<24.8 then
+    active=true
+    task.spawn(challenge)
+    break
+   end
+  end
+ end
+ task.wait(.12)
+end
+
+]====]
+instalarEfeitos()
+tags:AddTag(room,"Invokyr_SalaDosEspinhos")
+local preview=room:Clone()
+preview.Name="Previa_SalaDoVigia"
+local localizacao=anteriorPrevia and anteriorPrevia:GetPivot()
+if not localizacao then
+ -- Find an unused preview bay without depending on the extents of the baseplate.
+ local x,z=1075,154
+ local free=false
+ while not free do
+  free=true
+  for _,other in ipairs(destino:GetChildren()) do
+   if other:IsA("Model") and other:FindFirstChildWhichIsA("BasePart",true) then
+    local cf,size=other:GetBoundingBox()
+    local dx=math.abs(cf.RightVector.X)*size.X+math.abs(cf.UpVector.X)*size.Y+math.abs(cf.LookVector.X)*size.Z
+    local dz=math.abs(cf.RightVector.Z)*size.X+math.abs(cf.UpVector.Z)*size.Y+math.abs(cf.LookVector.Z)*size.Z
+    if math.abs(cf.X-x)<dx/2+33 and math.abs(cf.Z-z)<dz/2+33 then free=false;break end
+   end
+  end
+  if not free then x+=77 end
+ end
+ localizacao=CFrame.new(x,.594,z)
+end
+preview:PivotTo(localizacao)
+room.Parent=existing or folder(storage,"Invokyr_Salas")
+preview.Parent=destino
+if anterior then anterior:Destroy() end
+if anteriorPrevia then anteriorPrevia:Destroy() end
+imported:Destroy()
+selection:Set({preview})
+workspace.CurrentCamera.CFrame=localizacao*CFrame.lookAt(Vector3.new(0,5,31),Vector3.new(0,5,17))
+print("[INVOKYR] Sala do Vigia instalada. Use Play Here junto ao arco e entre no salão.")
+
